@@ -1,10 +1,9 @@
 import './App.css';
+import ChestWorkout from './ChestWorkout/ChestWorkout';
 
 function App() {
   return (
-    <div className="App">
-     Hello oo
-    </div>
+   <ChestWorkout/>
   );
 }
 
