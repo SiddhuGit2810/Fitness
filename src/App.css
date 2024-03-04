@@ -1,3 +1,143 @@
+.container1,
+.container2 {
+  display: flex;
+  justify-content: space-evenly;
+  width: 900px;
+  margin: 50px auto;
+  position: relative;
+  /* height: 90px; */
+}
+
+.card {
+  width: 200px;
+  height: 200px;
+  background-color: rgb(232, 249, 255);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  text-align: center;
+  padding-top: 80px;
+  margin-right: 20px;
+  margin-top: 50px;
+}
+
+#card1 {
+  order: 1;
+}
+
+#card2 {
+  order: 2;
+  margin-top: 200px;
+}
+
+#card3 {
+  order: 3;
+}
+
+#card11 {
+  order: 1;
+}
+
+#card12 {
+  order: 2;
+  margin-top: 200px;
+}
+
+#card13 {
+  order: 3;
+}
+
+#count1,
+#set1,
+#weight1,
+#count2,
+#set2,
+#weight2,
+#count3,
+#set3,
+#weight3,
+#count11,
+#set11,
+#weight11,
+#count12,
+#set12,
+#weight12,
+#count13,
+#set13,
+#weight13 {
+  border-radius: 10px;
+  text-align: center;
+  border: none;
+  width: 50px;
+}
+
+#count1:hover,
+#set1:hover,
+#count2:hover,
+#set2:hover,
+#count3:hover,
+#set3:hover,
+#weight1:hover,
+#weight2:hover,
+#weight2:hover,
+#count11:hover,
+#set11:hover,
+#weight11:hover,
+#count12:hover,
+#set12:hover,
+#weight12:hover,
+#count13:hover,
+#set13:hover,
+#weight13:hover {
+  transform: scale(1.1);
+}
+
+#count1:active,
+#set1:active,
+#count2:active,
+#set2:active,
+#count3:active,
+#set3:active,
+#weight1:active,
+#weight2:active,
+#weight2:active,
+#count11:active,
+#set11:active,
+#weight11:active,
+#count12:active,
+#set12:active,
+#weight12:active,
+#count13:active,
+#set13:active,
+#weight13:active {
+  border: none !important;
+}
+
+.centerdiv {
+  text-align: center;
+  margin-top: 30px;
+  position: absolute;
+  transform: translate(-7%, -40%);
+  top: 10%;
+}
+
+.group-set1,
+.group-set2,
+.group-set3,
+.group-set11,
+.group-set12,
+.group-set13 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.card:hover {
+  transform: scale(1.1);
+
+}
+
 .App {
   text-align: center;
 }
@@ -32,6 +172,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
