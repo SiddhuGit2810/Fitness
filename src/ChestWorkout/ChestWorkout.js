@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 import "./ChestWorkout.css"
 
@@ -91,7 +91,7 @@ function ChestWorkout() {
           <input type="text" id="exercise"></input>
         </div>
 
-        <div class="card" id="card1">Yesterday's Workout:
+        <div class="card" id="card1" style={cardstyles.card1} onClick={() => handleCardClick('card1')}>Yesterday's Workout:
 
           <div className="group-set1">
             <div class="Set1">
@@ -133,7 +133,7 @@ function ChestWorkout() {
           </div>
         </div>
 
-        <div class="card" id="card2">Today's Workout:
+        <div class="card" id="card2" style={cardstyles.card1} onClick={() => handleCardClick('card2')}>Today's Workout:
 
           <div class="group-set2">
             <div class="set1">
@@ -174,7 +174,7 @@ function ChestWorkout() {
           </div>
         </div>
 
-        <div class="card" id="card3">Tommorrow's  Workout:
+        <div class="card" id="card3" style={cardstyles.card1} onClick={() => handleCardClick('card3')}>Tommorrow's  Workout:
 
           <div class="group-set3">
             <div class="set1">
@@ -217,7 +217,7 @@ function ChestWorkout() {
       </div>
 
       <div className="container2">
-        <div class="card" id="card11">Yesterday
+        <div class="card" id="card11" style={cardstyles.card1} onClick={() => handleCardClick('card11')}>Yesterday
 
           <div class="group-set11">
             <div class="set1">
@@ -260,7 +260,7 @@ function ChestWorkout() {
 
 
         </div>
-        <div class="card" id="card12">Today
+        <div class="card" id="card12" style={cardstyles.card1} onClick={() => handleCardClick('card12')}>Today
 
           <div class="group-set12">
 
@@ -303,7 +303,7 @@ function ChestWorkout() {
 
 
         </div>
-        <div class="card" id="card13">Tommorrow
+        <div class="card" id="card13" style={cardstyles.card1} onClick={() => handleCardClick('card13')}>Tommorrow
 
           <div class="group-set13">
             <div class="set1">
