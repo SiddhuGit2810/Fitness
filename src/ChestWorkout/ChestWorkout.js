@@ -3,7 +3,7 @@ import React from 'react'
 import "./ChestWorkout.css"
 
 function ChestWorkout() {
-  
+
   const [cardstyles, setCardStyles] = useState({
     card1: { order: 1, marginTop: '80px' },
     card2: { order: 2, marginTop: '80px' },
@@ -353,7 +353,7 @@ function ChestWorkout() {
 
 
 
-      )
+  )
 }
 
-                  export default ChestWorkout
+export default ChestWorkout
