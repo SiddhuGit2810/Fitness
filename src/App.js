@@ -6,7 +6,6 @@ import SideBar from './SideNavBar/SideBar';
 
 function App() {
 
-    
 
     return (
       <div className="">
@@ -17,6 +16,7 @@ function App() {
 <div className="SideBar">
 
 <SideBar/>
+
 
 </div>
 
