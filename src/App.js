@@ -1,8 +1,10 @@
 
+import { Route ,Routes,Navigate} from 'react-router-dom';
 import './App.css';
 import ChestWorkout from './ChestWorkout/ChestWorkout';
 
 import SideBar from './SideNavBar/SideBar';
+import Shoulder from './ShoulderWorkout/Shoulder';
 
 function App() {
 
@@ -23,7 +25,19 @@ function App() {
 
 <div className="WorkOutPage">
 
-<ChestWorkout/>
+
+<Routes>
+
+<Route path='/chestWorkout'  element={<ChestWorkout/>} />
+
+<Route path='/shoulderWorkout' element={<Shoulder/>} />
+
+
+</Routes>
+
+
+
+
 
 </div>
 
