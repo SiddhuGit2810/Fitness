@@ -1,8 +1,14 @@
 import React, { useState } from 'react'
 
 import "./Sidebar.css"
+import { useNavigate } from 'react-router-dom';
+
 
 function SideBar() {
+
+   const nav= useNavigate ()
+
+
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -26,7 +32,11 @@ function SideBar() {
           </div>
           <ul className="navbar-nav">
             <li>
-              <a href="#">Chest Workout</a>
+              
+
+              <button  onClick={()=> nav('/chestWorkout')}  >Chest Workout</button>
+
+
             </li>
             <li>
               <a href="#">Abs Workout</a>
@@ -35,7 +45,9 @@ function SideBar() {
               <a href="#">Leg Workout</a>
             </li>
             <li>
-              <a href="#">Shoulder Workout</a>
+             
+            <button  onClick={()=> nav('/shoulderWorkout')}  >Shoulder Workout</button>
+
             </li>
             <li>
               <a href="#">Other Workouts</a>
