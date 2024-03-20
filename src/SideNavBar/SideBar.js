@@ -30,27 +30,31 @@ function SideBar() {
             </button>
             <div className="brand"> <h3>Begin Your Fitness </h3></div>
           </div>
+          <hr className='line' />
           <ul className="navbar-nav">
             <li>
               
-
-              <button  onClick={()=> nav('/chestWorkout')}  >Chest Workout</button>
+              <button  className='chest-btn' onClick={()=> nav('/chestWorkout')}  >Chest Workout</button>
 
 
             </li>
             <li>
-              <a href="#">Abs Workout</a>
+            
+              <button className='abs-btn' onClick={()=> nav('./AbsWorkout')}> Abs Workout</button>
+
             </li>
             <li>
-              <a href="#">Leg Workout</a>
+            
+              <button className='leg-btn' onClick={()=> nav('./LegWorkout')}> Leg Workout</button>
             </li>
             <li>
              
-            <button  onClick={()=> nav('/shoulderWorkout')}  >Shoulder Workout</button>
+            <button className='shoulder-btn' onClick={()=> nav('/shoulderWorkout')}  >Shoulder Workout</button>
 
             </li>
             <li>
-              <a href="#">Other Workouts</a>
+              
+              <button className='other-btn' onClick={()=> nav('./OtherWorkout')}> Other Workout</button>
             </li>
           </ul>
         </div>

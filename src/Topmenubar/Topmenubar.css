@@ -1,0 +1,56 @@
+/* TopMenu.css */
+
+.top-menu {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin-left: 22px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input[type="text"] {
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    width: 200px;
+    background-color: rgb(239, 239, 239);
+}
+
+.search-btn {
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: -40px;
+}
+
+.search-btn i {
+    color: #333333;
+}
+
+.right-icons button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.right-icons button i {
+    color: #333333;
+}
+
+
+.right-icons button:hover {
+    transform: scale(1.1);
+}

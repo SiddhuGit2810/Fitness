@@ -2,7 +2,9 @@ import React from 'react'
 
 function Shoulder() {
   return (
-    <div>Shoulder</div>
+    <div className="container">
+      <h1>Shoulder Workout</h1>
+    </div>
   )
 }
 

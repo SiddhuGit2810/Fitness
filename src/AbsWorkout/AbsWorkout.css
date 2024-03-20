@@ -1,0 +1,31 @@
+.Abs-card {
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+
+.card-header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.card-header svg {
+    margin-right: 10px;
+    fill: #333;
+}
+
+.card-header h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+}
