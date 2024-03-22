@@ -1,84 +1,9 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 
 import "./ChestWorkout.css"
 
 function ChestWorkout() {
 
-  const [cardstyles, setCardStyles] = useState({
-    card1: { order: 1, marginTop: '80px' },
-    card2: { order: 2, marginTop: '80px' },
-    card3: { order: 3, marginTop: '80px' },
-    card11: { order: 1, marginTop: '80px' },
-    card12: { order: 2, marginTop: '80px' },
-    card13: { order: 3, marginTop: '80px' }
-  })
-
-  const handleCardClick = (cardId) => {
-    switch (cardId) {
-      case 'card1':
-        setCardStyles({
-          card1: { order: 2, marginTop: '200px' },
-          card2: { order: 1, marginTop: '80px' },
-          card3: { order: 3, marginTop: '80px' },
-          card11: { order: 1, marginTop: '80px' },
-          card12: { order: 2, marginTop: '80px' },
-          card13: { order: 3, marginTop: '80px' }
-        });
-        break;
-      case 'card2':
-        setCardStyles({
-          card1: { order: 1, marginTop: '80px' },
-          card2: { order: 2, marginTop: '200px' },
-          card3: { order: 3, marginTop: '80px' },
-          card11: { order: 1, marginTop: '80px' },
-          card12: { order: 2, marginTop: '80px' },
-          card13: { order: 3, marginTop: '80px' }
-        });
-        break;
-      case 'card3':
-        setCardStyles({
-          card1: { order: 1, marginTop: '80px' },
-          card2: { order: 3, marginTop: '80px' },
-          card3: { order: 2, marginTop: '200px' },
-          card11: { order: 1, marginTop: '80px' },
-          card12: { order: 2, marginTop: '80px' },
-          card13: { order: 3, marginTop: '80px' }
-        });
-        break;
-      case 'card11':
-        setCardStyles({
-          card1: { order: 1, marginTop: '80px' },
-          card2: { order: 2, marginTop: '80px' },
-          card3: { order: 3, marginTop: '80px' },
-          card11: { order: 2, marginTop: '200px' },
-          card12: { order: 1, marginTop: '80px' },
-          card13: { order: 3, marginTop: '80px' }
-        });
-        break;
-      case 'card12':
-        setCardStyles({
-          card1: { order: 1, marginTop: '80px' },
-          card2: { order: 2, marginTop: '80px' },
-          card3: { order: 3, marginTop: '80px' },
-          card11: { order: 1, marginTop: '80px' },
-          card12: { order: 2, marginTop: '200px' },
-          card13: { order: 3, marginTop: '80px' }
-        });
-        break;
-      case 'card13':
-        setCardStyles({
-          card1: { order: 1, marginTop: '80px' },
-          card2: { order: 2, marginTop: '80px' },
-          card3: { order: 3, marginTop: '80px' },
-          card11: { order: 1, marginTop: '80px' },
-          card12: { order: 3, marginTop: '80px' },
-          card13: { order: 2, marginTop: '200px' }
-        });
-        break;
-      default:
-        break;
-    }
-  };
 
   return (
 
@@ -91,7 +16,7 @@ function ChestWorkout() {
           <input type="text" id="exercise"></input>
         </div>
 
-        <div class="card" id="card1" style={cardstyles.card1} onClick={() => handleCardClick('card1')}>Yesterday's Workout:
+        <div class="card" id="card1">Yesterday's Workout:
 
           <div className="group-set1">
             <div class="Set1">
@@ -133,7 +58,7 @@ function ChestWorkout() {
           </div>
         </div>
 
-        <div class="card" id="card2" style={cardstyles.card1} onClick={() => handleCardClick('card2')}>Today's Workout:
+        <div class="card" id="card2">Today's Workout:
 
           <div class="group-set2">
             <div class="set1">
@@ -174,7 +99,7 @@ function ChestWorkout() {
           </div>
         </div>
 
-        <div class="card" id="card3" style={cardstyles.card1} onClick={() => handleCardClick('card3')}>Tommorrow's  Workout:
+        <div class="card" id="card3">Tommorrow's  Workout:
 
           <div class="group-set3">
             <div class="set1">
@@ -217,7 +142,7 @@ function ChestWorkout() {
       </div>
 
       <div className="container2">
-        <div class="card" id="card11" style={cardstyles.card1} onClick={() => handleCardClick('card11')}>Yesterday
+        <div class="card" id="card11">Yesterday
 
           <div class="group-set11">
             <div class="set1">
@@ -260,7 +185,7 @@ function ChestWorkout() {
 
 
         </div>
-        <div class="card" id="card12" style={cardstyles.card1} onClick={() => handleCardClick('card12')}>Today
+        <div class="card" id="card12">Today
 
           <div class="group-set12">
 
@@ -303,7 +228,7 @@ function ChestWorkout() {
 
 
         </div>
-        <div class="card" id="card13" style={cardstyles.card1} onClick={() => handleCardClick('card13')}>Tommorrow
+        <div class="card" id="card13">Tommorrow
 
           <div class="group-set13">
             <div class="set1">
@@ -348,8 +273,7 @@ function ChestWorkout() {
         </div>
       </div>
 
-
-    </div>
+    </div >
 
 
 

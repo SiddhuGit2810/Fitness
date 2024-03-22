@@ -1,14 +1,15 @@
-import React from "react";
-import './OtherWorkout.css'
+import React, { useState } from "react";
+import "./OtherWorkout.css";
 
-function OtherWorkout(){
-    return(
+function OtherWorkout() {
+ 
 
-        <div className="container">
-          <h1>Other Workout</h1>  
-        </div>
-
-    )
+  return (
+    <div className="container">
+      <h1>Other Workout</h1>
+      
+    </div>
+  );
 }
 
-export default OtherWorkout
+export default OtherWorkout;

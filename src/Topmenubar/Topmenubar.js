@@ -3,7 +3,7 @@ import "./Topmenubar.css"
 
 function Topmenubar() {
 
-    return(
+    return (
         <div className="top-menu">
             <div className="search-bar">
                 <input type="text" placeholder="Search..." />
