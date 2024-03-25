@@ -1,0 +1,93 @@
+/* Card.css */
+
+
+.card-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-left: 30px;
+}
+
+.Abs-card {
+    height: 180px;
+    background-color: #ff8c00;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 37%);
+    overflow: hidden;
+    margin-top: 50px;
+    margin-left: 80px;
+    width: 280px;
+}
+
+.Abs-card-content,
+.chest-card-content,
+.leg-card-content,
+.shoulder-card-content {
+    padding: 20px;
+}
+
+.Abs-card-content h2,
+.chest-card-content h2,
+.leg-card-content h2,
+.shoulder-card-content h2 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.Abs-card-content p,
+.leg-card-content p,
+.chest-card-content p,
+.shoulder-card-content p {
+    color: #fff;
+}
+
+.arrow-button {
+    position: relative;
+}
+
+.arrow-button button {
+    align-items: flex-end !important;
+    float: right;
+    padding-right: 25px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.arrow-button button:hover {
+    transform: translateY(-5px);
+    transition: 0.3s ease;
+}
+
+.chest-card {
+    height: 180px;
+    background-color: #ff00aa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 37%);
+    overflow: hidden;
+    margin-top: 50px;
+    margin-left: 80px;
+    width: 280px;
+}
+
+.leg-card {
+    height: 180px;
+    background-color: #c00a0a;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 37%);
+    overflow: hidden;
+    margin-top: 50px;
+    margin-left: 80px;
+    width: 280px;
+}
+
+.Shoulder-card {
+    height: 180px;
+    background-color: #14db0d;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 37%);
+    overflow: hidden;
+    margin-top: 50px;
+    margin-left: 80px;
+    width: 280px;
+}

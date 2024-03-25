@@ -1,43 +1,127 @@
 import React from 'react'
-
-import Card from 'react-bootstrap/Card';
+import './homepage.css'
+import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
+
+  const nav = useNavigate()
   return (
     
+<div className="container">
+  <div className="card-container">
+      <div className="Abs-card">
+        <div className="Abs-card-content">
+          <h2>Abs Workout</h2>
+          <p>Build your Abs Like Pro</p>
+        </div>
+        <div className="arrow-button">
+            <button onClick={() => nav('/AbsWorkout')}><svg width="32" height="24" viewBox="0 0 32 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_d_1178_3683)">
+              <path d="M28.7236 8.70059C29.1105 8.3065 29.1047 7.67336 28.7106 7.28644L22.2885 0.981122C21.8944 0.594197 21.2613 0.600006 20.8744 0.994096C20.4874 1.38819 20.4932 2.02132 20.8873 2.40825L26.5958 8.01297L20.9911 13.7215C20.6042 14.1156 20.61 14.7487 21.0041 15.1356C21.3982 15.5226 22.0313 15.5168 22.4183 15.1227L28.7236 8.70059ZM3.00917 9.2294L28.0192 8.99996L28.0008 7.00004L2.99083 7.22948L3.00917 9.2294Z" fill="black" />
+            </g>
+            <defs>
+              <filter id="filter0_d_1178_3683" x="-0.00878906" y="0.694336" width="32.0186" height="22.7275" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                <feOffset dy="5" />
+                <feGaussianBlur stdDeviation="1.5" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1178_3683" />
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1178_3683" result="shape" />
+              </filter>
+            </defs>
+          </svg></button>
+          
 
-<Card style={{ width: '18rem' }}>
-    <Card.Body>
-      <Card.Title>Abs Workout</Card.Title>
-      <Card.Subtitle className="mb-2 text-muted">Build your Abs greater</Card.Subtitle>
-      <Card.Text>
-        Some quick example text to build on the card title and make up the
-        bulk of the card's content.
-      </Card.Text>
-      <Card.Link href="#"><svg width="73" height="57" viewBox="0 0 73 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_d_1172_3663)">
-<mask id="path-1-inside-1_1172_3663" fill="white">
-<path d="M4 24C4 10.7452 14.7452 0 28 0H45C58.2548 0 69 10.7452 69 24C69 37.2548 58.2548 48 45 48H28C14.7452 48 4 37.2548 4 24Z"/>
-</mask>
-<path d="M4 24C4 10.7452 14.7452 0 28 0H45C58.2548 0 69 10.7452 69 24C69 37.2548 58.2548 48 45 48H28C14.7452 48 4 37.2548 4 24Z" fill="white"/>
-<path d="M59.7071 24.7071C60.0976 24.3166 60.0976 23.6834 59.7071 23.2929L53.3431 16.9289C52.9526 16.5384 52.3195 16.5384 51.9289 16.9289C51.5384 17.3195 51.5384 17.9526 51.9289 18.3431L57.5858 24L51.9289 29.6569C51.5384 30.0474 51.5384 30.6805 51.9289 31.0711C52.3195 31.4616 52.9526 31.4616 53.3431 31.0711L59.7071 24.7071ZM15 25H59V23H15V25ZM28 2H45V-2H28V2ZM45 46H28V50H45V46ZM28 46C15.8497 46 6 36.1503 6 24H2C2 38.3594 13.6406 50 28 50V46ZM67 24C67 36.1503 57.1503 46 45 46V50C59.3594 50 71 38.3594 71 24H67ZM45 2C57.1503 2 67 11.8497 67 24H71C71 9.6406 59.3594 -2 45 -2V2ZM28 -2C13.6406 -2 2 9.6406 2 24H6C6 11.8497 15.8497 2 28 2V-2Z" fill="black" mask="url(#path-1-inside-1_1172_3663)"/>
-</g>
-<defs>
-<filter id="filter0_d_1172_3663" x="0" y="0" width="73" height="57" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-<feOffset dy="5"/>
-<feGaussianBlur stdDeviation="2"/>
-<feComposite in2="hardAlpha" operator="out"/>
-<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6 0"/>
-<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1172_3663"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1172_3663" result="shape"/>
-</filter>
-</defs>
-</svg></Card.Link>
-      {/* <Card.Link href="#"></Card.Link> */}
-    </Card.Body>
-  </Card>
+        </div>
+      </div>
+
+      <div className="chest-card">
+        <div className="chest-card-content">
+          <h2>Chest Workout</h2>
+          <p>Make your Chest look Great!</p>
+        </div>
+        <div className="arrow-button">
+            <button onClick={() => nav('/ChestWorkout')}><svg width="32" height="24" viewBox="0 0 32 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g filter="url(#filter0_d_1178_3683)">
+              <path d="M28.7236 8.70059C29.1105 8.3065 29.1047 7.67336 28.7106 7.28644L22.2885 0.981122C21.8944 0.594197 21.2613 0.600006 20.8744 0.994096C20.4874 1.38819 20.4932 2.02132 20.8873 2.40825L26.5958 8.01297L20.9911 13.7215C20.6042 14.1156 20.61 14.7487 21.0041 15.1356C21.3982 15.5226 22.0313 15.5168 22.4183 15.1227L28.7236 8.70059ZM3.00917 9.2294L28.0192 8.99996L28.0008 7.00004L2.99083 7.22948L3.00917 9.2294Z" fill="black" />
+            </g>
+            <defs>
+              <filter id="filter0_d_1178_3683" x="-0.00878906" y="0.694336" width="32.0186" height="22.7275" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                <feOffset dy="5" />
+                <feGaussianBlur stdDeviation="1.5" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1178_3683" />
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1178_3683" result="shape" />
+              </filter>
+            </defs>
+          </svg></button>
+
+
+        </div>
+      </div>
+
+        <div className="leg-card">
+          <div className="leg-card-content">
+            <h2>Leg Workout</h2>
+            <p>Don't skip the leg day</p>
+          </div>
+          <div className="arrow-button">
+            <button onClick={() => nav('/LegWorkout')}><svg width="32" height="24" viewBox="0 0 32 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#filter0_d_1178_3683)">
+                <path d="M28.7236 8.70059C29.1105 8.3065 29.1047 7.67336 28.7106 7.28644L22.2885 0.981122C21.8944 0.594197 21.2613 0.600006 20.8744 0.994096C20.4874 1.38819 20.4932 2.02132 20.8873 2.40825L26.5958 8.01297L20.9911 13.7215C20.6042 14.1156 20.61 14.7487 21.0041 15.1356C21.3982 15.5226 22.0313 15.5168 22.4183 15.1227L28.7236 8.70059ZM3.00917 9.2294L28.0192 8.99996L28.0008 7.00004L2.99083 7.22948L3.00917 9.2294Z" fill="black" />
+              </g>
+              <defs>
+                <filter id="filter0_d_1178_3683" x="-0.00878906" y="0.694336" width="32.0186" height="22.7275" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                  <feOffset dy="5" />
+                  <feGaussianBlur stdDeviation="1.5" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1178_3683" />
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1178_3683" result="shape" />
+                </filter>
+              </defs>
+            </svg></button>
+
+
+          </div>
+        </div>
+
+        <div className="Shoulder-card">
+          <div className="shoulder-card-content">
+            <h2>Shoulder Workout</h2>
+            <p>Make your Shoulder big, bad and even badder</p>
+          </div>
+          <div className="arrow-button">
+            <button onClick={() => nav('/ShoulderWorkout')}><svg width="32" height="24" viewBox="0 0 32 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#filter0_d_1178_3683)">
+                <path d="M28.7236 8.70059C29.1105 8.3065 29.1047 7.67336 28.7106 7.28644L22.2885 0.981122C21.8944 0.594197 21.2613 0.600006 20.8744 0.994096C20.4874 1.38819 20.4932 2.02132 20.8873 2.40825L26.5958 8.01297L20.9911 13.7215C20.6042 14.1156 20.61 14.7487 21.0041 15.1356C21.3982 15.5226 22.0313 15.5168 22.4183 15.1227L28.7236 8.70059ZM3.00917 9.2294L28.0192 8.99996L28.0008 7.00004L2.99083 7.22948L3.00917 9.2294Z" fill="black" />
+              </g>
+              <defs>
+                <filter id="filter0_d_1178_3683" x="-0.00878906" y="0.694336" width="32.0186" height="22.7275" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                  <feOffset dy="5" />
+                  <feGaussianBlur stdDeviation="1.5" />
+                  <feComposite in2="hardAlpha" operator="out" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1178_3683" />
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1178_3683" result="shape" />
+                </filter>
+              </defs>
+            </svg></button>
+
+
+          </div>
+        </div>
+      </div>
+</div>
 
   )
 }
