@@ -32,15 +32,21 @@ function SideBar() {
           </div>
           <hr className='line' />
           <ul className="navbar-nav">
+
+          <li>
+              
+              <button  className='chest-btn' onClick={()=> nav('/HomePage')}  >    HomePage</button>
+
+            </li>
+
             <li>
               
-              <button  className='chest-btn' onClick={()=> nav('/chestWorkout')}  >Chest Workout</button>
-
+              <button  className='chest-btn' onClick={()=> nav('/ChestWorkout')}  >       Chest Workout</button>
 
             </li>
             <li>
             
-              <button className='abs-btn' onClick={()=> nav('./AbsWorkout')}> Abs Workout</button>
+              <button className='abs-btn' onClick={()=> nav('./AbsWorkout')}>   Abs Workout</button>
 
             </li>
             <li>
@@ -49,7 +55,7 @@ function SideBar() {
             </li>
             <li>
              
-            <button className='shoulder-btn' onClick={()=> nav('/shoulderWorkout')}  >Shoulder Workout</button>
+            <button className='shoulder-btn' onClick={()=> nav('/ShoulderWorkout')}  >Shoulder Workout</button>
 
             </li>
             <li>
