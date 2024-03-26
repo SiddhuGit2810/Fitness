@@ -10,7 +10,11 @@
     justify-content: flex-end;
     align-items: center;
     padding: 10px 20px;
-    margin-left: 70px;
+
+  
+   
+
+   width: 100%;
 }
 
 .search-bar {

@@ -10,21 +10,21 @@
 
 .MainPage {
   display: flex;
-  flex-grow: 1;
+  flex-direction: row;
+
+  gap: 14.3rem;
 }
 
-.SideBar {
-  width: 250px;
 
-
-}
 
 
 
 .Content {
-  flex-grow: 1;
+ margin-left: 4rem;
   display: flex;
   flex-direction: column;
+  gap: 5rem;
+  width: 100%;
 }
 
 .WorkOutPage {

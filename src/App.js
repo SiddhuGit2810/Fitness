@@ -18,7 +18,11 @@ function App() {
           <SideBar />
         </div>
         <div className="Content">
-          <Topmenubar />
+<div className="TopMenuBar">
+<Topmenubar />
+</div>
+           
+      
           <div className="WorkOutPage">
             <Routes>
               <Route path='/ChestWorkout' element={<ChestWorkout />} />

@@ -33,6 +33,17 @@ function AbsWorkout() {
 </div>
 
 
+
+
+
+
+
+
+
+
+
+
+
 <div class="WorkoutTypeCard">
   <div class="Wcard-details">
     <p class="text-title">

@@ -134,12 +134,20 @@
   }
   .WorkoutTypeContainer{
     display: flex;
-
+flex-wrap: wrap;
     gap: 5rem;
     
   }
 
   .Hide{
     display: none;
+
+  }
+  .MainContainer{
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7rem;
 
   }
