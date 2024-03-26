@@ -6,7 +6,12 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     padding-left: 30px;
+
+  
+
 }
+
+
 
 .Abs-card {
     height: 180px;
@@ -43,6 +48,8 @@
 
 .arrow-button {
     position: relative;
+    cursor: pointer;
+
 }
 
 .arrow-button button {
@@ -52,11 +59,13 @@
     cursor: pointer;
     background: none;
     border: none;
+
 }
 
 .arrow-button button:hover {
     transform: translateY(-5px);
     transition: 0.3s ease;
+    
 }
 
 .chest-card {

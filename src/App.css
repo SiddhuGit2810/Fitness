@@ -6,6 +6,8 @@
   height: 100vh;
 }
 
+
+
 .MainPage {
   display: flex;
   flex-grow: 1;
@@ -13,7 +15,11 @@
 
 .SideBar {
   width: 250px;
+
+
 }
+
+
 
 .Content {
   flex-grow: 1;

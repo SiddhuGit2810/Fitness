@@ -1,12 +1,23 @@
 import React from 'react'
 import './homepage.css'
 import { useNavigate } from 'react-router-dom';
+import { useSpring, animated } from '@react-spring/web';
 
 function HomePage() {
 
+
+    const slideAnimation = useSpring({
+        from: { transform: 'translateX(-1500px)' , opacity: '-20'  },
+        to: { transform: 'translateX(4rem)' , transition : '1.5s ease-out' , opacity: '1' },
+        
+      });
+    
+
   const nav = useNavigate()
   return (
+
     
+    <animated.div style={slideAnimation}>
 <div className="container">
   <div className="card-container">
       <div className="Abs-card">
@@ -122,6 +133,8 @@ function HomePage() {
         </div>
       </div>
 </div>
+
+</animated.div>
 
   )
 }
