@@ -5,22 +5,40 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
- 
-padding-top: 0.000000001vh;
-  
+    /* padding-top: 0.000000001vh; */
+    margin: 0;
+    gap: 2rem;
+
 
 }
 
-
-
 .Abs-card {
-    height: 180px;
-    background-color: #ff8c00;
+    opacity: 0.9;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgb(0 0 0 / 37%);
     overflow: hidden;
     margin-left: 80px;
     width: 280px;
+    /* background-image: url(abs.jpg); */
+    background-size: cover;
+    background-blend-mode: overlay;
+    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+    background-image: linear-gradient(to right top, #000000, #25ff15, #777777, #7e7e7e, #ffffff);
+
+}
+
+.Abs-card:hover,
+.chest-card:hover,
+.leg-card:hover,
+.Shoulder-card:hover {
+    transform: scale(1.05) rotate(-6deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    z-index: 1;
+    box-shadow: 0rem 6px 13px rgba(10, 60, 255, 0.1);
+    transform: scale(1.01) translateY(-10px);
+    opacity: 1;
+    transition: all .3s ease-in-out;
+    scale: 1.05;
 }
 
 .Abs-card-content,
@@ -36,6 +54,7 @@ padding-top: 0.000000001vh;
 .shoulder-card-content h2 {
     color: #fff;
     margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .Abs-card-content p,
@@ -64,35 +83,54 @@ padding-top: 0.000000001vh;
 .arrow-button button:hover {
     transform: translateY(-5px);
     transition: 0.3s ease;
-    
+
 }
 
 .chest-card {
-    height: 180px;
-    background-color: #ff00aa;
+    /* height: 180px; */
+    opacity: 0.9;
+    /* background-color: #ff00aa; */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgb(0 0 0 / 37%);
     overflow: hidden;
     margin-left: 80px;
     width: 280px;
+    /* background-image: url(chest.jpg); */
+    /* background-position: top; */
+    background-size: cover;
+    background-blend-mode: overlay;
+    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+    background-image: linear-gradient(to right top, #000000, #25ff15, #777777, #7e7e7e, #ffffff);
 }
 
 .leg-card {
-    height: 180px;
-    background-color: #c00a0a;
+    /* height: 180px; */
+    opacity: 0.9;
+    /* background-color: #c00a0a; */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgb(0 0 0 / 37%);
     overflow: hidden;
     margin-left: 80px;
     width: 280px;
+    /* background-image: url(leg.jpg); */
+    background-size: cover;
+    background-blend-mode: overlay;
+    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+    background-image: linear-gradient(to right top, #000000, #25ff15, #777777, #7e7e7e, #ffffff);
 }
 
 .Shoulder-card {
-    height: 180px;
-    background-color: #14db0d;
+    /* height: 180px; */
+    opacity: 0.9;
+    /* background-color: #14db0d; */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgb(0 0 0 / 37%);
     overflow: hidden;
     margin-left: 80px;
     width: 280px;
+    /* background-image: url(shoulder.jpg); */
+    background-size: cover;
+    background-blend-mode: overlay;
+    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+    background-image: linear-gradient(to right top, #000000, #25ff15, #777777, #7e7e7e, #ffffff);
 }

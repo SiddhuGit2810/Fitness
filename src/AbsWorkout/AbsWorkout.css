@@ -1,155 +1,238 @@
 .hover-card {
-    background-color: transparent;
-    width: 190px;
-    height: 254px;
-    perspective: 1000px;
-    font-family: sans-serif;
-  }
-  
-  .title {
-    font-size: 1.5em;
-    font-weight: 900;
-    text-align: center;
-    margin: 0;
-  }
-  
-  .hover-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-  }
-  
-  .hover-card:hover .hover-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .hover-card-front, .hover-card-back {
-    box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border: 1px solid coral;
-    border-radius: 1rem;
-  }
-  
-  .hover-card-front {
-    background: linear-gradient(120deg, bisque 60%, rgb(255, 231, 222) 88%,
-       rgb(255, 211, 195) 40%, rgba(255, 127, 80, 0.603) 48%);
-    color: coral;
-  }
-  
-  .hover-card-back {
-    background: linear-gradient(120deg, rgb(255, 174, 145) 30%, coral 88%,
-       bisque 40%, rgb(255, 185, 160) 78%);
-    color: white;
-    transform: rotateY(180deg);
-  }
+  background-color: transparent;
+  width: 209px;
+  height: 250px;
+  perspective: 1000px;
+  font-family: sans-serif;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+}
+
+.hover-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.hover-card:hover .hover-card-inner {
+  transform: rotateY(180deg);
+}
+
+.hover-card-front,
+.hover-card-back {
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid coral;
+  border-radius: 1rem;
+}
+
+.hover-card-front {
+  background: linear-gradient(120deg, bisque 60%, rgb(255, 231, 222) 88%,
+      rgb(255, 211, 195) 40%, rgba(255, 127, 80, 0.603) 48%);
+  color: coral;
+}
+
+.hover-card-back {
+  background: linear-gradient(120deg, rgb(255, 174, 145) 30%, coral 88%,
+      bisque 40%, rgb(255, 185, 160) 78%);
+  color: white;
+  transform: rotateY(180deg);
+}
 
 
-  .WorkoutDataContainer{
-
-    display: flex;
-    flex-direction: row;
-
-    gap: 10rem;
-  }
-
+.WorkoutDataContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 5rem;
+  justify-content: space-evenly;
+}
 
 
-  .WorkoutTypeCard {
-    width: 140px;
-    height: 104px;
-    border-radius: 20px;
-    background: #f5f5f5;
-    position: relative;
-    padding: 1.8rem;
-    border: 2px solid #c3c6ce;
-    -webkit-transition: 0.5s ease-out;
-    transition: 0.5s ease-out;
-    overflow: visible;
-  }
-  
-  .Wcard-details {
-    color: rgb(162, 0, 255);
-    height: 100%;
-    gap: .5em;
-    display: grid;
-    place-content: center;
-    font-family: 'Courier New', Courier, monospace;
-  }
-  
-  .WorkoutTypeCard-button {
-    text-decoration: none;
-    text-align: center;
-    -webkit-transform: translate(-50%, 125%);
-    -ms-transform: translate(-50%, 125%);
-    transform: translate(-50%, 125%);
-    width: 70%;
-    border-radius: 1rem;
-    border: none;
-    background-color: #6c00f8;
-    color: #fff;
-    font-size: 1rem;
-    padding: .5rem 1rem;
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    opacity: 0;
-    -webkit-transition: 0.3s ease-out;
-    transition: 0.3s ease-out;
-    cursor: pointer;
-    font-family: 'Courier New', Courier, monospace;
-  }
-  
-  .text-body {
-    color: rgb(134, 134, 134);
-  }
-  
-  /*Text*/
-  .text-title {
-    font-size: 1.5em;
-    font-weight: bold;
-  }
-  
-  /*Hover*/
-  .WorkoutTypeCard:hover {
-    border-color: #6c00f8;
-    -webkit-box-shadow: 10px 5px 18px 0 rgba(255, 255, 255, 0.877);
-    box-shadow: 10px 5px 18px 0 rgba(255, 255, 255, 0.877);
-  }
-  
-  .WorkoutTypeCard:hover .WorkoutTypeCard-button {
-    -webkit-transform: translate(-50%, 50%);
-    -ms-transform: translate(-50%, 50%);
-    transform: translate(-50%, 50%);
-    opacity: 1;
-  }
-  .WorkoutTypeContainer{
-    display: flex;
-flex-wrap: wrap;
-    gap: 5rem;
-    
-  }
 
-  .Hide{
-    display: none;
+.WorkoutTypeCard {
+  width: 140px;
+  height: 104px;
+  border-radius: 20px;
+  background: #ffffff;
+  position: relative;
+  padding: 1.8rem;
+  border: 2px solid #c3c6ce;
+  transition: 0.5s ease-out;
+  overflow: visible;
+  box-shadow: 1px 1px 1px 0px grey;
+}
 
-  }
-  .MainContainer{
-    display: flex;
+.Wcard-details {
+  color: rgb(98 98 98);
+  height: 100%;
+  gap: .5em;
+  display: grid;
+  place-content: center;
+  font-family: 'Courier New', Courier, monospace;
+}
 
-    flex-direction: column;
+.WorkoutTypeCard-button {
+  text-decoration: none;
+  text-align: center;
+  transform: translate(-50%, 125%);
+  width: 70%;
+  border-radius: 1rem;
+  border: none;
+  background-color: #63ff4c;
+  color: #fff;
+  font-size: 1rem;
+  padding: .5rem 1rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.3s ease-out;
+  cursor: pointer;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+}
 
-    gap: 7rem;
+.text-body {
+  color: rgb(134, 134, 134);
+  font-weight: 600;
+}
 
-    padding-left: 2rem;
+/*Text*/
+.text-title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
 
-  }
+/*Hover*/
+.WorkoutTypeCard:hover {
+  /* border-color: #6c00f8; */
+  -webkit-box-shadow: 10px 5px 18px 0 rgba(255, 255, 255, 0.877);
+  box-shadow: 10px 5px 18px 0 rgba(255, 255, 255, 0.877);
+  transition: 1s ease-out;
+}
+
+.WorkoutTypeCard:hover .WorkoutTypeCard-button {
+  -webkit-transform: translate(-50%, 50%);
+  -ms-transform: translate(-50%, 50%);
+  transform: translate(-50%, 50%);
+  opacity: 1;
+}
+
+.WorkoutTypeContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5rem;
+
+}
+
+.Hide {
+  display: none;
+
+}
+
+.MainContainer {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7rem;
+
+  padding-left: 2rem;
+
+}
+
+.card-container {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.card-container::before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+
+.data-card {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.data-card .img-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+  transition: scale 0.6s, rotate 0.6s, filter 1s;
+}
+
+.data-card .img-content svg {
+  width: 50px;
+  height: 50px;
+  fill: #212121;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.data-card .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  color: #e8e8e8;
+  padding: 20px 24px;
+  line-height: 1.5;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(50px);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.data-card .content .heading {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.data-card:hover .content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.data-card:hover .img-content {
+  scale: 2.5;
+  rotate: 30deg;
+  filter: blur(7px);
+}
+
+.data-card:hover .img-content svg {
+  fill: transparent;
+}
