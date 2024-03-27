@@ -7,8 +7,8 @@ function HomePage() {
 
 
     const slideAnimation = useSpring({
-        from: { transform: 'translateY(-1500px)' , opacity: '-20'  },
-        to: { transform: 'translateY(1rem)' , transition : '1s ease-out' , opacity: '1' },
+        from: { transform: 'translateY(-1500px)' , opacity: '1'  },
+        to: { transform: 'translateY(1rem)' , transition : '0.5s ease-out' , opacity: '1' },
         
       });
     
