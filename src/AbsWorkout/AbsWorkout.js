@@ -83,56 +83,7 @@ function AbsWorkout() {
 
       <div className={isActive ? "WorkoutDataContainer Hide" : "WorkoutDataContainer"}>
 
-          <div class="card-container">
-            <div class="data-card">
-              <div class="img-content">
-                <h1>Previous Work</h1>
-              </div>
-              <div class="content">
-                <p class="heading">Card Hover</p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipii
-                  voluptas ten mollitia pariatur odit, ab
-                  minus ratione adipisci accusamus vel est excepturi laboriosam magnam
-                  necessitatibus dignissimos molestias.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-container">
-            <div class="data-card">
-              <div class="img-content">
-                <h1>Present Work</h1>
-              </div>
-              <div class="content">
-                <p class="heading">Card Hover</p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipii
-                  voluptas ten mollitia pariatur odit, ab
-                  minus ratione adipisci accusamus vel est excepturi laboriosam magnam
-                  necessitatibus dignissimos molestias.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="card-container">
-            <div class="data-card">
-              <div class="img-content">
-                <h1>Future Work</h1>
-              </div>
-              <div class="content">
-                <p class="heading">Card Hover</p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipii
-                  voluptas ten mollitia pariatur odit, ab
-                  minus ratione adipisci accusamus vel est excepturi laboriosam magnam
-                  necessitatibus dignissimos molestias.
-                </p>
-              </div>
-            </div>
-          </div>
+       
 
 
 

@@ -1,17 +1,6 @@
 /* Card.css */
 
 
-.card-container {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    /* padding-top: 0.000000001vh; */
-    margin: 0;
-    gap: 2rem;
-
-
-}
-
 .Abs-card {
     opacity: 0.9;
     border-radius: 10px;
@@ -19,11 +8,11 @@
     overflow: hidden;
     margin-left: 80px;
     width: 280px;
-    /* background-image: url(abs.jpg); */
+    background-image: url(abs.jpg);
     background-size: cover;
     background-blend-mode: overlay;
     transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
-    background-image: linear-gradient(to right top, #000000, #25ff15, #777777, #7e7e7e, #ffffff);
+    /* background-image: linear-gradient(to right top, #000000, #25ff15, #777777, #7e7e7e, #ffffff); */
 
 }
 
@@ -133,4 +122,14 @@
     background-blend-mode: overlay;
     transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
     background-image: linear-gradient(to right top, #000000, #25ff15, #777777, #7e7e7e, #ffffff);
+}
+
+.homePageBox{
+    display: flex;
+
+    flex-direction: row;
+
+    flex-wrap: wrap;
+
+    gap: 2rem;
 }
