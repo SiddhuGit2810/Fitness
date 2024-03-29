@@ -8,11 +8,12 @@
     overflow: hidden;
     margin-left: 80px;
     width: 280px;
-    background-image: url(abs.jpg);
+    /* background-image: url(abs.jpg); */
     background-size: cover;
     background-blend-mode: overlay;
     transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
     /* background-image: linear-gradient(to right top, #000000, #25ff15, #777777, #7e7e7e, #ffffff); */
+    background-color: #ffb100;
 
 }
 
@@ -51,6 +52,8 @@
 .chest-card-content p,
 .shoulder-card-content p {
     color: #fff;
+    text-align: left;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .arrow-button {
@@ -89,7 +92,8 @@
     background-size: cover;
     background-blend-mode: overlay;
     transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
-    background-image: linear-gradient(to right top, #000000, #25ff15, #777777, #7e7e7e, #ffffff);
+    /* background-image: linear-gradient(to right top, #000000, #25ff15, #777777, #7e7e7e, #ffffff); */
+    background-color: violet;
 }
 
 .leg-card {
@@ -105,7 +109,8 @@
     background-size: cover;
     background-blend-mode: overlay;
     transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
-    background-image: linear-gradient(to right top, #000000, #25ff15, #777777, #7e7e7e, #ffffff);
+    /* background-image: linear-gradient(to right top, #000000, #25ff15, #777777, #7e7e7e, #ffffff); */
+    background-color: #ff4b6a;
 }
 
 .Shoulder-card {
@@ -121,15 +126,17 @@
     background-size: cover;
     background-blend-mode: overlay;
     transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
-    background-image: linear-gradient(to right top, #000000, #25ff15, #777777, #7e7e7e, #ffffff);
+    /* background-image: linear-gradient(to right top, #000000, #25ff15, #777777, #7e7e7e, #ffffff); */
+    background-color: #00d5ff;
 }
 
 .homePageBox{
     display: flex;
-
     flex-direction: row;
-
     flex-wrap: wrap;
-
     gap: 2rem;
+}
+
+svg{
+    padding-bottom: 5px;
 }

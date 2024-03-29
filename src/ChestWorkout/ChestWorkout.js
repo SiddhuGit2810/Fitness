@@ -1,282 +1,163 @@
 import React, { useState } from 'react'
-
+import { useSpring, animated } from '@react-spring/web';
 import "./ChestWorkout.css"
 
 
 
 function ChestWorkout() {
 
+  const [isActive, setActive] = useState("false")
+
+  const ToggleClass = () => {
+    setActive(!isActive);
+  };
+
+  const slideAnimation = useSpring({
+    from: { transform: 'translateY(-50px)', opacity: '0' },
+    to: { transform: 'translateY(0.8rem)', transition: '0.5s ease-out', opacity: '1' },
+  });
+
 
   return (
+    <animated.div style={slideAnimation}>
+      <div className="container">
 
-    <div className="container">
+        <div className="WorkoutTypeContainer">
 
-      <div className="container1">
-        <div class="centerdiv">
-          <h4>Exercise</h4>
-          <br />
-          <input type="text" id="exercise"></input>
-        </div>
 
-        <div class="card" id="card1">Yesterday's Workout:
-
-          <div className="group-set1">
-            <div class="Set1">
-              <br />
-              <br />
-              <input type="text" placeholder="Count" id="count1" />
-              <br />
-              <br />
-              <input type="text" placeholder="Set" id="set1" />
-              <br />
-              <br />
-              <input type="text" placeholder="Weight" id="weight1" />
+          <div class="WorkoutTypeCard">
+            <div class="Wcard-details">
+              <p class="text-title">Incline Pushups</p>
+              <p class="text-body">Card Details</p>
             </div>
 
-            <div class="Set2">
-              <br />
-              <br />
-              <input type="text" placeholder="Count" id="count1" />
-              <br />
-              <br />
-              <input type="text" placeholder="Set" id="set1" />
-              <br />
-              <br />
-              <input type="text" placeholder="Weight" id="weight1" />
-            </div>
-
-            <div class="Set3">
-              <br />
-              <br />
-              <input type="text" placeholder="Count" id="count1" />
-              <br />
-              <br />
-              <input type="text" placeholder="Set" id="set1" />
-              <br />
-              <br />
-              <input type="text" placeholder="Weight" id="weight1" />
-            </div>
+            <button className="WorkoutTypeCard-button" onClick={ToggleClass}> More info  </button>
 
           </div>
-        </div>
 
-        <div class="card" id="card2">Today's Workout:
-
-          <div class="group-set2">
-            <div class="set1">
-              <br />
-              <br />
-              <input type="text" placeholder="Count" id="count2" />
-              <br />
-              <br />
-              <input type="text" placeholder="Set" id="set2" />
-              <br />
-              <br />
-              <input type="text" placeholder="Weight" id="weight2" />
+          <div class="WorkoutTypeCard">
+            <div class="Wcard-details">
+              <p class="text-title">
+                Plank</p>
+              <p class="text-body">Card Details</p>
             </div>
-
-            <div class="set2">
-              <br />
-              <br />
-              <input type="text" placeholder="Count" id="count2" />
-              <br />
-              <br />
-              <input type="text" placeholder="Set" id="set2" />
-              <br />
-              <br />
-              <input type="text" placeholder="Weight" id="weight2" />
-            </div>
-
-            <div class="set3">
-              <br />
-              <br />
-              <input type="text" placeholder="Count" id="count2" />
-              <br />
-              <br />
-              <input type="text" placeholder="Set" id="set2" />
-              <br />
-              <br />
-              <input type="text" placeholder="Weight" id="weight2" />
-            </div>
+            <button className="WorkoutTypeCard-button" onClick={ToggleClass} > More info  </button>
           </div>
-        </div>
 
-        <div class="card" id="card3">Tommorrow's  Workout:
 
-          <div class="group-set3">
-            <div class="set1">
-              <br />
-              <br />
-              <input type="text" placeholder="Count" id="count3" />
-              <br />
-              <br />
-              <input type="text" placeholder="Set" id="set3" />
-              <br />
-              <br />
-              <input type="text" placeholder="Weight" id="weight3" />
+
+
+          <div class="WorkoutTypeCard">
+            <div class="Wcard-details">
+              <p class="text-title">Cable Crossover</p>
+              <p class="text-body">Card Details</p>
             </div>
-
-            <div class="set2">
-              <br />
-              <br />
-              <input type="text" placeholder="Count" id="count3" />
-              <br />
-              <br />
-              <input type="text" placeholder="Set" id="set3" />
-              <br />
-              <br />
-              <input type="text" placeholder="Weight" id="weight3" />
-            </div>
-
-            <div class="set3">
-              <br />
-              <br />
-              <input type="text" placeholder="Count" id="count3" />
-              <br />
-              <br />
-              <input type="text" placeholder="Set" id="set3" />
-              <br />
-              <br />
-              <input type="text" placeholder="Weight" id="weight3" />
-            </div>
+            <button className="WorkoutTypeCard-button" onClick={ToggleClass} > More info  </button>
           </div>
+
+
+
+
+          <div class="WorkoutTypeCard">
+            <div class="Wcard-details">
+              <p class="text-title">Chest Fly</p>
+              <p class="text-body">Card Details</p>
+            </div>
+            <button className="WorkoutTypeCard-button" onClick={ToggleClass} > More info  </button>
+          </div>
+
         </div>
-      </div>
 
-      <div className="container2">
-        <div class="card" id="card11">Yesterday
 
-          <div class="group-set11">
-            <div class="set1">
-              <br />
-              <br />
-              <input type="text" placeholder="Count" id="count11" />
-              <br />
-              <br />
-              <input type="text" placeholder="Set" id="set11" />
-              <br />
-              <br />
-              <input type="text" placeholder="Weight" id="weight11" />
+        <div className={isActive ? "WorkoutDataContainer Hide" : "WorkoutDataContainer"}>
+
+
+          <div className="flip-card-container">
+
+            <div className="flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <p>Previous Workout</p>
+                </div>
+                <div className="flip-card-back">
+                  <div className="input-set">
+                    <input type="text" className="input-field" placeholder="Count" />
+                    <input type="text" className="input-field" placeholder="Set" />
+                    <input type="text" className="input-field" placeholder="Weight" />
+                  </div>
+                  <div className="input-set">
+                    <input type="text" className="input-field" placeholder="Count" />
+                    <input type="text" className="input-field" placeholder="Set" />
+                    <input type="text" className="input-field" placeholder="Weight" />
+                  </div>
+                  <div className="input-set">
+                    <input type="text" className="input-field" placeholder="Count" />
+                    <input type="text" className="input-field" placeholder="Set" />
+                    <input type="text" className="input-field" placeholder="Weight" />
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="set2">
-              <br />
-              <br />
-              <input type="text" placeholder="Count" id="count11" />
-              <br />
-              <br />
-              <input type="text" placeholder="Set" id="set11" />
-              <br />
-              <br />
-              <input type="text" placeholder="Weight" id="weight11" />
+            <div className="flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <p>Present Workout</p>
+                </div>
+                <div className="flip-card-back">
+                  <div className="input-set">
+                    <input type="text" className="input-field" placeholder="Count" />
+                    <input type="text" className="input-field" placeholder="Set" />
+                    <input type="text" className="input-field" placeholder="Weight" />
+                  </div>
+                  <div className="input-set">
+                    <input type="text" className="input-field" placeholder="Count" />
+                    <input type="text" className="input-field" placeholder="Set" />
+                    <input type="text" className="input-field" placeholder="Weight" />
+                  </div>
+                  <div className="input-set">
+                    <input type="text" className="input-field" placeholder="Count" />
+                    <input type="text" className="input-field" placeholder="Set" />
+                    <input type="text" className="input-field" placeholder="Weight" />
+                  </div>
+                  <button className="register-btn">Add Set to Current Exercise</button>
+                </div>
+              </div>
             </div>
 
-            <div class="set3">
-              <br />
-              <br />
-              <input type="text" placeholder="Count" id="count11" />
-              <br />
-              <br />
-              <input type="text" placeholder="Set" id="set11" />
-              <br />
-              <br />
-              <input type="text" placeholder="Weight" id="weight11" />
+            <div className="flip-card">
+              <div className="flip-card-inner">
+                <div className="flip-card-front">
+                  <p>Previous Workout</p>
+                </div>
+                <div className="flip-card-back">
+                  <div className="input-set">
+                    <input type="text" className="input-field" placeholder="Count" />
+                    <input type="text" className="input-field" placeholder="Set" />
+                    <input type="text" className="input-field" placeholder="Weight" />
+                  </div>
+                  <div className="input-set">
+                    <input type="text" className="input-field" placeholder="Count" />
+                    <input type="text" className="input-field" placeholder="Set" />
+                    <input type="text" className="input-field" placeholder="Weight" />
+                  </div>
+                  <div className="input-set">
+                    <input type="text" className="input-field" placeholder="Count" />
+                    <input type="text" className="input-field" placeholder="Set" />
+                    <input type="text" className="input-field" placeholder="Weight" />
+                  </div>
+                </div>
+              </div>
             </div>
+
           </div>
 
 
 
         </div>
-        <div class="card" id="card12">Today
 
-          <div class="group-set12">
-
-            <div class="set1">
-              <br />
-              <br />
-              <input type="text" placeholder="Count" id="count12" />
-              <br />
-              <br />
-              <input type="text" placeholder="Set" id="set12" />
-              <br />
-              <br />
-              <input type="text" placeholder="Weight" id="weight12" />
-            </div>
-
-            <div class="set2">
-              <br />
-              <br />
-              <input type="text" placeholder="Count" id="count12" />
-              <br />
-              <br />
-              <input type="text" placeholder="Set" id="set12" />
-              <br />
-              <br />
-              <input type="text" placeholder="Weight" id="weight12" />
-            </div>
-
-            <div class="set3">
-              <br />
-              <br />
-              <input type="text" placeholder="Count" id="count12" />
-              <br />
-              <br />
-              <input type="text" placeholder="Set" id="set12" />
-              <br />
-              <br />
-              <input type="text" placeholder="Weight" id="weight12" />
-            </div>
-          </div>
-
-
-        </div>
-        <div class="card" id="card13">Tommorrow
-
-          <div class="group-set13">
-            <div class="set1">
-              <br />
-              <br />
-              <input type="text" placeholder="Count" id="count13" />
-              <br />
-              <br />
-              <input type="text" placeholder="Set" id="set13" />
-              <br />
-              <br />
-              <input type="text" placeholder="Weight" id="weight13" />
-            </div>
-
-            <div class="set2">
-              <br />
-              <br />
-              <input type="text" placeholder="Count" id="count13" />
-              <br />
-              <br />
-              <input type="text" placeholder="Set" id="set13" />
-              <br />
-              <br />
-              <input type="text" placeholder="Weight" id="weight13" />
-            </div>
-
-            <div class="set3">
-              <br />
-              <br />
-              <input type="text" placeholder="Count" id="count13" />
-              <br />
-              <br />
-              <input type="text" placeholder="Set" id="set13" />
-              <br />
-              <br />
-              <input type="text" placeholder="Weight" id="weight13" />
-            </div>
-
-          </div>
-
-
-        </div>
-      </div>
-
-    </div >
-
+      </div >
+    </animated.div>
 
 
   )
