@@ -15,12 +15,8 @@
   gap: 11.3rem;
 }
 
-
-
-
-
 .Content {
- margin-left: 4rem;
+  margin-left: 4rem;
   display: flex;
   flex-direction: column;
   gap: 5rem;
