@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { useSpring, animated } from '@react-spring/web';
 
 function Shoulder() {
@@ -24,7 +24,7 @@ function Shoulder() {
 
           <div class="WorkoutTypeCard">
             <div class="Wcard-details">
-              <p class="text-title">Incline Pushups</p>
+              <p class="text-title">Dumbell Shoulder Press</p>
               <p class="text-body">Card Details</p>
             </div>
 
@@ -35,7 +35,7 @@ function Shoulder() {
           <div class="WorkoutTypeCard">
             <div class="Wcard-details">
               <p class="text-title">
-                Plank</p>
+                Front raise</p>
               <p class="text-body">Card Details</p>
             </div>
             <button className="WorkoutTypeCard-button" onClick={ToggleClass} > More info  </button>
@@ -46,7 +46,7 @@ function Shoulder() {
 
           <div class="WorkoutTypeCard">
             <div class="Wcard-details">
-              <p class="text-title">Cable Crossover</p>
+              <p class="text-title">Overhead raise</p>
               <p class="text-body">Card Details</p>
             </div>
             <button className="WorkoutTypeCard-button" onClick={ToggleClass} > More info  </button>
@@ -57,7 +57,7 @@ function Shoulder() {
 
           <div class="WorkoutTypeCard">
             <div class="Wcard-details">
-              <p class="text-title">Chest Fly</p>
+              <p class="text-title">Laternal Raise</p>
               <p class="text-body">Card Details</p>
             </div>
             <button className="WorkoutTypeCard-button" onClick={ToggleClass} > More info  </button>

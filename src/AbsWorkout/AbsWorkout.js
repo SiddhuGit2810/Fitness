@@ -119,7 +119,7 @@ function AbsWorkout() {
                     <input type="text" className="input-field" placeholder="Set" />
                     <input type="text" className="input-field" placeholder="Weight" />
                   </div>
-                  <button className="register-btn">Add Set to Current Exercise</button>
+                  <button className="register-btn">Add set to workout</button>
                 </div>
               </div>
             </div>

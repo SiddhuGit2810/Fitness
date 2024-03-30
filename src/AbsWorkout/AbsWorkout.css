@@ -1,6 +1,3 @@
-
-
-
 .WorkoutDataContainer {
   display: flex;
   flex-direction: row;
@@ -23,7 +20,7 @@
   box-shadow: 1px 1px 1px 0px grey;
 }
 
-.Wcard-details { 
+.Wcard-details {
   color: rgb(98 98 98);
   height: 100%;
   gap: .5em;
@@ -144,7 +141,7 @@
   overflow: hidden;
 }
 
-.flip-card-front p{
+.flip-card-front p {
   font-family: Courier New, Courier, monospace;
   font-weight: 600;
 }
@@ -202,7 +199,7 @@
   border: none;
 }
 
-.register-btn  {
+.register-btn {
   padding: 8px 16px;
   background-color: #63ff4c;
   border: none;
@@ -211,6 +208,10 @@
   cursor: pointer;
   font-size: 16px;
   transition: background-color 1.3s;
+    font-family: Courier New,
+        Courier,
+        monospace;
+    font-weight: 600;
 }
 
 .register-btn:hover {
