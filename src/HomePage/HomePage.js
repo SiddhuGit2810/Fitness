@@ -19,6 +19,12 @@ function HomePage() {
     <animated.div style={slideAnimation}>
       <div className="container">
         <div className="homePageBox">
+          <div className="intro-card">
+            <div className="intro-card-content">
+              <h2>Track your daily workout activities</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque quos error excepturi at vitae modi cupiditate fuga, impedit, nihil rerum vero voluptatibus eius. Cupiditate inventore, commodi dolores debitis expedita eveniet.</p>
+            </div>
+          </div>
           <div className="Abs-card">
             <div className="Abs-card-content">
               <h2>Abs Workout</h2>
@@ -30,7 +36,7 @@ function HomePage() {
                 <path d="M23.9756 18.7773L10.4588 18.7773" stroke="black" stroke-width="2.08134" stroke-linejoin="round" />
                 <path d="M18.7773 12.5395C21.2136 14.9758 22.5796 16.3418 25.0159 18.7781L18.7773 25.0166" stroke="black" stroke-width="2.08134" stroke-linejoin="round" />
               </svg>
-</button>
+              </button>
 
 
             </div>
@@ -47,7 +53,7 @@ function HomePage() {
                 <path d="M23.9756 18.7773L10.4588 18.7773" stroke="black" stroke-width="2.08134" stroke-linejoin="round" />
                 <path d="M18.7773 12.5395C21.2136 14.9758 22.5796 16.3418 25.0159 18.7781L18.7773 25.0166" stroke="black" stroke-width="2.08134" stroke-linejoin="round" />
               </svg>
-</button>
+              </button>
 
 
             </div>
@@ -64,7 +70,7 @@ function HomePage() {
                 <path d="M23.9756 18.7773L10.4588 18.7773" stroke="black" stroke-width="2.08134" stroke-linejoin="round" />
                 <path d="M18.7773 12.5395C21.2136 14.9758 22.5796 16.3418 25.0159 18.7781L18.7773 25.0166" stroke="black" stroke-width="2.08134" stroke-linejoin="round" />
               </svg>
-</button>
+              </button>
 
 
             </div>
@@ -81,11 +87,13 @@ function HomePage() {
                 <path d="M23.9756 18.7773L10.4588 18.7773" stroke="black" stroke-width="2.08134" stroke-linejoin="round" />
                 <path d="M18.7773 12.5395C21.2136 14.9758 22.5796 16.3418 25.0159 18.7781L18.7773 25.0166" stroke="black" stroke-width="2.08134" stroke-linejoin="round" />
               </svg>
-</button>
+              </button>
 
 
             </div>
           </div>
+
+          
         </div>
       </div>
 

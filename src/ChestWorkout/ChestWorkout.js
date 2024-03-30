@@ -128,7 +128,7 @@ function ChestWorkout() {
             <div className="flip-card">
               <div className="flip-card-inner">
                 <div className="flip-card-front">
-                  <p>Previous Workout</p>
+                  <p>Future Workout</p>
                 </div>
                 <div className="flip-card-back">
                   <div className="input-set">

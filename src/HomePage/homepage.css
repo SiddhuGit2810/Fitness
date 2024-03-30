@@ -130,13 +130,33 @@
     background-color: #00d5ff;
 }
 
-.homePageBox{
+.homePageBox {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 2rem;
 }
 
-svg{
+svg {
     padding-bottom: 5px;
+}
+
+.intro-card {
+    background-image: linear-gradient(120deg, #ff8c00, #ff7f7f);;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    width: 89%;
+}
+
+.intro-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.intro-card p {
+    font-size: 16px;
+    color: #ffffff;
 }
