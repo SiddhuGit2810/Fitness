@@ -21,8 +21,9 @@ function AbsWorkout() {
     <animated.div style={slideAnimation}>
       <div className="MainContainer">
 
-        <div className="WorkoutTypeContainer">
+        
 
+        <div className="WorkoutTypeContainer">
 
           <div class="WorkoutTypeCard">
             <div class="Wcard-details">
