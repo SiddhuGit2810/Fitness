@@ -1,13 +1,82 @@
 import React, { useState } from "react";
 import { useSpring, animated } from '@react-spring/web';
 import './LegWorkout.css'
+import axios from "axios";
+
 
 function LegWorkout() {
 
+    const [FitnessData, setFitnessData] = useState([])
+
     const [isActive, setActive] = useState("false")
 
-    const ToggleClass = () => {
+    const ToggleClass = async (data) => {
         setActive(!isActive);
+
+
+        var DateUrl = "https://fitness-60022916701.development.catalystserverless.in/server/ZCQL/getVariantDate"
+
+        var DataUrl = "https://fitness-60022916701.development.catalystserverless.in/server/ZCQL/getVaraiantData"
+
+        var VariantData = {
+            "variantName": data
+        }
+
+        const FitnessDate = await axios.post(DateUrl, VariantData)
+
+        const dates = FitnessDate.data.map(element => element.Previous.DateDa);
+        console.log(dates)
+
+        var todayDate = new Date().toISOString().slice(0, 10);
+
+        var array = []
+
+        dates.forEach(myFucntion)
+
+        function myFucntion(item, index) {
+            const startDate = new Date(item);
+            const endDate = new Date(todayDate);
+
+            const differenceMs = endDate - startDate;
+
+            const daysDifference = Math.floor(differenceMs / (1000 * 60 * 60 * 24));
+
+            array.push(daysDifference)
+
+        }
+
+
+
+        var PostiveNumber = array.filter(number => number >= 0)
+
+        var lowest = Math.min(...PostiveNumber)
+
+        var index = array.indexOf(lowest)
+
+        var PreviousDate = dates[index]
+
+        console.log(PreviousDate)
+
+        var VariantWorkoutData = {
+
+            "variantName": data,
+            "dateTime": PreviousDate
+
+        }
+
+
+        var WorkOutData = await axios.post(DataUrl, VariantWorkoutData)
+
+
+
+
+
+        setFitnessData(WorkOutData.data)
+
+
+
+
+
     };
 
     const slideAnimation = useSpring({
@@ -29,7 +98,7 @@ function LegWorkout() {
                             <p class="text-body">Card Details</p>
                         </div>
 
-                        <button className="WorkoutTypeCard-button" onClick={ToggleClass}> More info  </button>
+                        <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Squats")}> More info  </button>
 
                     </div>
 
@@ -39,7 +108,7 @@ function LegWorkout() {
                                 Leg Press</p>
                             <p class="text-body">Card Details</p>
                         </div>
-                        <button className="WorkoutTypeCard-button" onClick={ToggleClass} > More info  </button>
+                        <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Leg_Press")} > More info  </button>
                     </div>
 
 
@@ -50,10 +119,8 @@ function LegWorkout() {
                             <p class="text-title">Lunge</p>
                             <p class="text-body">Card Details</p>
                         </div>
-                        <button className="WorkoutTypeCard-button" onClick={ToggleClass} > More info  </button>
+                        <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Lunge")} > More info  </button>
                     </div>
-
-
 
 
                     <div class="WorkoutTypeCard">
@@ -61,7 +128,7 @@ function LegWorkout() {
                             <p class="text-title">Dead Lift</p>
                             <p class="text-body">Card Details</p>
                         </div>
-                        <button className="WorkoutTypeCard-button" onClick={ToggleClass} > More info  </button>
+                        <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Dead_Lift")} > More info  </button>
                     </div>
 
                 </div>
@@ -78,21 +145,34 @@ function LegWorkout() {
                                     <p>Previous Workout</p>
                                 </div>
                                 <div className="flip-card-back">
-                                    <div className="input-set">
-                                        <input type="text" className="input-field" placeholder="Count" />
-                                        <input type="text" className="input-field" placeholder="Set" />
-                                        <input type="text" className="input-field" placeholder="Weight" />
-                                    </div>
-                                    <div className="input-set">
-                                        <input type="text" className="input-field" placeholder="Count" />
-                                        <input type="text" className="input-field" placeholder="Set" />
-                                        <input type="text" className="input-field" placeholder="Weight" />
-                                    </div>
-                                    <div className="input-set">
-                                        <input type="text" className="input-field" placeholder="Count" />
-                                        <input type="text" className="input-field" placeholder="Set" />
-                                        <input type="text" className="input-field" placeholder="Weight" />
-                                    </div>
+
+                                    {
+
+                                        FitnessData.map((item) => (
+
+
+
+                                            <>
+
+                                                <div className="input-set">
+                                                    <input type="text" className="input-field" placeholder="Count" value={item.Previous.Set1} />
+                                                    <input type="text" className="input-field" placeholder="Set" value={item.Previous.Set2} />
+                                                    <input type="text" className="input-field" placeholder="Weight" value={item.Previous.Set2} />
+                                                </div>
+                                                <div className="input-set">
+                                                    <input type="text" className="input-field" placeholder="Count" value={item.Previous.Count1} />
+                                                    <input type="text" className="input-field" placeholder="Set" value={item.Previous.Count2} />
+                                                    <input type="text" className="input-field" placeholder="Weight" value={item.Previous.Count3} />
+                                                </div>
+                                                <div className="input-set">
+                                                    <input type="text" className="input-field" placeholder="Count" value={item.Previous.Weight1} />
+                                                    <input type="text" className="input-field" placeholder="Set" value={item.Previous.Weight2} />
+                                                    <input type="text" className="input-field" placeholder="Weight" value={item.Previous.Weight2} />
+                                                </div>
+
+                                            </>
+                                        ))
+                                    }
                                 </div>
                             </div>
                         </div>
