@@ -9,6 +9,7 @@ import Topmenubar from './Topmenubar/Topmenubar';
 import SideBar from './SideNavBar/SideBar';
 import Shoulder from './ShoulderWorkout/Shoulder';
 import HomePage from './HomePage/HomePage';
+import DietHomePage from './Diet/DietHomePage/DietHomePage';
 
 function App() {
   return (
@@ -34,8 +35,36 @@ function App() {
               <Route path="/HomePage" element={<HomePage />} />
 
 
+
+
+              
+
+
             </Routes>
+
+
           </div>
+
+
+              
+              <div className="Diet">
+
+
+    <Routes>
+
+
+      <Route   path='/DietHomePage' element={<DietHomePage/>}   />
+
+
+
+    </Routes>
+
+
+
+              </div>
+
+
+
         </div>
       </div>
     </div>

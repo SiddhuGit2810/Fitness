@@ -89,6 +89,9 @@ function AbsWorkout() {
     to: { transform: 'translateY(0.8rem)', transition: '0.5s ease-out', opacity: '1' },
   });
 
+
+  console.log(FitnessData)
+
   return (
 
     <animated.div style={slideAnimation}>

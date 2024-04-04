@@ -24,7 +24,7 @@ function SideBar() {
         <li className="menu-item" onClick={() => nav('/HomePage')}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M9.82 12H14.18M22.5 14.5V9.5M1.5 14.5V9.5M17.18 18C19.58 18 20.18 16.65 20.18 15V9C20.18 7.35 19.58 6 17.18 6C14.78 6 14.18 7.35 14.18 9V15C14.18 16.65 14.78 18 17.18 18ZM6.82 18C4.42 18 3.82 16.65 3.82 15V9C3.82 7.35 4.42 6 6.82 6C9.22 6 9.82 7.35 9.82 9V15C9.82 16.65 9.22 18 6.82 18Z" stroke="#475569" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg> Workout</li>
-        <li className="menu-item"> <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <li className="menu-item"    onClick={()=> nav('/DietHomepage')}    > <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M21.93 6.75999L18.56 20.29C18.4431 20.7793 18.164 21.2146 17.7681 21.5251C17.3723 21.8355 16.8831 22.0029 16.38 22H3.24001C1.73001 22 0.650007 20.52 1.10001 19.07L5.31001 5.54999C5.45068 5.09149 5.73419 4.68993 6.11915 4.40391C6.50412 4.11788 6.97042 3.96234 7.45001 3.95999H19.75C20.7 3.95999 21.49 4.53999 21.82 5.33999C22.01 5.76999 22.05 6.25999 21.93 6.75999Z" stroke="#475569" stroke-width="1.5" stroke-miterlimit="10" />
           <path d="M16 22H20.78C22.07 22 23.08 20.91 22.99 19.62L22 5.99999M9.68 6.37999L10.72 2.05999M16.38 6.38999L17.32 2.04999M7.7 12H15.7M6.7 16H14.7" stroke="#475569" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
         </svg> Diet</li>
