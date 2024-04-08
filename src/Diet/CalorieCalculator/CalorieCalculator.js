@@ -5,7 +5,7 @@ import './CalorieCalculator.css';
 function CalorieCalculator() {
   const [selectedFood, setSelectedFood] = useState('');
   const [calories, setCalories] = useState(0);
-  const [totalCalories, setTotalCalories] = useState(0);
+  const [totalCalories, setTotalCalories] = useState("");
   const [selectedItems, setSelectedItems] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -39,7 +39,7 @@ function CalorieCalculator() {
     if (selectedFood && calories > 0) {
       const newItem = { food: selectedFood, calories };
       setSelectedItems([...selectedItems, newItem]);
-      setTotalCalories(totalCalories + calories);
+      setTotalCalories(Number(totalCalories) + Number(calories));
       setSelectedFood('');
       setCalories(0);
     }

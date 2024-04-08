@@ -6,7 +6,20 @@ import axios from "axios";
 
 function AbsWorkout() {
 
+  const [formData, setformData] = useState({
+   
+    set1:"",
+    count1:"",
+    weight1:"",
+    set2:"",
+    count2:"",
+    weight2:"",
+    set3:"",
+    count3:"",
+    weight3:""
+  })
 
+  const [PresentWorkoutName, setPresentWorkoutName] =useState("")
 
   const [FitnessData, setFitnessData] = useState([])
 
@@ -16,6 +29,8 @@ function AbsWorkout() {
   const ToggleClass = async (data) => {
     setActive(!isActive);
 
+
+    setPresentWorkoutName(data)
 
     var DateUrl = "https://fitness-60022916701.development.catalystserverless.in/server/ZCQL/getVariantDate"
 
@@ -90,7 +105,65 @@ function AbsWorkout() {
   });
 
 
-  console.log(FitnessData)
+  
+
+
+
+
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setformData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+
+
+
+  const pushData = async (e) =>{
+
+    // e.preventDefault();
+    console.log(formData)
+    console.log(e)
+
+
+         const url="https://fitness-60022916701.development.catalystserverless.in/server/Data/past"
+
+
+console.log(JSON.stringify(formData))
+
+
+
+         const response = await fetch(url, {
+          method: 'POST',
+          body: JSON.stringify(formData),
+          headers: {
+              'content-type': 'application/json'
+          }
+        });
+
+
+var data= await response.json()
+
+console.log(data)
+
+
+
+       setformData( { set1:"",
+       count1:"",
+       weight1:"",
+       set2:"",
+       count2:"",
+       weight2:"",
+       set3:"",
+       count3:"",
+       weight3:""
+  })
+
+  }
+
 
   return (
 
@@ -107,7 +180,7 @@ function AbsWorkout() {
               <p class="text-body">Card Details</p>
             </div>
 
-            <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Mountain_Climbers")}> More info  </button>
+            <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Mountain_Climbers")} > More info  </button>
 
           </div>
 
@@ -209,25 +282,33 @@ function AbsWorkout() {
             <div className="flip-card">
               <div className="flip-card-inner">
                 <div className="flip-card-front">
-                  <p>Present Workout</p>
+                  <p>Present Workout 
+                    
+                  <h6> {PresentWorkoutName} </h6>
+                  </p>
+          
+                            
+                 
                 </div>
                 <div className="flip-card-back">
                   <div className="input-set">
-                    <input type="text" className="input-field" placeholder="Count" />
-                    <input type="text" className="input-field" placeholder="Set" />
-                    <input type="text" className="input-field" placeholder="Weight" />
+               
+                  <input type="text" className="input-field" placeholder="Set" name="set1" value={formData.set1}  onChange={handleChange}/>
+                          <input type="text" className="input-field" placeholder="Set"  name="set2" value={formData.set2}  onChange={handleChange} />
+                          <input type="text" className="input-field" placeholder="Set" name="set3"  value={formData.set3}  onChange={handleChange}/>
+
                   </div>
                   <div className="input-set">
-                    <input type="text" className="input-field" placeholder="Count" />
-                    <input type="text" className="input-field" placeholder="Set" />
-                    <input type="text" className="input-field" placeholder="Weight" />
-                  </div>
+                  <input type="text" className="input-field" placeholder="Count" name="count1" value={formData.count1} onChange={handleChange} />
+                          <input type="text" className="input-field" placeholder="Count" name="count2"value={formData.count2}  onChange={handleChange} />
+                          <input type="text" className="input-field" placeholder="Count" name="count3"value={formData.count3}  onChange={handleChange}/>
+                  </div> 
                   <div className="input-set">
-                    <input type="text" className="input-field" placeholder="Count" />
-                    <input type="text" className="input-field" placeholder="Set" />
-                    <input type="text" className="input-field" placeholder="Weight" />
+                  <input type="text" className="input-field" placeholder="Weight" name="weight1" value={formData.weight1} onChange={handleChange} />
+                          <input type="text" className="input-field" placeholder="Weight"  name="weight2" value={formData.weight2}  onChange={handleChange}/>
+                          <input type="text" className="input-field" placeholder="Weight" name="weight3"value={formData.weight3}  onChange={handleChange} />
                   </div>
-                  <button className="register-btn">Add set to workout</button>
+                  <button className="register-btn" onClick={ ()=>pushData(PresentWorkoutName)}  >Add set to workout</button>
                 </div>
               </div>
             </div>
