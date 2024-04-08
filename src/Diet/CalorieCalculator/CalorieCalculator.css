@@ -1,0 +1,238 @@
+.container {
+    width: 50%;
+    float: left;
+}
+
+.dropdown-content {
+    scrollbar-width: thin;
+    scrollbar-color: #ccc #f9f9f9;
+
+}
+
+.dropdown-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+    background: #f9f9f9;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 8px;
+}
+
+.calorie-calculator {
+    padding: 30px;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.calorie-calculator h2 {
+    font-size: 26px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.heading h4 {
+    font-size: 26px;
+    /* text-transform: uppercase; */
+}
+
+.foodinput {
+    display: grid;
+}
+
+.dropdown {
+    position: relative;
+    margin-top: 10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    /* margin-top: 3rem; */
+    align-items: center;
+    height: 20vh;
+    overflow: hidden;
+}
+
+.dropdown-content input[type="text"] {
+    width: calc(100% - 35px) !important;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    background-color: #f9f9f9;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+
+.dropdown-content:hover {
+    overflow-y: scroll;
+    height: 20vh;
+}
+
+/* .dropdown-content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+} */
+
+.dropdown-content li {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    /* overflow: hidden; */
+}
+
+.dropdown-content .food-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown-content .food-item:hover {
+    background-color: orange;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content {
+    animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.food,
+.calories {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    max-width: 50%;
+    border: none;
+    border-radius: 25px;
+    background-color: #f0f0f0;
+    font-size: 16px;
+    color: #333;
+}
+
+.calories {
+    margin-top: 10px;
+}
+
+#add {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+#remove {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    background-color: orange;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+/* input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+    color: #999;
+} */
+
+.dropdown-content input[type="text"] {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    width: calc(100% - 20px);
+    position: sticky;
+    top: 0;
+    background-color: #f9f9f9;
+    z-index: 2;
+}
+
+#add {
+    cursor: pointer;
+    background-color: #8BC34A;
+    color: #fff;
+    margin-top: 20px;
+    width: 25%;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#add:hover {
+    background-color: #4CAF50;
+}
+
+.selected-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+.selected-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #f5f5f5;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.total:hover {
+    transform: translateY(-5px);
+}
+
+#clear-all {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: #E57373;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+#clear-all:hover {
+    background-color: #F44336;
+}
+
+.total {
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #f5f5f5;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-top: 20px;
+}
