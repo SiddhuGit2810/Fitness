@@ -31,7 +31,7 @@ function CalorieCalculator() {
 
   const handleFoodItemClick = (food) => {
     setSelectedFood(food.Food);
-    setCalories(food.Calorie);
+    setCalories(food.Calorie_Value);
     setShowDropdown(false);
   };
 
