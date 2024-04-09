@@ -1,12 +1,11 @@
-.container1,
+/* .container1,
 .container2 {
     display: flex;
     justify-content: space-evenly;
     width: 900px;
     margin: 50px auto;
     position: relative;
-    /* height: 90px; */
-}
+} */
 
 .card {
     width: 200px;
@@ -136,4 +135,13 @@
 .card:hover {
     transform: scale(1.1);
 
+}
+
+
+.leg-container {
+
+    display: flex;
+    flex-direction: column;
+    gap: 7rem;
+    padding-left: 2rem;
 }

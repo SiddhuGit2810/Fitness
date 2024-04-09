@@ -17,7 +17,7 @@ function HomePage() {
 
 
     <animated.div style={slideAnimation}>
-      <div className="container">
+      <div className="Home-page-container">
         <div className="homePageBox">
           <div className="intro-card">
             <div className="intro-card-content">

@@ -26,7 +26,7 @@ function CalorieMeter() {
 
 
     return (
-        <div className="container">
+        <div className="calorie-calc-container">
             <div className="div">
             {/* <div className="calorie-calc"> */}
             <form className='calorie-meter'>

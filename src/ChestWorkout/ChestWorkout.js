@@ -89,7 +89,7 @@ function ChestWorkout() {
 
   return (
     <animated.div style={slideAnimation}>
-      <div className="container">
+      <div className="chest-container">
 
         <div className="WorkoutTypeContainer">
 

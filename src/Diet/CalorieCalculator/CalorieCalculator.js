@@ -96,7 +96,7 @@ console.log(post)
 
 
   return (
-    <div className="container">
+    <div className="calorie-container">
       <div className="calorie-calculator">
         <h2>Calorie Calculator</h2>
         <div className="foodinput">

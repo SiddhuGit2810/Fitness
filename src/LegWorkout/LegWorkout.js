@@ -87,7 +87,7 @@ function LegWorkout() {
 
     return (
         <animated.div style={slideAnimation}>
-            <div className="container">
+            <div className="leg-container">
 
                 <div className="WorkoutTypeContainer">
 

@@ -39,7 +39,7 @@
     transition: 0.3s;
 }
 
-.container{
+.calorie-calc-container{
     background-color: white;
     margin: 10rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
