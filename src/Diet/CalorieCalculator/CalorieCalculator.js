@@ -61,6 +61,13 @@ function CalorieCalculator() {
     item.Food.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+
+  const handleCalorie =()=>{
+
+    
+  }
+
+
   return (
     <div className="container">
       <div className="calorie-calculator">
@@ -87,6 +94,9 @@ function CalorieCalculator() {
                   placeholder="Search food..."
                 />
                 </div>
+
+
+
                 <ul>
                   {filteredFoodItems.map((food, index) => (
                     <li key={index} className="food-item" onClick={() => handleFoodItemClick(food)}>
@@ -97,6 +107,12 @@ function CalorieCalculator() {
               </div>
             )}
           </div>
+         <label htmlFor="">Date</label>
+
+        {/* to be done alex */}
+          <input type="date" className='calories'  value="2024-01-01"/>
+
+          {}
           <label htmlFor="calories">Calories:</label>
           <input
             type="number"
@@ -117,7 +133,7 @@ function CalorieCalculator() {
             ))}
           </ul>
           <button id="clear-all" onClick={handleClearAllClick}>Clear All</button>
-          <div className='total'>Total Calories: {totalCalories}</div>
+          <div className='total'>Total Calories: {totalCalories}   <button id='add'  onClick={handleCalorie} > Save Progress</button>   </div>
         </div>
       </div>
     </div>

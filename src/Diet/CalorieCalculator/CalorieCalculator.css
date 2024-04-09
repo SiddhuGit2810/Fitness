@@ -189,6 +189,9 @@ input[type="number"]::placeholder {
     transition: background-color 0.3s ease;
 }
 
+
+
+
 #add:hover {
     background-color: #4CAF50;
 }
@@ -236,3 +239,10 @@ input[type="number"]::placeholder {
     transition: transform 0.3s ease;
     margin-top: 20px;
 }
+.dropdown  input:focus {
+    outline: none;
+  }
+
+  .calories:focus {
+    outline: none;
+  }

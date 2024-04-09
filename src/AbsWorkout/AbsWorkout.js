@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './AbsWorkout.css'
 import { useSpring, animated } from '@react-spring/web';
 import axios from "axios";
 
 
 function AbsWorkout() {
+  const [PresentWorkoutName, setPresentWorkoutName] =useState("")
+const [error,setError] = useState("")
 
+  const[date,setDate]=useState("")
   const [formData, setformData] = useState({
    
     set1:"",
@@ -16,10 +19,15 @@ function AbsWorkout() {
     weight2:"",
     set3:"",
     count3:"",
-    weight3:""
+    weight3:"",
+    variant:"",
+    date:""
+
   })
 
-  const [PresentWorkoutName, setPresentWorkoutName] =useState("")
+  console.log(formData)
+
+
 
   const [FitnessData, setFitnessData] = useState([])
 
@@ -40,12 +48,16 @@ function AbsWorkout() {
       "variantName": data
     }
 
+
+
     const FitnessDate = await axios.post(DateUrl, VariantData)
 
     const dates = FitnessDate.data.map(element => element.Previous.DateDa);
-    console.log(dates)
+  
 
     var todayDate = new Date().toISOString().slice(0, 10);
+
+  
 
     var array = []
 
@@ -112,57 +124,93 @@ function AbsWorkout() {
 
 
   const handleChange = (e) => {
+  
     const { name, value } = e.target;
     setformData({
       ...formData,
+    
       [name]: value,
+    
+  
+
     });
   };
 
 
 
+  useEffect(() => {
+    var todayDate = new Date().toISOString().slice(0, 10);
+    setDate(todayDate);
 
-  const pushData = async (e) =>{
-
-    // e.preventDefault();
-    console.log(formData)
-    console.log(e)
-
-
-         const url="https://fitness-60022916701.development.catalystserverless.in/server/Data/past"
-
-
-console.log(JSON.stringify(formData))
-
+    setformData({
+      ...formData,
+      variant: PresentWorkoutName,
+      date: todayDate
+    });
+  }, [PresentWorkoutName]);
+  
 
 
-         const response = await fetch(url, {
-          method: 'POST',
-          body: JSON.stringify(formData),
-          headers: {
-              'content-type': 'application/json'
-          }
-        });
+   async function pushData() {
+
+   
 
 
-var data= await response.json()
-
-console.log(data)
+try{
 
 
+  const url="https://fitness-60022916701.development.catalystserverless.in/server/Data/past"
 
-       setformData( { set1:"",
-       count1:"",
-       weight1:"",
-       set2:"",
-       count2:"",
-       weight2:"",
-       set3:"",
-       count3:"",
-       weight3:""
-  })
 
+  console.log(JSON.stringify(formData))
+  
+  
+
+  
+  
+  
+      const response =  await axios.post(url,formData );
+    
+    console.log(response)
+  
+}
+catch (err){
+
+  if(err.response.data === "Request failed with status 409 and code : DUPLICATE_VALUE , message : Duplicate value for DateDa. Please give a different value" ){
+    setError("Record Already exist for date")
   }
+ 
+
+}
+
+
+
+   }
+
+  
+
+
+
+
+
+  
+   
+
+        
+
+         
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   return (
@@ -285,12 +333,14 @@ console.log(data)
                   <p>Present Workout 
                     
                   <h6> {PresentWorkoutName} </h6>
+                  <h6>{error}</h6>
                   </p>
           
                             
                  
                 </div>
                 <div className="flip-card-back">
+                  
                   <div className="input-set">
                
                   <input type="text" className="input-field" placeholder="Set" name="set1" value={formData.set1}  onChange={handleChange}/>
@@ -308,7 +358,7 @@ console.log(data)
                           <input type="text" className="input-field" placeholder="Weight"  name="weight2" value={formData.weight2}  onChange={handleChange}/>
                           <input type="text" className="input-field" placeholder="Weight" name="weight3"value={formData.weight3}  onChange={handleChange} />
                   </div>
-                  <button className="register-btn" onClick={ ()=>pushData(PresentWorkoutName)}  >Add set to workout</button>
+                  <button className="register-btn" onClick={ ()=>pushData()}  >Add set to workout</button>
                 </div>
               </div>
             </div>
