@@ -158,20 +158,32 @@ const [error,setError] = useState("")
 
 try{
 
+  console.log(FitnessData)
 
-  const url="https://fitness-60022916701.development.catalystserverless.in/server/Data/past"
+  if(FitnessData.length === 0) {
+
+    console.log("in")
+
+    const url="https://fitness-60022916701.development.catalystserverless.in/server/Data/past"
 
 
-  console.log(JSON.stringify(formData))
-  
-  
-
-  
-  
-  
-      const response =  await axios.post(url,formData );
+    console.log(JSON.stringify(formData))
     
-    console.log(response)
+    
+  
+    
+    
+    
+        const response =  await axios.post(url,formData );
+      
+      console.log(response)
+
+  }
+else{
+  setError("Record Already exist for date")
+
+}
+ 
   
 }
 catch (err){
