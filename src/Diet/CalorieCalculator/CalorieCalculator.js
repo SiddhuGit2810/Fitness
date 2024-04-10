@@ -64,6 +64,39 @@ function CalorieCalculator() {
     item.Food.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+
+  const handleCalorie = async () => {
+
+    var calUrl = "https://fitness-60022916701.development.catalystserverless.in/server/Data/caloriecalculator"
+
+    var foodArray = []
+
+    selectedItems.map((item, index) => {
+      foodArray.push((index + 1) + " " + item.food)
+    })
+
+    var food = foodArray.join(', ')
+    console.log(foodArray)
+    console.log(totalCalories)
+    var todayDate = new Date().toISOString().slice(0, 10);
+    console.log(todayDate)
+
+
+    var calorieData = {
+
+      "foods": food,
+      "calories": totalCalories,
+      "date": todayDate
+    }
+
+
+    const post = await axios.post(calUrl, (calorieData))
+
+    console.log(post)
+
+
+  }
+
   return (
     <div className="c-container">
       <div className="calorie-calculator">
@@ -120,6 +153,7 @@ function CalorieCalculator() {
           </ul>
           <button id="clear-all" onClick={handleClearAllClick}>Clear All</button>
           <div className='total'>Total Calories: {totalCalories}</div>
+          <button id='saveProgress' onClick={handleCalorie} >Save Progress</button>
         </div>
       </div>
      </div>

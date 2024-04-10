@@ -148,15 +148,13 @@ input:focus{
 }
 
 #add {
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding: 10px 15px;
     border: none;
     border-radius: 25px;
     font-size: 16px;
+    width: 25%;
 }
 
-#remove {
+#remove , #saveProgress, #add, #clear-all{
     padding: 10px 15px;
     border: none;
     border-radius: 25px;
@@ -164,6 +162,9 @@ input:focus{
     cursor: pointer;
     margin-top: 15px;
 }
+
+
+
 
 
 .quantity {
@@ -196,7 +197,7 @@ input[type="number"]::placeholder {
     z-index: 2;
 }
 
-#add {
+/* #add {
     cursor: pointer;
     background-color: #8BC34A;
     color: #fff;
@@ -204,7 +205,7 @@ input[type="number"]::placeholder {
     width: 25%;
     font-weight: bold;
     transition: background-color 0.3s ease;
-}
+} */
 
 
 
@@ -231,7 +232,7 @@ input[type="number"]::placeholder {
     transform: translateY(-5px);
 }
 
-#clear-all {
+/* #clear-all {
     margin-top: 20px;
     padding: 10px 20px;
     border-radius: 25px;
@@ -241,7 +242,7 @@ input[type="number"]::placeholder {
     font-weight: bold;
     transition: background-color 0.3s ease;
     cursor: pointer;
-}
+} */
 
 #clear-all:hover {
     background-color: #F44336;
