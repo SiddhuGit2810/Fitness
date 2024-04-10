@@ -11,12 +11,14 @@ function CalorieCalculator() {
   const [searchTerm, setSearchTerm] = useState('');
   const [quantity, setQuantity] = useState(1);
   const [foodItems, setFoodItems] = useState([]);
+  const [protein,  setProtein] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get("https://fitness-60022916701.development.catalystserverless.in/server/ZCQL_DIET/diet");
         setFoodItems(response.data);
+        // console.log(response.data[0].Protien_Value)
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -34,17 +36,19 @@ function CalorieCalculator() {
   const handleFoodItemClick = (food) => {
     setSelectedFood(food.Food);
     setCalories(food.Calorie_Value);
+    setProtein(food.Protien_Value)
     setShowDropdown(false);
   };
 
   const handleAddItemClick = () => {
-    if (selectedFood && calories > 0 && quantity > 0) {
-      const newItem = { food: selectedFood, calories, quantity };
+    if (selectedFood && calories > 0 && quantity > 0 && protein > 0) {
+      const newItem = { food: selectedFood, calories, quantity, protein };
       setSelectedItems([...selectedItems, newItem]);
-      setTotalCalories(totalCalories + (calories * quantity));
+      setTotalCalories(totalCalories +(calories * quantity));
       setSelectedFood('');
       setCalories(0);
       setQuantity(1);
+      setProtein('')
     }
   };
 
@@ -96,6 +100,7 @@ function CalorieCalculator() {
 
 
   }
+  
 
   return (
     <div className="c-container">
@@ -131,7 +136,14 @@ function CalorieCalculator() {
             value={calories}
             onChange={(e) => setCalories(parseInt(e.target.value))}
           />
-          <label htmlFor="Quantity">Quantity</label>
+          <label htmlFor="protein">Protein value:</label>
+          <input type="number"
+            id="protein"
+            placeholder='Protein Value'
+            value={protein}
+          />
+
+          <label htmlFor="Quantity">Quantity:</label>
           <input
             type="number"
             placeholder="Quantity"
@@ -141,12 +153,13 @@ function CalorieCalculator() {
           />
           <button id='add' onClick={handleAddItemClick}>Add</button>
         </div>
+        
         <div className='heading'>
           <h4>Selected Items</h4>
           <ul className="selected-items">
             {selectedItems.map((item, index) => (
               <li key={index} className="selected-item">
-                <div>{item.food} - {item.quantity}: Nos - Calories: {item.calories * item.quantity}</div>
+                <div>{item.food} - {item.quantity}: Nos - Calories: {item.calories * item.quantity} Protein: {item.protein * item.quantity}</div>
                 <button id='remove' onClick={() => handleRemoveItemClick(index)}>Remove</button>
               </li>
             ))}

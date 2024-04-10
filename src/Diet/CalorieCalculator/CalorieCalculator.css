@@ -43,7 +43,12 @@
 
 .foodinput {
     display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+        /* grid-gap: 5px; */
+        align-items: center;
 }
+
 
 .dropdown {
     position: relative;
@@ -76,7 +81,7 @@
 }
 
 
-input:focus{
+input:focus {
     outline: none;
 }
 
@@ -93,7 +98,7 @@ input:focus{
 
 .dropdown-content li {
     color: black;
-    padding: 12px 16px;
+    /* padding: 12px 16px; */
     text-decoration: none;
     display: block;
     transition: background-color 0.3s ease;
@@ -111,7 +116,7 @@ input:focus{
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
+    display: block !important;
 }
 
 .dropdown-content {
@@ -131,15 +136,15 @@ input:focus{
 }
 
 .food,
-.calories {
-    margin-right: 10px;
+.calories, #protein{
+    /* margin-right: 10px; */
     margin-bottom: 10px;
     padding: 10px 15px;
     max-width: 50%;
     border: none;
     border-radius: 25px;
     background-color: #f0f0f0;
-    font-size: 16px;
+    /* font-size: 16px; */
     color: #333;
 }
 
@@ -154,7 +159,10 @@ input:focus{
     width: 25%;
 }
 
-#remove , #saveProgress, #add, #clear-all{
+#remove,
+#saveProgress,
+#add,
+#clear-all{
     padding: 10px 15px;
     border: none;
     border-radius: 25px;
