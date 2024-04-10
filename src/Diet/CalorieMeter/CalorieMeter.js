@@ -69,13 +69,13 @@ function CalorieMeter() {
                    
                 </div>
             </form>
-            
             </div>
             {showcalcmeter &&(
             <div className="calcmeter">
-                <div>your calorie level is: {bmr}</div> 
+                <div>your calorie level is: {bmr}</div>
             </div>
             )}
+            <div className='empty'></div>
         </div>
     );
 }

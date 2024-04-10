@@ -1,5 +1,5 @@
-.calorie-container {
-    margin: 2rem;
+.calorie-calculator {
+    margin: 1.5rem;
 }
 
 .dropdown-content {
@@ -75,6 +75,10 @@
     z-index: 2;
 }
 
+
+input:focus{
+    outline: none;
+}
 
 .dropdown-content:hover {
     overflow-y: scroll;
@@ -161,6 +165,20 @@
     margin-top: 15px;
 }
 
+
+.quantity {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    max-width: 50%;
+    border: none;
+    border-radius: 25px;
+    background-color: #f0f0f0;
+    font-size: 16px;
+    color: #333;
+    margin-top: 10px;
+}
+
 /* input[type="text"]::placeholder,
 input[type="number"]::placeholder {
     color: #999;
@@ -230,7 +248,6 @@ input[type="number"]::placeholder {
 }
 
 .total {
-    margin-bottom: 15px;
     padding: 15px;
     border-radius: 15px;
     background-color: #f5f5f5;
