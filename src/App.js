@@ -10,65 +10,28 @@ import SideBar from './SideNavBar/SideBar';
 import Shoulder from './Workout/ShoulderWorkout/Shoulder';
 import HomePage from './HomePage/HomePage';
 import DietHomePage from './Diet/DietHomePage/DietHomePage';
+import Login from './Login/Login';
+import MainPage from './MainPage/MainPage';
 
 function App() {
   return (
-    <div className="App">
-      <div className="MainPage">
-        <div className="SideBar">
-          <SideBar />
-        </div>
-        <div className="Content">
-<div className="TopMenuBar">
-<Topmenubar />
+
+<>
+
+<div className="Login">
+
+<Routes>
+
+<Route path='/Load' element={<Login/>}/>
+
+</Routes>
+
 </div>
-           
-      
-          <div className="WorkOutPage">
-            <Routes>
-              <Route path='/ChestWorkout' element={<ChestWorkout />} />
-              <Route path='/ShoulderWorkout' element={<Shoulder />} />
-              <Route path="/AbsWorkout" element={<AbsWorkout />} />
-              <Route path="/LegWorkout" element={<LegWorkout />} />
-              <Route path="/OtherWorkout" element={<OtherWorkout />} />
 
-              <Route path="/HomePage" element={<HomePage />} />
+ 
 
 
-
-
-              
-
-
-            </Routes>
-
-
-          </div>
-
-
-              
-              <div className="Diet">
-
-
-    <Routes>
-
-
-      <Route   path='/DietHomePage' element={<DietHomePage/>}   />
-
-
-
-    </Routes>
-
-
-
-              </div>
-
-
-
-        </div>
-      </div>
-    </div>
-
+    </>
   )
 }
 

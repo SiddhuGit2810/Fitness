@@ -5,6 +5,7 @@ import App from './App';
 
 
 import {BrowserRouter } from 'react-router-dom'
+import MainPage from './MainPage/MainPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,7 +13,11 @@ root.render(
 
 <BrowserRouter>
 
+
 <App />
+
+
+<MainPage/>
 
 </BrowserRouter>
 
