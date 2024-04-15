@@ -4,25 +4,13 @@ import './index.css';
 import App from './App';
 
 
-import {BrowserRouter } from 'react-router-dom'
-import MainPage from './MainPage/MainPage';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-
-<BrowserRouter>
-
-
 <App />
-
-
-<MainPage/>
-
-</BrowserRouter>
-
-   
-  </React.StrictMode>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

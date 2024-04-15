@@ -1,0 +1,27 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  
+  
+  
+  
+  .MainPage {
+    display: flex;
+    flex-direction: row;
+  
+    gap: 11.3rem;
+  }
+  .Content {
+    margin-left: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+  
+  .WorkOutPage {
+    flex-grow: 1;
+  }

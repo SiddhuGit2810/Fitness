@@ -2,6 +2,7 @@ import React from 'react'
 import './homepage.css'
 import { useNavigate } from 'react-router-dom';
 import { useSpring, animated } from '@react-spring/web';
+import SideBar from '../SideNavBar/SideBar';
 
 function HomePage() {
 
@@ -17,7 +18,13 @@ function HomePage() {
 
 
     <animated.div style={slideAnimation}>
+
+
+
+
+
       <div className="Home-page-container">
+      
         <div className="homePageBox">
           <div className="intro-card">
             <div className="intro-card-content">

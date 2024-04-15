@@ -8,6 +8,8 @@ function AbsWorkout() {
   const [PresentWorkoutName, setPresentWorkoutName] =useState("")
 const [error,setError] = useState("")
 
+const [prevDate, setprevDate] = useState("")
+
   const[date,setDate]=useState("")
   const [formData, setformData] = useState({
    
@@ -85,7 +87,7 @@ const [error,setError] = useState("")
 
     var PreviousDate = dates[index]
 
-    console.log(PreviousDate)
+    setprevDate(PreviousDate)
 
     var VariantWorkoutData = {
 
@@ -151,6 +153,7 @@ const [error,setError] = useState("")
   
 
 
+
    async function pushData() {
 
    
@@ -158,9 +161,9 @@ const [error,setError] = useState("")
 
 try{
 
-  console.log(FitnessData)
+  console.log("inside try " + FitnessData[0].Previous.DateDa)
 
-  if(FitnessData.length === 0) {
+  if( new Date(FitnessData[0].Previous.DateDa) < new Date (date)) {
 
     console.log("in")
 
@@ -286,7 +289,9 @@ catch (err){
             <div className="flip-card">
               <div className="flip-card-inner">
                 <div className="flip-card-front">
-                  <p>Previous Workout</p>
+             
+                  <p>Previous Workout   <br />  <h6>{prevDate} </h6></p>
+              
                 </div>
                 <div className="flip-card-back">
 
