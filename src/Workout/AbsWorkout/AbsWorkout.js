@@ -28,12 +28,7 @@ const [prevDate, setprevDate] = useState("")
   })
 
   console.log(formData)
-
-
-
   const [FitnessData, setFitnessData] = useState([])
-
-
   const [isActive, setActive] = useState("false")
 
   const ToggleClass = async (data) => {
@@ -118,13 +113,6 @@ const [prevDate, setprevDate] = useState("")
     to: { transform: 'translateY(0.8rem)', transition: '0.5s ease-out', opacity: '1' },
   });
 
-
-  
-
-
-
-
-
   const handleChange = (e) => {
   
     const { name, value } = e.target;
@@ -201,33 +189,6 @@ catch (err){
 
 
    }
-
-  
-
-
-
-
-
-  
-   
-
-        
-
-         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   return (
 
     <animated.div style={slideAnimation}>
@@ -352,11 +313,9 @@ catch (err){
                   <h6> {PresentWorkoutName} </h6>
                   <h6>{error}</h6>
                   </p>
-          
-                            
-                 
                 </div>
                 <div className="flip-card-back">
+                  
                   
                   <div className="input-set">
                
@@ -370,6 +329,7 @@ catch (err){
                           <input type="text" className="input-field" placeholder="Count" name="count2"value={formData.count2}  onChange={handleChange} />
                           <input type="text" className="input-field" placeholder="Count" name="count3"value={formData.count3}  onChange={handleChange}/>
                   </div> 
+
                   <div className="input-set">
                   <input type="text" className="input-field" placeholder="Weight" name="weight1" value={formData.weight1} onChange={handleChange} />
                           <input type="text" className="input-field" placeholder="Weight"  name="weight2" value={formData.weight2}  onChange={handleChange}/>
