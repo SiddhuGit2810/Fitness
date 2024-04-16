@@ -183,9 +183,9 @@ console.log(WorkOutData)
 
       console.log(err)
 
-      // if (err.response.data === "Request failed with status 409 and code : DUPLICATE_VALUE , message : Duplicate value for DateDa. Please give a different value") {
-      //   setError("Record Already exist for date")
-      // }
+      if (err.response.data === "Request failed with status 409 and code : DUPLICATE_VALUE , message : Duplicate value for DateDa. Please give a different value") {
+        setError("Record Already exist for date")
+      }
 
 
     }

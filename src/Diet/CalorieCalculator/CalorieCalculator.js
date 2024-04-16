@@ -11,7 +11,8 @@ function CalorieCalculator() {
   const [searchTerm, setSearchTerm] = useState('');
   const [quantity, setQuantity] = useState(1);
   const [foodItems, setFoodItems] = useState([]);
-  const [protein,  setProtein] = useState();
+  const [protein, setProtein] = useState('');
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,7 +42,7 @@ function CalorieCalculator() {
   };
 
   const handleAddItemClick = () => {
-    if (selectedFood && calories > 0 && quantity > 0 && protein > 0) {
+    if (selectedFood && calories > 0 && quantity > 0 && protein !== '') {
       const newItem = { food: selectedFood, calories, quantity, protein };
       setSelectedItems([...selectedItems, newItem]);
       setTotalCalories(totalCalories +(calories * quantity));

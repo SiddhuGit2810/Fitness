@@ -1,8 +1,8 @@
-.meter-content{
+.meter-content {
     padding: 30px;
 }
 
-.meter-content input{
+.meter-content input {
     background-color: #cdd3df;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     border: none;
@@ -15,62 +15,81 @@
 
 .meter-content input:focus {
     outline: none;
-  }
-  
-
-  .meter-content input::placeholder{
-    text-align: right;
-  }
-
-.meter-content label{
-    font-family:Arial, Helvetica, sans-serif
 }
 
-.meter-content button{
+.meter-content input::placeholder {
+    text-align: right;
+}
+
+.meter-content label {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.meter-content button {
     margin-top: 15px;
-    /* background-color: #4dc4ef; */
     background-color: rgb(255, 180, 30);
     border: none;
     padding: 8px;
     border-radius: 8px;
 }
-.meter-content button:hover{
+
+.meter-content button:hover {
     transform: translateY(-3px);
     transition: 0.3s;
 }
 
-.calorie-calc-container{
+.calorie-calc-container {
     background-color: white;
-    /* margin: 10rem; */
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.form-header{
+.form-header {
     text-align: center;
     margin-top: 20px;
 }
 
-.form-header svg{
+.form-header svg {
     height: 20px;
     margin-right: 0.6rem;
     padding-top: 15px;
 }
 
-.form-header h3{
+.form-header h3 {
     margin-top: 5px;
 }
 
-.calcmeter{
+.calcmeter {
     background-color: white;
-    margin: 0  2rem;
+    margin: 0 2rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    border-radius: 5px; 
+    border-radius: 5px;
     display: flex;
     padding: 10px;
-    
+    align-items: center;
 }
 
-.empty{
+.empty {
     padding: 20px;
+}
+
+.meter-content input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #cdd3df;
+    border: none;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    vertical-align: middle;
+    padding: 10px;
+}
+
+.meter-content input[type="radio"]:checked {
+    background-color: orange;
 }
