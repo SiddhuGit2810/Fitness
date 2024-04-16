@@ -80,7 +80,9 @@ function ChestWorkout() {
 
     var PreviousDate = dates[index]
 
-    console.log(PreviousDate)
+    
+    setprevDate(PreviousDate)
+
 
     var VariantWorkoutData = {
 
@@ -92,7 +94,7 @@ function ChestWorkout() {
 
     var WorkOutData = await axios.post(DataUrl, VariantWorkoutData)
 
-
+console.log(WorkOutData)
 
 
 
@@ -103,6 +105,9 @@ function ChestWorkout() {
 
 
   };
+
+
+
 
 
   const slideAnimation = useSpring({
@@ -146,7 +151,7 @@ function ChestWorkout() {
 
     try {
 
-      // console.log("inside try " + FitnessData[0].Previous.DateDa)
+      console.log("inside try " + FitnessData[0].Previous.DateDa)
 
       if (new Date(FitnessData[0].Previous.DateDa) < new Date(date)) {
 
@@ -176,11 +181,11 @@ function ChestWorkout() {
     }
     catch (err) {
 
-      console.log(err.response.data)
+      console.log(err)
 
-      if (err.response.data === "Request failed with status 409 and code : DUPLICATE_VALUE , message : Duplicate value for DateDa. Please give a different value") {
-        setError("Record Already exist for date")
-      }
+      // if (err.response.data === "Request failed with status 409 and code : DUPLICATE_VALUE , message : Duplicate value for DateDa. Please give a different value") {
+      //   setError("Record Already exist for date")
+      // }
 
 
     }
