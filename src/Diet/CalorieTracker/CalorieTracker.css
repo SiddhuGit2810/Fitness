@@ -1,0 +1,57 @@
+.table-container {
+    background: #FFFFFF;
+    box-shadow: 0px 8px 24px rgba(69, 69, 80, 0.1);
+    margin-top: 5rem;
+    border-radius: 5px;
+    overflow-y: auto;
+    height: 200px;
+}
+
+
+
+ table {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+table th, table td {
+    padding: 8px; 
+    border: 1px solid #ddd;
+    text-align: left;
+    cursor: pointer;
+}
+
+table th{
+    background-color: rgb(255, 198, 92);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.table-container tr:nth-child(odd) {
+    background-color: rgb(255, 212, 132);
+}
+
+/* Define scrollbar width and color */
+.table-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Define scrollbar track color */
+.table-container::-webkit-scrollbar-track {
+    background: #FFFFFF;
+    
+}
+
+/* Define scrollbar thumb color */
+.table-container::-webkit-scrollbar-thumb {
+    background: #cbcbcb;
+    border-radius: 10px;
+}
+
+/* Define scrollbar thumb on hover */
+.table-container::-webkit-scrollbar-thumb:hover {
+    background: #cbcbcb;
+}

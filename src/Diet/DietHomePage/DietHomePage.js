@@ -2,6 +2,8 @@ import React from 'react'
 import CalorieCalculator from '../CalorieCalculator/CalorieCalculator'
 import CalorieMeter from '../CalorieMeter/CalorieMeter'
 
+import CalorieTracker from '../CalorieTracker/CalorieTracker'
+
 import './DietHomePage.css'
 
 function DietHomePage() {
@@ -11,9 +13,19 @@ function DietHomePage() {
 
     <div>DietHomePage</div>
 <div className="DietContainer">
-<div className="">  <CalorieCalculator/>   </div>
+
+  <div className="First"><div className="">  <CalorieCalculator/>   </div>
 
 <div className=""> <CalorieMeter/> </div>
+ </div>
+
+<div className="Second">
+
+<div className=""> <CalorieTracker/> </div>
+
+</div>
+
+
 
 </div>
 

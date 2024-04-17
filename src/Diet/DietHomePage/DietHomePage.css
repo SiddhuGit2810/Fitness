@@ -1,4 +1,11 @@
 .DietContainer{
     display: flex;
+    flex-direction: column;
+}
+
+.First{
+
+    display: flex;
     flex-direction: row;
 }
+
