@@ -1,8 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSpring, animated } from '@react-spring/web';
 import axios from "axios";
 
 function Shoulder() {
+
+  const [PresentWorkoutName, setPresentWorkoutName] = useState("")
+  const [error, setError] = useState("")
+
+  const [prevDate, setprevDate] = useState("")
+
+  const [date, setDate] = useState("")
+  const [formData, setformData] = useState({
+
+    set1: "",
+    count1: "",
+    weight1: "",
+    set2: "",
+    count2: "",
+    weight2: "",
+    set3: "",
+    count3: "",
+    weight3: "",
+    variant: "",
+    date: ""
+
+  })
+
+  console.log(formData)
 
   const [FitnessData, setFitnessData] = useState([])
 
@@ -11,6 +35,7 @@ function Shoulder() {
   const ToggleClass = async (data) => {
     setActive(!isActive);
 
+    setPresentWorkoutName(data)
 
     var DateUrl = "https://fitness-60022916701.development.catalystserverless.in/server/ZCQL/getVariantDate"
 
@@ -52,7 +77,8 @@ function Shoulder() {
     var index = array.indexOf(lowest)
 
     var PreviousDate = dates[index]
-
+    
+    setprevDate(PreviousDate)
     console.log(PreviousDate)
 
     var VariantWorkoutData = {
@@ -81,6 +107,84 @@ function Shoulder() {
     from: { transform: 'translateY(-50px)', opacity: '0' },
     to: { transform: 'translateY(0.8rem)', transition: '0.5s ease-out', opacity: '1' },
   });
+
+  const handleChange = (e) => {
+
+    const { name, value } = e.target;
+    setformData({
+      ...formData,
+
+      [name]: value,
+
+
+
+    });
+  };
+
+
+  useEffect(() => {
+    var todayDate = new Date().toISOString().slice(0, 10);
+    setDate(todayDate);
+
+    setformData({
+      ...formData,
+      variant: PresentWorkoutName,
+      date: todayDate
+    });
+  }, [PresentWorkoutName]);
+
+
+
+
+  async function pushData() {
+
+
+
+
+    try {
+
+      console.log("inside try " + FitnessData[0].Previous.DateDa)
+
+      if (new Date(FitnessData[0].Previous.DateDa) < new Date(date)) {
+
+        console.log("in")
+
+        const url = "https://fitness-60022916701.development.catalystserverless.in/server/Data/past"
+
+
+        console.log(JSON.stringify(formData))
+
+
+
+
+
+
+        const response = await axios.post(url, formData);
+
+        console.log(response)
+
+      }
+      else {
+        setError("Record Already exist for date")
+
+      }
+
+
+    }
+    catch (err) {
+
+      console.log(err)
+
+      if (err.response.data === "Request failed with status 409 and code : DUPLICATE_VALUE , message : Duplicate value for DateDa. Please give a different value") {
+        setError("Record Already exist for date")
+      }
+
+
+    }
+
+
+
+  }
 
 
   return (
@@ -142,7 +246,7 @@ function Shoulder() {
             <div className="flip-card">
               <div className="flip-card-inner">
                 <div className="flip-card-front">
-                  <p>Previous Workout</p>
+                  <p>Previous Workout   <br />  <h6>{prevDate} </h6></p>
                 </div>
 
                       <div className="flip-card-back">
@@ -181,25 +285,31 @@ function Shoulder() {
             <div className="flip-card">
               <div className="flip-card-inner">
                 <div className="flip-card-front">
-                  <p>Present Workout</p>
+                  <p>Present Workout
+
+                    <h6> {PresentWorkoutName} </h6>
+                    <h6>{error}</h6>
+                  </p>
                 </div>
                 <div className="flip-card-back">
                   <div className="input-set">
-                    <input type="text" className="input-field" placeholder="Count" />
-                    <input type="text" className="input-field" placeholder="Set" />
-                    <input type="text" className="input-field" placeholder="Weight" />
+
+                    <input type="text" className="input-field" placeholder="Set" name="set1" value={formData.set1} onChange={handleChange} />
+                    <input type="text" className="input-field" placeholder="Set" name="set2" value={formData.set2} onChange={handleChange} />
+                    <input type="text" className="input-field" placeholder="Set" name="set3" value={formData.set3} onChange={handleChange} />
+
                   </div>
                   <div className="input-set">
-                    <input type="text" className="input-field" placeholder="Count" />
-                    <input type="text" className="input-field" placeholder="Set" />
-                    <input type="text" className="input-field" placeholder="Weight" />
+                    <input type="text" className="input-field" placeholder="Count" name="count1" value={formData.count1} onChange={handleChange} />
+                    <input type="text" className="input-field" placeholder="Count" name="count2" value={formData.count2} onChange={handleChange} />
+                    <input type="text" className="input-field" placeholder="Count" name="count3" value={formData.count3} onChange={handleChange} />
                   </div>
                   <div className="input-set">
-                    <input type="text" className="input-field" placeholder="Count" />
-                    <input type="text" className="input-field" placeholder="Set" />
-                    <input type="text" className="input-field" placeholder="Weight" />
+                    <input type="text" className="input-field" placeholder="Weight" name="weight1" value={formData.weight1} onChange={handleChange} />
+                    <input type="text" className="input-field" placeholder="Weight" name="weight2" value={formData.weight2} onChange={handleChange} />
+                    <input type="text" className="input-field" placeholder="Weight" name="weight3" value={formData.weight3} onChange={handleChange} />
                   </div>
-                  <button className="register-btn">Add Set to Current Exercise</button>
+                  <button className="register-btn" onClick={() => pushData()} >Add Set to Current Exercise</button>
                 </div>
               </div>
             </div>
