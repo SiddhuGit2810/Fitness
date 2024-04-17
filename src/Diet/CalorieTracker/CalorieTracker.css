@@ -3,12 +3,13 @@
     box-shadow: 0px 8px 24px rgba(69, 69, 80, 0.1);
     margin-top: 2.5rem;
     border-radius: 10px;
-    max-height: 250px;
-    overflow: hidden;
-    /* Hide overflow from the container */
+    overflow-y: auto;
+    height: 250px;
 }
 
-.table-container table {
+
+
+ table {
     font-family: Arial, sans-serif;
     border-collapse: collapse;
     border-radius: 10px;
@@ -16,23 +17,18 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.table-container table thead {
-    position: sticky;
-    top: 0;
-    background-color: #fff;
-    z-index: 1;
-}
-
-.table-container th,
-.table-container td {
-    padding: 8px;
+table th, table td {
+    padding: 8px; 
     border: 1px solid #ddd;
     text-align: left;
     cursor: pointer;
 }
 
-.table-container th {
+table th{
     background-color: rgb(255, 198, 92);
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .table-container tr:nth-child(odd) {
@@ -40,23 +36,24 @@
 }
 
 /* Define scrollbar width and color */
-.table-container tbody::-webkit-scrollbar {
+.table-container::-webkit-scrollbar {
     width: 8px;
     border-radius: 10px;
 }
 
 /* Define scrollbar track color */
-.table-container tbody::-webkit-scrollbar-track {
+.table-container::-webkit-scrollbar-track {
     background: #FFFFFF;
+    
 }
 
 /* Define scrollbar thumb color */
-.table-container tbody::-webkit-scrollbar-thumb {
+.table-container::-webkit-scrollbar-thumb {
     background: #cbcbcb;
     border-radius: 10px;
 }
 
 /* Define scrollbar thumb on hover */
-.table-container tbody::-webkit-scrollbar-thumb:hover {
+.table-container::-webkit-scrollbar-thumb:hover {
     background: #cbcbcb;
 }
