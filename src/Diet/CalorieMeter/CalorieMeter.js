@@ -50,8 +50,8 @@ function CalorieMeter() {
                                 </filter>
                             </defs>
                         </svg>
-                        <br />
-                        <h3>Calorie Metre</h3>
+                        {/* <br /> */}
+                        <h2>CALORIE METER</h2>
                     </div>
                     <div className="meter-content">
 

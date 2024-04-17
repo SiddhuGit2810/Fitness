@@ -1,11 +1,19 @@
-.DietContainer{
-    display: flex;
-    flex-direction: column;
+.DietContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
-.First{
-
-    display: flex;
-    flex-direction: row;
+.First {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
+
+@media (max-width: 768px) {
+    .First {
+        grid-template-columns: 1fr;
+    }
+}

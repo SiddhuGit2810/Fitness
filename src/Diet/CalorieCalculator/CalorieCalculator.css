@@ -25,7 +25,8 @@
     padding: 30px;
     border-radius: 20px;
     background-color: #fff;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: auto;
 }
 
 .calorie-calculator h2 {

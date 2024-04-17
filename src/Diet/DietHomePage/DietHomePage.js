@@ -16,14 +16,16 @@ function DietHomePage() {
 
   <div className="First"><div className="">  <CalorieCalculator/>   </div>
 
-<div className=""> <CalorieMeter/> </div>
+<div className=""> <CalorieMeter/> 
+            <div className="Second">
+
+              <div className=""> <CalorieTracker /> </div>
+
+            </div>
+            </div>
  </div>
 
-<div className="Second">
 
-<div className=""> <CalorieTracker/> </div>
-
-</div>
 
 
 
