@@ -21,6 +21,7 @@ function CalorieTracker() {
                             <th>Food</th>
                             <th>Calorie</th>
                             <th>Protein</th>
+                            
                         </tr>
                     </thead>
                     <tbody className="table-body-container">

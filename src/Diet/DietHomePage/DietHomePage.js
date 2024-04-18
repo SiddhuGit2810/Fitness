@@ -9,29 +9,29 @@ import './DietHomePage.css'
 function DietHomePage() {
   return (
 
-<>
+    <>
 
-    <div>DietHomePage</div>
-<div className="DietContainer">
+      <div>DietHomePage</div>
+      <div className="DietContainer">
 
-  <div className="First"><div className="">  <CalorieCalculator/>   </div>
+        <div className="First"><div className="">  <CalorieCalculator />   </div>
 
-<div className=""> <CalorieMeter/> 
-            <div className="Second">
+          <div className=""> <CalorieMeter />
+            
+          </div>
+        </div>
+        <div className="Second">
 
-              <div className=""> <CalorieTracker /> </div>
+          <div className=""> <CalorieTracker /> </div>
 
-            </div>
-            </div>
- </div>
-
-
-
+        </div>
 
 
-</div>
 
-  
+
+      </div>
+
+
 
 
     </>

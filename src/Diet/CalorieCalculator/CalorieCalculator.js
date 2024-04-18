@@ -122,7 +122,7 @@ function CalorieCalculator() {
               <div className="dropdown-content">
                 <ul>
                   {filteredFoodItems.map((food, index) => (
-                    <li key={index} className="food-item" onClick={() => handleFoodItemClick(food)}>
+                    <li className="food-item" onClick={() => handleFoodItemClick(food)}>
                       {food.Food}
                     </li>
                   ))}

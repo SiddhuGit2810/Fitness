@@ -1,5 +1,3 @@
-
-
 .meter-content input {
     background-color: #cdd3df;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -41,21 +39,18 @@
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 15px;
-    display: flex;
     width: 100%;
-    flex-direction: column;
-    align-items: center;
+    padding: 40px;
 }
 
 .form-header {
+
     text-align: center;
     margin-top: 20px;
 }
 
 .form-header svg {
     height: 20px;
-    /* margin-right: 0.6rem;
-    padding-top: 15px; */
 }
 
 .form-header h2 {

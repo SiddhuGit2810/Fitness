@@ -44,10 +44,10 @@
 
 .foodinput {
     display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-        grid-gap: 1rem;
-        align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 1rem;
+    align-items: center;
 }
 
 
@@ -114,6 +114,7 @@ input:focus {
 
 .dropdown-content .food-item:hover {
     background-color: orange;
+    border-radius: 15px;
 }
 
 .dropdown:hover .dropdown-content {
@@ -137,7 +138,8 @@ input:focus {
 }
 
 .food,
-.calories, #protein{
+.calories,
+#protein {
     /* margin-right: 10px; */
     margin-bottom: 10px;
     padding: 10px 15px;
@@ -153,6 +155,10 @@ input:focus {
     margin-top: 10px;
 }
 
+.food {
+    width: 100%;
+}
+
 #add {
     border: none;
     border-radius: 25px;
@@ -163,7 +169,7 @@ input:focus {
 #remove,
 #saveProgress,
 #add,
-#clear-all{
+#clear-all {
     padding: 10px 15px;
     border: none;
     border-radius: 25px;
