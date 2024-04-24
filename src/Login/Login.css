@@ -1,3 +1,115 @@
-.d{
-    background-color: blue;
+.form-container {
+    background-color: white;
+    margin: 2rem;
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 0.75rem;
+    width: 320px;
+}
+
+.title {
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+}
+
+.form {
+    margin-top: 1.5rem;
+}
+
+.input-group {
+    margin-top: 0.75em;
+    font-size: 1rem;
+    line-height: 1.25rem;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    color: rgba(156, 163, 175, 1);
+}
+
+.input-group #email,
+#password {
+    width: 100%;
+    border-radius: 1rem;
+    /* border: 1px solid rgba(55, 65, 81, 1); */
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    /* background-color: rgba(17, 24, 39, 1); */
+    padding: 0.75rem 1rem;
+    color: rgb(54, 54, 54);
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group svg {
+    position: absolute;
+    left: 11rem;
+    top: 45%;
+    transform: translateY(-50%);
+    height: 23px;
+    cursor: pointer;
+}
+
+#email:focus,
+#password:focus {
+    outline: none;
+    border: 3px solid orange;
+}
+
+.forgot {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: rgba(156, 163, 175, 1);
+    margin: 8px 0 14px 0;
+}
+
+.forgot a {
+    text-decoration: none;
+    font-size: 14px;
+    color: black;
+}
+
+.sign {
+    width: 100%;
+    background-color: orange;
+    padding: 0.75rem;
+    text-align: center;
+    color: rgba(17, 24, 39, 1);
+    border: none;
+    border-radius: 0.9rem;
+    font-weight: 600;
+}
+
+.signup {
+    text-align: center;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: rgba(156, 163, 175, 1);
+}
+
+.signup a {
+    text-decoration: none;
+}
+
+.sign h6{
+    margin-top: 2px;
+}
+
+.sign h6:hover {
+    transform: translateY(-2px);
+    transition: 0.2s ease;
+}
+
+p {
+    margin-top: 1px;
+    margin-bottom: 0rem;
+    padding-top: 10px;
+    text-align: center;
+    font-size: larger;
 }
