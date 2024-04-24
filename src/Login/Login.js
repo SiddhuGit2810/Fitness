@@ -69,7 +69,7 @@ function Form() {
             setPass('')
             setemail('')
             setTimeout(()=>{
-                navigate('/mainpage/HomePage')
+                navigate('/HomePage')
             }, 1000)
 
         } catch (error) {
