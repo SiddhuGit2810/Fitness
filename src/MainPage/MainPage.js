@@ -10,12 +10,6 @@ import LegWorkout from '../Workout/LegWorkout/LegWorkout';
 import Shoulder from '../Workout/ShoulderWorkout/Shoulder';
 import HomePage from '../HomePage/HomePage';
 import DietHomePage from '../Diet/DietHomePage/DietHomePage';
-
-
-
-
-
-
 import '../MainPage/MainPage.css';
 
 function MainPage() {

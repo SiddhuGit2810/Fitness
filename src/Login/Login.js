@@ -63,7 +63,7 @@ function Form() {
                 Email: email,
                 Password: password
             });
-            console.log(response)
+            console.log(response.data)
             setlogincomplete(response.data);
 
             setPass('')
@@ -92,7 +92,7 @@ function Form() {
     }
 
     return (
-        <div>
+        <div className='box'>
             <div className="login-container">
                 <p className="title">Login</p>
                 <form className="form">
@@ -110,7 +110,7 @@ function Form() {
                             <a href="#">Forgot Password ?</a>
                         </div>
                     </div>
-                    <button className="sign" onClick={(e) => loginIn(e)}><h6>Log in</h6></button>
+                    <button className="sign" onClick={(e) => loginIn(e)}><h4>Log in</h4></button>
                 </form>
                 <p className="signup">Don't have an account?
                     <a href="#" className="" onClick={handleclick}> Sign up</a>
