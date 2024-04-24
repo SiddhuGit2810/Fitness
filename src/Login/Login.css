@@ -103,11 +103,11 @@
     text-decoration: none;
 }
 
-.sign h6 {
+/* .sign h4 {
     margin-top: 2px;
-}
+} */
 
-.sign h6:hover {
+.sign h3:hover {
     transform: translateY(-2px);
     transition: 0.2s ease;
 }
