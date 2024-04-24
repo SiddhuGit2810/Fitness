@@ -65,17 +65,17 @@ function Form() {
             });
             console.log(response)
             setlogincomplete(response.data);
-            
+
             setPass('')
             setemail('')
-            setTimeout(()=>{
+            setTimeout(() => {
                 navigate('/HomePage')
             }, 1000)
 
         } catch (error) {
             console.error("Login error:", error);
             seterror(error.response.data);
-            
+
             // if (error.response) {
 
             // } else {
@@ -93,7 +93,7 @@ function Form() {
 
     return (
         <div>
-            <div className="form-container">
+            <div className="login-container">
                 <p className="title">Login</p>
                 <form className="form">
                     <div className="input-group">
@@ -115,7 +115,7 @@ function Form() {
                 <p className="signup">Don't have an account?
                     <a href="#" className="" onClick={handleclick}> Sign up</a>
                 </p>
-                { logincomplete && <p className='loginsucess'>{logincomplete.message}</p>}
+                {logincomplete && <p className='loginsucess'>{logincomplete.message}</p>}
                 {error && <p className="error">{error.message}</p>}
 
             </div>

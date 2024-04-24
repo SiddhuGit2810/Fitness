@@ -1,27 +1,39 @@
-.App {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
-  
-  
-  
-  
-  
-  .MainPage {
-    display: flex;
-    flex-direction: row;
-  
-    gap: 11.3rem;
-  }
-  .Content {
-    margin-left: 4rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-  }
-  
-  .WorkOutPage {
-    flex-grow: 1;
-  }
+/* MainPage.css */
+
+.MainPage {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  position: relative;
+  /* Ensure MainPage acts as a positioning context for its children */
+}
+
+.SideBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  /* Ensure the side bar is behind the content */
+}
+
+.Content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  position: relative;
+  /* Establish a positioning context for its children */
+  margin-left: 241px;
+  /* Adjust the margin to make space for the side bar */
+}
+
+.TopMenuBar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  /* Ensure the top menu bar appears above the content */
+}
+
+.WorkOutPage {
+  flex-grow: 1;
+}

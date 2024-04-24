@@ -1,4 +1,4 @@
-.form-container {
+.login-container {
     background-color: white;
     margin: 2rem;
     padding: 2rem;
@@ -97,7 +97,7 @@
     text-decoration: none;
 }
 
-.sign h6{
+.sign h6 {
     margin-top: 2px;
 }
 

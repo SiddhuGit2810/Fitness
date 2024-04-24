@@ -40,6 +40,7 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 15px;
     width: 100%;
+    right: auto;
     padding: 40px;
 }
 
@@ -66,10 +67,10 @@
     padding: 10px;
     align-items: center;
 }
-
+/* 
 .empty {
     padding: 20px;
-}
+} */
 
 .meter-content input[type="radio"] {
     -webkit-appearance: none;

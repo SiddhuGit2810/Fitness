@@ -1,7 +1,9 @@
 /* TopMenu.css */
 
+/* Styles for the top navbar */
 .top-menu {
     position: sticky;
+    /* Make the navbar sticky */
     top: 0;
     z-index: 1000;
     background-color: #ffffff;
@@ -12,6 +14,7 @@
     padding: 10px 20px;
 }
 
+/* Styles for the search bar */
 .search-bar {
     display: flex;
     align-items: center;
@@ -42,6 +45,12 @@
     padding-bottom: 0;
 }
 
+/* Styles for the right icons */
+.right-icons {
+    display: flex;
+    align-items: center;
+}
+
 .right-icons button {
     background-color: transparent;
     border: none;
@@ -57,7 +66,7 @@
     transform: scale(1.1);
 }
 
-
+/* Styles for the title/message */
 .title-msg {
     text-align: left;
     flex-grow: 1;
