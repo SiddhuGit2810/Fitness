@@ -59,12 +59,12 @@ function Form() {
         // console.log(loginhashedpassword)
 
         try {
-            const response = await axios.post("https://fitness-60022916701.development.catalystserverless.in/server/login/userlogin", {
+            const response = await axios.post("https://fitness-60022916701.development.catalystserverless.in/server/siddhupac/userlogin", {
                 Email: email,
                 Password: password
             });
             console.log(response)
-            setlogincomplete(response);
+            setlogincomplete(response.data);
 
             setPass('')
             setemail('')
