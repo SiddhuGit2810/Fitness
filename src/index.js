@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 
-
+import { EmailContext } from './Usecontext/UseContext';
 
 
 
@@ -14,6 +14,9 @@ root.render(
 
 
 <App />
+
+
+
 
 
     

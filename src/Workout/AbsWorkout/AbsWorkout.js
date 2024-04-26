@@ -1,10 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import './AbsWorkout.css'
 import { useSpring, animated } from '@react-spring/web';
 import axios from "axios";
+import { EmailContext } from '../../Usecontext/UseContext'; 
 
 
-function AbsWorkout() {
+function AbsWorkout({email} ) {
+
+  console.log("hello")
+console.log(email)
+// console.log(EmailContext)
+
+  
+// const email = useContext(EmailContext)
+
+  // console.log(email)
+
+
   const [PresentWorkoutName, setPresentWorkoutName] =useState("")
 const [error,setError] = useState("")
 
@@ -26,6 +38,7 @@ const [prevDate, setprevDate] = useState("")
     date:""
 
   })
+
 
   console.log(formData)
   const [FitnessData, setFitnessData] = useState([])

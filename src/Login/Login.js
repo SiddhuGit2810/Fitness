@@ -1,16 +1,30 @@
 // Login
 
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import './Login.css';
 import { Icon } from 'react-icons-kit';
 import { eyeOff } from 'react-icons-kit/feather/eyeOff';
 import { eye } from 'react-icons-kit/feather/eye';
-import bcrypt from 'bcryptjs-react'
+
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 
-function Form() {
+import { EmailContext } from '../Usecontext/UseContext';
+import AbsWorkout from '../Workout/AbsWorkout/AbsWorkout';
+
+import { Routes, Route } from 'react-router-dom';
+
+
+function Login() {
+
+    
+      
+    
+
+   
+const[contextEmail,setcontextEmail]= useState("slim.siddhu@gmail.com")
+
 
     const [pass, setPass] = useState('');
     const [type, setType] = useState('password');
@@ -52,6 +66,7 @@ function Form() {
         e.preventDefault()
         const email = emailRef.current.value
         const password = passwordRef.current.value
+        setcontextEmail(email)
         // console.log("email " + email)
         // console.log("password " + password)
 
@@ -65,12 +80,16 @@ function Form() {
             });
             console.log(response)
             setlogincomplete(response.data);
+           
 
             setPass('')
             setemail('')
             setTimeout(() => {
                 navigate('/HomePage')
             }, 1000)
+              
+             
+   
 
         } catch (error) {
             console.error("Login error:", error);
@@ -91,8 +110,19 @@ function Form() {
         navigate('/Login')
     }
 
+
+console.log(contextEmail)
+
     return (
+
+        <EmailContext.Provider value={{contextEmail}}>
+           
+            
         <div className='box'>
+
+
+
+            
             <div className="login-container">
                 <p className="title">Login</p>
                 <form className="form">
@@ -120,7 +150,9 @@ function Form() {
 
             </div>
         </div>
+
+        </EmailContext.Provider>
     );
 }
 
-export default Form;
+export default Login;

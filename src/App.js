@@ -6,16 +6,20 @@ import Login from './Login/Login';
 import MainPage from './MainPage/MainPage';
 import HomePage from './HomePage/HomePage';
 
+import { EmailContext } from './Usecontext/UseContext';
+
+
+
 
 
 function App() {
 
   // const nav=useNavigate()
   
-  const user=false
+  // const user=false
   return (
 
-
+<EmailContext.Provider>
 
     <BrowserRouter>
       <Routes>
@@ -25,6 +29,10 @@ function App() {
         <Route path="/*" element={  <MainPage />} />
       </Routes>
     </BrowserRouter>
+
+    </EmailContext.Provider>
+  
+   
   );
 }
 
