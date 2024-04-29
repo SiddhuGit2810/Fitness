@@ -11,20 +11,15 @@ import { useNavigate } from 'react-router-dom';
 
 
 import { EmailContext } from '../Usecontext/UseContext';
-import AbsWorkout from '../Workout/AbsWorkout/AbsWorkout';
 
-import { Routes, Route } from 'react-router-dom';
+
 
 
 function Login() {
 
-    
-      
-    
 
-   
-const[contextEmail,setcontextEmail]= useState("slim.siddhu@gmail.com")
 
+const { setcontextemail } = useContext(EmailContext)
 
     const [pass, setPass] = useState('');
     const [type, setType] = useState('password');
@@ -66,7 +61,9 @@ const[contextEmail,setcontextEmail]= useState("slim.siddhu@gmail.com")
         e.preventDefault()
         const email = emailRef.current.value
         const password = passwordRef.current.value
-        setcontextEmail(email)
+
+        setcontextemail(email)
+     
         // console.log("email " + email)
         // console.log("password " + password)
 
@@ -79,7 +76,7 @@ const[contextEmail,setcontextEmail]= useState("slim.siddhu@gmail.com")
                 Password: password
             });
             console.log(response)
-            setlogincomplete(response.data);
+            setlogincomplete(response.data.message);
            
 
             setPass('')
@@ -89,18 +86,18 @@ const[contextEmail,setcontextEmail]= useState("slim.siddhu@gmail.com")
             }, 1000)
               
              
+         
    
 
         } catch (error) {
-            console.error("Login error:", error);
-            seterror(error.response.data);
+            console.error("Login error:", error)
 
-            // if (error.response) {
 
-            // } else {
-            //     seterror("An error occurred during login");
-            // }
+
+           
         }
+
+       
 
     };
 
@@ -111,17 +108,17 @@ const[contextEmail,setcontextEmail]= useState("slim.siddhu@gmail.com")
     }
 
 
-console.log(contextEmail)
+
 
     return (
 
-        <EmailContext.Provider value={{contextEmail}}>
+       
            
             
         <div className='box'>
 
 
-
+{/* <AbsWorkout></AbsWorkout> */}
             
             <div className="login-container">
                 <p className="title">Login</p>
@@ -145,13 +142,13 @@ console.log(contextEmail)
                 <p className="signup">Don't have an account?
                     <a href="#" className="" onClick={handleclick}> Sign up</a>
                 </p>
-                {logincomplete && <p className='loginsucess'>{logincomplete.message}</p>}
-                {error && <p className="error">{error.message}</p>}
+                {logincomplete && <p className='loginsucess'>{logincomplete}</p>}
+                {error && <p className="error">{error}</p>}
 
             </div>
         </div>
 
-        </EmailContext.Provider>
+       
     );
 }
 

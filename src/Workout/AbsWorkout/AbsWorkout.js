@@ -5,10 +5,11 @@ import axios from "axios";
 import { EmailContext } from '../../Usecontext/UseContext'; 
 
 
-function AbsWorkout({email} ) {
+function AbsWorkout( ) {
 
-  console.log("hello")
-console.log(email)
+  const  contextEmail  = useContext(EmailContext) || {} // Consuming context correctly
+
+  console.log("Email from context:", contextEmail);
 // console.log(EmailContext)
 
   
@@ -100,14 +101,16 @@ const [prevDate, setprevDate] = useState("")
     var VariantWorkoutData = {
 
       "variantName": data,
-      "dateTime": PreviousDate
+      "dateTime": PreviousDate,
+      "email":contextEmail.contextemail
+      
 
     }
-
+console.log(VariantWorkoutData)
 
     var WorkOutData = await axios.post(DataUrl, VariantWorkoutData)
 
-    // console.log(WorkOutData)
+    console.log(WorkOutData)
 
 
 

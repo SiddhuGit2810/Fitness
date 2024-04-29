@@ -7,6 +7,7 @@ import MainPage from './MainPage/MainPage';
 import HomePage from './HomePage/HomePage';
 
 import { EmailContext } from './Usecontext/UseContext';
+import { useState } from 'react';
 
 
 
@@ -14,12 +15,14 @@ import { EmailContext } from './Usecontext/UseContext';
 
 function App() {
 
+  const [contextemail, setcontextemail] = useState("")
+
   // const nav=useNavigate()
   
   // const user=false
   return (
 
-<EmailContext.Provider>
+<EmailContext.Provider value={{contextemail,setcontextemail}} >
 
     <BrowserRouter>
       <Routes>
