@@ -1,8 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, {useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import './CalorieCalculator.css';
+import { EmailContext } from '../../Usecontext/UseContext';
 
 function CalorieCalculator() {
+
+  const contextEmail = useContext(EmailContext) || {} // Consuming context correctly
+
+  console.log("Email from context:", contextEmail);
+
   const [selectedFood, setSelectedFood] = useState('');
   const [calories, setCalories] = useState(0);
   const [totalCalories, setTotalCalories] = useState(0);
@@ -91,7 +97,8 @@ function CalorieCalculator() {
 
       "foods": food,
       "calories": totalCalories,
-      "date": todayDate
+      "date": todayDate,
+      "Email": contextEmail.contextemail
     }
 
 

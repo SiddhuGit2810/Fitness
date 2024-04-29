@@ -1,10 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { useSpring, animated } from '@react-spring/web';
 import "./ChestWorkout.css"
 import axios from "axios";
+import { EmailContext } from '../../Usecontext/UseContext';
 
 
 function ChestWorkout() {
+
+  const contextEmail = useContext(EmailContext) || {} // Consuming context correctly
+
+  console.log("Email from context:", contextEmail);
+
   const [PresentWorkoutName, setPresentWorkoutName] = useState("")
   const [error, setError] = useState("")
 
@@ -87,7 +93,8 @@ function ChestWorkout() {
     var VariantWorkoutData = {
 
       "variantName": data,
-      "dateTime": PreviousDate
+      "dateTime": PreviousDate,
+      "email": contextEmail.contextemail
 
     }
 

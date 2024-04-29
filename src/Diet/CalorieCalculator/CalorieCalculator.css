@@ -114,7 +114,7 @@ input:focus {
 
 .dropdown-content .food-item:hover {
     background-color: orange;
-    border-radius: 15px;
+    /* border-radius: 8px; */
 }
 
 .dropdown:hover .dropdown-content {

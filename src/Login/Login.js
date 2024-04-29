@@ -91,6 +91,7 @@ const { setcontextemail } = useContext(EmailContext)
 
         } catch (error) {
             console.error("Login error:", error)
+            seterror(error.response.data.message)
 
 
 

@@ -2,41 +2,34 @@ import React, { useContext, useEffect, useState } from "react";
 import './AbsWorkout.css'
 import { useSpring, animated } from '@react-spring/web';
 import axios from "axios";
-import { EmailContext } from '../../Usecontext/UseContext'; 
+import { EmailContext } from '../../Usecontext/UseContext';
 
 
-function AbsWorkout( ) {
+function AbsWorkout() {
 
-  const  contextEmail  = useContext(EmailContext) || {} // Consuming context correctly
+  const contextEmail = useContext(EmailContext) || {} // Consuming context correctly
 
   console.log("Email from context:", contextEmail);
-// console.log(EmailContext)
 
-  
-// const email = useContext(EmailContext)
+  const [PresentWorkoutName, setPresentWorkoutName] = useState("")
+  const [error, setError] = useState("")
 
-  // console.log(email)
+  const [prevDate, setprevDate] = useState("")
 
-
-  const [PresentWorkoutName, setPresentWorkoutName] =useState("")
-const [error,setError] = useState("")
-
-const [prevDate, setprevDate] = useState("")
-
-  const[date,setDate]=useState("")
+  const [date, setDate] = useState("")
   const [formData, setformData] = useState({
-   
-    set1:"",
-    count1:"",
-    weight1:"",
-    set2:"",
-    count2:"",
-    weight2:"",
-    set3:"",
-    count3:"",
-    weight3:"",
-    variant:"",
-    date:""
+
+    set1: "",
+    count1: "",
+    weight1: "",
+    set2: "",
+    count2: "",
+    weight2: "",
+    set3: "",
+    count3: "",
+    weight3: "",
+    variant: "",
+    date: ""
 
   })
 
@@ -64,11 +57,11 @@ const [prevDate, setprevDate] = useState("")
     const FitnessDate = await axios.post(DateUrl, VariantData)
 
     const dates = FitnessDate.data.map(element => element.Previous.DateDa);
-  
+
 
     var todayDate = new Date().toISOString().slice(0, 10);
 
-  
+
 
     var array = []
 
@@ -102,11 +95,11 @@ const [prevDate, setprevDate] = useState("")
 
       "variantName": data,
       "dateTime": PreviousDate,
-      "email":contextEmail.contextemail
-      
+      "email": contextEmail.contextemail
+
 
     }
-console.log(VariantWorkoutData)
+    console.log(VariantWorkoutData)
 
     var WorkOutData = await axios.post(DataUrl, VariantWorkoutData)
 
@@ -130,14 +123,14 @@ console.log(VariantWorkoutData)
   });
 
   const handleChange = (e) => {
-  
+
     const { name, value } = e.target;
     setformData({
       ...formData,
-    
+
       [name]: value,
-    
-  
+
+
 
     });
   };
@@ -154,57 +147,57 @@ console.log(VariantWorkoutData)
       date: todayDate
     });
   }, [PresentWorkoutName]);
-  
 
 
 
-   async function pushData() {
 
-   
-
-
-try{
-
-  console.log("inside try " + FitnessData[0].Previous.DateDa)
-
-  if( new Date(FitnessData[0].Previous.DateDa) < new Date (date)) {
-
-    console.log("in")
-
-    const url="https://fitness-60022916701.development.catalystserverless.in/server/Data/past"
+  async function pushData() {
 
 
-    console.log(JSON.stringify(formData))
-    
-    
-  
-    
-    
-    
-        const response =  await axios.post(url,formData );
-      
-      console.log(response)
+
+
+    try {
+
+      console.log("inside try " + FitnessData[0].Previous.DateDa)
+
+      if (new Date(FitnessData[0].Previous.DateDa) < new Date(date)) {
+
+        console.log("in")
+
+        const url = "https://fitness-60022916701.development.catalystserverless.in/server/Data/past"
+
+
+        console.log(JSON.stringify(formData))
+
+
+
+
+
+
+        const response = await axios.post(url, formData);
+
+        console.log(response)
+
+      }
+      else {
+        setError("Record Already exist for date")
+
+      }
+
+
+    }
+    catch (err) {
+
+      if (err.response.data === "Request failed with status 409 and code : DUPLICATE_VALUE , message : Duplicate value for DateDa. Please give a different value") {
+        setError("Record Already exist for date")
+      }
+
+
+    }
+
+
 
   }
-else{
-  setError("Record Already exist for date")
-
-}
- 
-  
-}
-catch (err){
-
-  if(err.response.data === "Request failed with status 409 and code : DUPLICATE_VALUE , message : Duplicate value for DateDa. Please give a different value" ){
-    setError("Record Already exist for date")
-  }
- 
-
-}
-
-
-
-   }
   return (
 
     <animated.div style={slideAnimation}>
@@ -266,9 +259,9 @@ catch (err){
             <div className="flip-card">
               <div className="flip-card-inner">
                 <div className="flip-card-front">
-             
+
                   <p>Previous Workout   <br />  <h6>{prevDate} </h6></p>
-              
+
                 </div>
                 <div className="flip-card-back">
 
@@ -324,34 +317,34 @@ catch (err){
             <div className="flip-card">
               <div className="flip-card-inner">
                 <div className="flip-card-front">
-                  <p>Present Workout 
-                    
-                  <h6> {PresentWorkoutName} </h6>
-                  <h6>{error}</h6>
+                  <p>Present Workout
+
+                    <h6> {PresentWorkoutName} </h6>
+                    <h6>{error}</h6>
                   </p>
                 </div>
                 <div className="flip-card-back">
-                  
-                  
+
+
                   <div className="input-set">
-               
-                  <input type="text" className="input-field" placeholder="Set" name="set1" value={formData.set1}  onChange={handleChange}/>
-                          <input type="text" className="input-field" placeholder="Set"  name="set2" value={formData.set2}  onChange={handleChange} />
-                          <input type="text" className="input-field" placeholder="Set" name="set3"  value={formData.set3}  onChange={handleChange}/>
+
+                    <input type="text" className="input-field" placeholder="Set" name="set1" value={formData.set1} onChange={handleChange} />
+                    <input type="text" className="input-field" placeholder="Set" name="set2" value={formData.set2} onChange={handleChange} />
+                    <input type="text" className="input-field" placeholder="Set" name="set3" value={formData.set3} onChange={handleChange} />
 
                   </div>
                   <div className="input-set">
-                  <input type="text" className="input-field" placeholder="Count" name="count1" value={formData.count1} onChange={handleChange} />
-                          <input type="text" className="input-field" placeholder="Count" name="count2"value={formData.count2}  onChange={handleChange} />
-                          <input type="text" className="input-field" placeholder="Count" name="count3"value={formData.count3}  onChange={handleChange}/>
-                  </div> 
+                    <input type="text" className="input-field" placeholder="Count" name="count1" value={formData.count1} onChange={handleChange} />
+                    <input type="text" className="input-field" placeholder="Count" name="count2" value={formData.count2} onChange={handleChange} />
+                    <input type="text" className="input-field" placeholder="Count" name="count3" value={formData.count3} onChange={handleChange} />
+                  </div>
 
                   <div className="input-set">
-                  <input type="text" className="input-field" placeholder="Weight" name="weight1" value={formData.weight1} onChange={handleChange} />
-                          <input type="text" className="input-field" placeholder="Weight"  name="weight2" value={formData.weight2}  onChange={handleChange}/>
-                          <input type="text" className="input-field" placeholder="Weight" name="weight3"value={formData.weight3}  onChange={handleChange} />
+                    <input type="text" className="input-field" placeholder="Weight" name="weight1" value={formData.weight1} onChange={handleChange} />
+                    <input type="text" className="input-field" placeholder="Weight" name="weight2" value={formData.weight2} onChange={handleChange} />
+                    <input type="text" className="input-field" placeholder="Weight" name="weight3" value={formData.weight3} onChange={handleChange} />
                   </div>
-                  <button className="register-btn" onClick={ ()=>pushData()}  >Add set to workout</button>
+                  <button className="register-btn" onClick={() => pushData()}  >Add set to workout</button>
                 </div>
               </div>
             </div>
