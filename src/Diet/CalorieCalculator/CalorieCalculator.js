@@ -98,9 +98,10 @@ function CalorieCalculator() {
       "foods": food,
       "calories": totalCalories,
       "date": todayDate,
-      "Email": contextEmail.contextemail
+      "email": contextEmail.contextemail
     }
 
+    console.log(calorieData)
 
     const post = await axios.post(calUrl, (calorieData))
 

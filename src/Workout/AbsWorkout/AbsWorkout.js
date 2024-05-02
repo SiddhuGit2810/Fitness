@@ -49,12 +49,16 @@ function AbsWorkout() {
     var DataUrl = "https://fitness-60022916701.development.catalystserverless.in/server/ZCQL/getVaraiantData"
 
     var VariantData = {
-      "variantName": data
+      "variantName": data,
+      "email": contextEmail.contextemail
     }
 
+console.log(VariantData)
 
 
     const FitnessDate = await axios.post(DateUrl, VariantData)
+
+    console.log(FitnessData)
 
     const dates = FitnessDate.data.map(element => element.Previous.DateDa);
 
