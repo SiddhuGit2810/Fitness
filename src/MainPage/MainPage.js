@@ -1,6 +1,6 @@
 // MainPage.js
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Topmenubar from '../Topmenubar/Topmenubar';
 import SideBar from '../SideNavBar/SideBar';
@@ -12,11 +12,14 @@ import HomePage from '../HomePage/HomePage';
 import DietHomePage from '../Diet/DietHomePage/DietHomePage';
 import '../MainPage/MainPage.css';
 
+import { EmailContext } from '../Usecontext/UseContext';
+
 function MainPage() {
 
+  const {contextUser} =useContext(EmailContext) || {}
 
   const nav=useNavigate()
-  var user=true;
+  var user=contextUser;
 
   return (
     <div className="MainPage">

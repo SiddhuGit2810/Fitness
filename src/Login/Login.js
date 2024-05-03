@@ -17,7 +17,7 @@ import { EmailContext } from '../Usecontext/UseContext';
 
 function Login() {
 
-
+const{setcontextUser} =useContext(EmailContext)
 
 const { setcontextemail } = useContext(EmailContext)
 
@@ -63,6 +63,8 @@ const { setcontextemail } = useContext(EmailContext)
         const password = passwordRef.current.value
 
         setcontextemail(email)
+
+
      
         // console.log("email " + email)
         // console.log("password " + password)
@@ -85,7 +87,7 @@ const { setcontextemail } = useContext(EmailContext)
                 navigate('/HomePage')
             }, 1000)
               
-             
+             setcontextUser(true)
          
    
 

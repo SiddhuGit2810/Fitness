@@ -17,12 +17,14 @@ function App() {
 
   const [contextemail, setcontextemail] = useState("")
 
+  const [contextUser, setcontextUser] = useState(false)
+
   // const nav=useNavigate()
   
   // const user=false
   return (
 
-<EmailContext.Provider value={{contextemail,setcontextemail}} >
+<EmailContext.Provider value={{contextemail,contextUser,setcontextemail,setcontextUser}} >
 
     <BrowserRouter>
       <Routes>
