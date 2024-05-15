@@ -9,7 +9,7 @@ function AbsWorkout() {
 
   const contextEmail = useContext(EmailContext) || {} // Consuming context correctly
 
-  console.log("Email from context:", contextEmail);
+  
 
   const [PresentWorkoutName, setPresentWorkoutName] = useState("")
   const [error, setError] = useState("")

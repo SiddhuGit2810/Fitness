@@ -28,7 +28,7 @@ function SideBar() {
           <path d="M21.93 6.75999L18.56 20.29C18.4431 20.7793 18.164 21.2146 17.7681 21.5251C17.3723 21.8355 16.8831 22.0029 16.38 22H3.24001C1.73001 22 0.650007 20.52 1.10001 19.07L5.31001 5.54999C5.45068 5.09149 5.73419 4.68993 6.11915 4.40391C6.50412 4.11788 6.97042 3.96234 7.45001 3.95999H19.75C20.7 3.95999 21.49 4.53999 21.82 5.33999C22.01 5.76999 22.05 6.25999 21.93 6.75999Z" stroke="#475569" stroke-width="1.5" stroke-miterlimit="10" />
           <path d="M16 22H20.78C22.07 22 23.08 20.91 22.99 19.62L22 5.99999M9.68 6.37999L10.72 2.05999M16.38 6.38999L17.32 2.04999M7.7 12H15.7M6.7 16H14.7" stroke="#475569" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
         </svg> Diet</li>
-        <li className="menu-item"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <li className="menu-item"  onClick={()=>nav('/ProgessHomePage')}  ><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M2 22H22" stroke="#475569" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
           <path d="M9.75 4V22H14.25V4C14.25 2.9 13.8 2 12.45 2H11.55C10.2 2 9.75 2.9 9.75 4ZM3 10V22H7V10C7 8.9 6.6 8 5.4 8H4.6C3.4 8 3 8.9 3 10ZM17 15V22H21V15C21 13.9 20.6 13 19.4 13H18.6C17.4 13 17 13.9 17 15Z" stroke="#475569" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg> Progress</li>

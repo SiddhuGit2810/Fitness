@@ -13,6 +13,7 @@ import DietHomePage from '../Diet/DietHomePage/DietHomePage';
 import '../MainPage/MainPage.css';
 
 import { EmailContext } from '../Usecontext/UseContext';
+import ProgressHomePage from '../Progress/ProgressHomePage/ProgressHomePage';
 
 function MainPage() {
 
@@ -48,11 +49,26 @@ function MainPage() {
             <Route path="/HomePage" element={ user ? <HomePage /> : nav("/login") } />
           </Routes>
         </div>
+
+
+
         <div className="Diet">
           <Routes>
             <Route path="/DietHomePage" element={ user? <DietHomePage />: nav("/login")} />
           </Routes>
         </div>
+
+
+        <div className="Progess">
+
+<Routes>
+
+  <Route path="/ProgessHomePage" element={  user ? <ProgressHomePage/> : nav("/login")} />
+</Routes>
+
+</div>
+
+
       </div>
     </div>
   );
