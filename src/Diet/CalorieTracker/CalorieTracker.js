@@ -32,6 +32,7 @@ function CalorieTracker() {
             setmapTableData(mapTableData)
 
             console.log(mapTableData)
+            
 
 
         }
@@ -79,6 +80,7 @@ function CalorieTracker() {
                                     <td> {e.CalorieTracker.DateDa}</td>
                                     <td> {e.CalorieTracker.Foods}</td>
                                     <td>{e.CalorieTracker.Calories}</td>
+                                    <td> {e.CalorieTracker.Protein}</td>
                                 </tr>
                             </tbody>
 
