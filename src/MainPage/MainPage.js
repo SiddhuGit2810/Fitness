@@ -1,5 +1,3 @@
-// MainPage.js
-
 import React, { useContext } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import Topmenubar from '../Topmenubar/Topmenubar';
@@ -16,59 +14,42 @@ import { EmailContext } from '../Usecontext/UseContext';
 import ProgressHomePage from '../Progress/ProgressHomePage/ProgressHomePage';
 
 function MainPage() {
-
-  const {contextUser} =useContext(EmailContext) || {}
-
-  const nav=useNavigate()
-  var user=contextUser;
+  const { contextUser } = useContext(EmailContext) || {};
+  const navigate = useNavigate();
+  const user = contextUser;
 
   return (
     <div className="MainPage">
-
-      
       <div className="SideBar">
         <SideBar />
       </div>
       <div className="Content">
         <div className="TopMenuBar">
-          
           <Topmenubar />
         </div>
         <div className="WorkOutPage">
-
-
-
-          
+          <video autoPlay muted loop id="background-video">
+            <source  src='../MainPage/1105292_1080p_Lifting_Raise_1280x720.mp4' type="video/mp4" />
+            Your browser does not support HTML5 video.
+          </video>
           <Routes>
-            
-            <Route path="/ChestWorkout" element={<ChestWorkout />  } />
+            <Route path="/ChestWorkout" element={<ChestWorkout />} />
             <Route path="/ShoulderWorkout" element={<Shoulder />} />
             <Route path="/AbsWorkout" element={<AbsWorkout />} />
             <Route path="/LegWorkout" element={<LegWorkout />} />
-            {/* <Route path="/HomePage" element={  <HomePage />} /> */}
-            <Route path="/HomePage" element={ user ? <HomePage /> : nav("/login") } />
+            <Route path="/HomePage" element={user ? <HomePage /> : navigate("/login")} />
           </Routes>
         </div>
-
-
-
         <div className="Diet">
           <Routes>
-            <Route path="/DietHomePage" element={ user? <DietHomePage />: nav("/login")} />
+            <Route path="/DietHomePage" element={user ? <DietHomePage /> : navigate("/login")} />
           </Routes>
         </div>
-
-
-        <div className="Progess">
-
-<Routes>
-
-  <Route path="/ProgessHomePage" element={  user ? <ProgressHomePage/> : nav("/login")} />
-</Routes>
-
-</div>
-
-
+        <div className="Progress">
+          <Routes>
+            <Route path="/ProgressHomePage" element={user ? <ProgressHomePage /> : navigate("/login")} />
+          </Routes>
+        </div>
       </div>
     </div>
   );
