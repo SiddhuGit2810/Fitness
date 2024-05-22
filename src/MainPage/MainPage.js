@@ -11,7 +11,11 @@ import DietHomePage from '../Diet/DietHomePage/DietHomePage';
 import '../MainPage/MainPage.css';
 
 import { EmailContext } from '../Usecontext/UseContext';
-import ProgressHomePage from '../Progress/ProgressHomePage/ProgressHomePage';
+import Test from '../Progess/ProgessHomePage';
+
+
+
+
 
 function MainPage() {
   const { contextUser } = useContext(EmailContext) || {};
@@ -28,8 +32,8 @@ function MainPage() {
           <Topmenubar />
         </div>
         <div className="WorkOutPage">
-          <video autoPlay muted loop id="background-video">
-            <source  src='../MainPage/1105292_1080p_Lifting_Raise_1280x720.mp4' type="video/mp4" />
+          <video src='1105292_1080' autoPlay muted loop id="background-video">
+            
             Your browser does not support HTML5 video.
           </video>
           <Routes>
@@ -45,11 +49,17 @@ function MainPage() {
             <Route path="/DietHomePage" element={user ? <DietHomePage /> : navigate("/login")} />
           </Routes>
         </div>
-        <div className="Progress">
-          <Routes>
-            <Route path="/ProgressHomePage" element={user ? <ProgressHomePage /> : navigate("/login")} />
+      
+
+<div className="Progress">
+<Routes>
+            <Route path="/ProgessHomePage" element={user ? <Test/> : navigate("/login")} />
           </Routes>
-        </div>
+
+
+
+</div>
+
       </div>
     </div>
   );
