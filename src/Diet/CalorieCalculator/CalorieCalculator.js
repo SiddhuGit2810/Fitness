@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import './CalorieCalculator.css';
 import { EmailContext } from '../../Usecontext/UseContext';
@@ -18,14 +18,13 @@ function CalorieCalculator() {
   const [quantity, setQuantity] = useState(1);
   const [foodItems, setFoodItems] = useState([]);
   const [protein, setProtein] = useState('');
-
+  const [totalProtein, setTotalProtein] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get("https://fitness-60022916701.development.catalystserverless.in/server/ZCQL_DIET/diet");
         setFoodItems(response.data);
-        // console.log(response.data[0].Protien_Value)
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -43,7 +42,7 @@ function CalorieCalculator() {
   const handleFoodItemClick = (food) => {
     setSelectedFood(food.Food);
     setCalories(food.Calorie_Value);
-    setProtein(food.Protien_Value)
+    setProtein(food.Protien_Value);
     setShowDropdown(false);
   };
 
@@ -51,11 +50,12 @@ function CalorieCalculator() {
     if (selectedFood && calories > 0 && quantity > 0 && protein !== '') {
       const newItem = { food: selectedFood, calories, quantity, protein };
       setSelectedItems([...selectedItems, newItem]);
-      setTotalCalories(totalCalories +(calories * quantity));
+      setTotalCalories(totalCalories + (calories * quantity));
+      setTotalProtein(totalProtein + (protein * quantity));
       setSelectedFood('');
       setCalories(0);
       setQuantity(1);
-      setProtein('')
+      setProtein('');
     }
   };
 
@@ -64,52 +64,53 @@ function CalorieCalculator() {
     const removedItem = updatedItems.splice(index, 1)[0];
     setSelectedItems(updatedItems);
     setTotalCalories(totalCalories - (removedItem.calories * removedItem.quantity));
+    setTotalProtein(totalProtein - (removedItem.protein * removedItem.quantity));
   };
+
+  const handlecleardata = () =>{
+    setSelectedItems([])
+    setTotalCalories(0)
+    setTotalProtein(0)
+
+  }
 
   const handleClearAllClick = () => {
     setSelectedItems([]);
     setTotalCalories(0);
+    setTotalProtein(0);
   };
 
   const filteredFoodItems = foodItems.filter(item =>
     item.Food.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-
   const handleCalorie = async () => {
 
-    var calUrl = "https://fitness-60022916701.development.catalystserverless.in/server/Data/caloriecalculator"
+    const calUrl = "https://fitness-60022916701.development.catalystserverless.in/server/Data/caloriecalculator";
 
-    var foodArray = []
+    const foodArray = selectedItems.map((item, index) => `${index + 1} ${item.food}`);
 
-    selectedItems.map((item, index) => {
-      foodArray.push((index + 1) + " " + item.food)
-    })
+    const food = foodArray.join(', ');
+    const todayDate = new Date().toISOString().slice(0, 10);
 
-    var food = foodArray.join(', ')
-    console.log(foodArray)
-    console.log(totalCalories)
-    var todayDate = new Date().toISOString().slice(0, 10);
-    console.log(todayDate)
+    const calorieData = {
+      foods: food,
+      calories: totalCalories,
+      protein: totalProtein,
+      date: todayDate,
+      email: contextEmail.contextemail,
+    };
 
+    console.log(calorieData);
 
-    var calorieData = {
-
-      "foods": food,
-      "calories": totalCalories,
-      "date": todayDate,
-      "email": contextEmail.contextemail
+    try {
+      const post = await axios.post(calUrl, calorieData);
+      console.log(post);
+      handlecleardata();
+    } catch (error) {
+      console.error('Error posting data:', error);
     }
-
-    console.log(calorieData)
-
-    const post = await axios.post(calUrl, (calorieData))
-
-    console.log(post)
-
-
-  }
-  
+  };
 
   return (
     <div className="c-container">
@@ -130,7 +131,7 @@ function CalorieCalculator() {
               <div className="dropdown-content">
                 <ul>
                   {filteredFoodItems.map((food, index) => (
-                    <li className="food-item" onClick={() => handleFoodItemClick(food)}>
+                    <li key={index} className="food-item" onClick={() => handleFoodItemClick(food)}>
                       {food.Food}
                     </li>
                   ))}
@@ -146,39 +147,39 @@ function CalorieCalculator() {
             onChange={(e) => setCalories(parseInt(e.target.value))}
           />
           <label htmlFor="protein">Protein value:</label>
-          <input type="number"
+          <input
+            type="number"
             id="protein"
-            placeholder='Protein Value'
+            placeholder="Protein Value"
             value={protein}
           />
-
           <label htmlFor="Quantity">Quantity:</label>
           <input
             type="number"
             placeholder="Quantity"
-            className='quantity'
+            className="quantity"
             value={quantity}
             onChange={(e) => setQuantity(parseInt(e.target.value))}
           />
-          <button id='add' onClick={handleAddItemClick}>Add</button>
+          <button id="add" onClick={handleAddItemClick}>Add</button>
         </div>
-        
-        <div className='heading'>
+        <div className="heading">
           <h4>Selected Items</h4>
           <ul className="selected-items">
             {selectedItems.map((item, index) => (
               <li key={index} className="selected-item">
-                <div>{item.food} - {item.quantity}: Nos - Calories: {item.calories * item.quantity} Protein: {item.protein * item.quantity}</div>
-                <button id='remove' onClick={() => handleRemoveItemClick(index)}>Remove</button>
+                <div>{item.food} - {item.quantity} Nos - Calories: {item.calories * item.quantity} Protein: {item.protein * item.quantity}</div>
+                <button id="remove" onClick={() => handleRemoveItemClick(index)}>Remove</button>
               </li>
             ))}
           </ul>
           <button id="clear-all" onClick={handleClearAllClick}>Clear All</button>
-          <div className='total'>Total Calories: {totalCalories}</div>
-          <button id='saveProgress' onClick={handleCalorie} >Save Progress</button>
+          <div className="total">Total Calories: {totalCalories}</div>
+          <div className="total">Total Protein: {totalProtein}</div>
+          <button id="saveProgress" onClick={handleCalorie}>Save Progress</button>
         </div>
       </div>
-     </div>
+    </div>
   );
 }
 
