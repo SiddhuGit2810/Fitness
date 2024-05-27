@@ -1,7 +1,56 @@
-/* Card.css */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    overflow: auto;
+    /* Ensure overflow is set to auto */
+}
 
+.Home-page-container {
+    margin: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
 
-.Abs-card {
+.homePageBox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    flex-grow: 1;
+    /* Allow flex items to grow */
+}
+
+.intro-card {
+    background: linear-gradient(to right,
+            rgba(255, 140, 0, 0.8) 0%,
+            rgba(255, 127, 127, 0.8) 100%), url('jonathan-borba-lrQPTQs7nQQ-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    width: 100%;
+    /* Ensure it doesn't cause overflow issues */
+}
+
+.intro-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.intro-card p {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+/* General Card Styles */
+.Abs-card,
+.chest-card,
+.leg-card,
+.Shoulder-card {
     opacity: 0.9;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgb(0 0 0 / 37%);
@@ -11,53 +60,21 @@
     background-size: cover;
     background-blend-mode: overlay;
     transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
-    /* background-color: #ffb100; */
-
 }
 
-.Abs-card:hover {
-    transform: scale(1.05) rotate(-6deg);
-    box-shadow: 0 10px 20px rgba(255, 140, 0, 0.20), 0 6px 6px rgba(255, 123, 0, 0.25);
-    z-index: 1;
-    transform: scale(1.01) translateY(-10px);
-    opacity: 1;
-    transition: all .3s ease-in-out;
-    scale: 1.05;
-}
-
+.Abs-card:hover,
+.chest-card:hover,
+.leg-card:hover,
 .Shoulder-card:hover {
     transform: scale(1.05) rotate(-6deg);
-    /* box-shadow: 0 10px 20px rgba(0, 85, 255, 0.20), 0 6px 6px rgba(0, 149, 255, 0.25); */
     box-shadow: 0 10px 20px rgba(255, 140, 0, 0.20), 0 6px 6px rgba(255, 123, 0, 0.25);
     z-index: 1;
     transform: scale(1.01) translateY(-10px);
     opacity: 1;
     transition: all .3s ease-in-out;
-    scale: 1.05;
 }
 
-.chest-card:hover {
-    transform: scale(1.05) rotate(-6deg);
-    /* box-shadow: 0 10px 20px rgba(255, 0, 217, 0.19), 0 6px 6px rgba(234, 0, 255, 0.23); */
-    box-shadow: 0 10px 20px rgba(255, 140, 0, 0.20), 0 6px 6px rgba(255, 123, 0, 0.25);
-    z-index: 1;
-    transform: scale(1.01) translateY(-10px);
-    opacity: 1;
-    transition: all .3s ease-in-out;
-    scale: 1.05;
-}
-
-.leg-card:hover {
-    transform: scale(1.05) rotate(-6deg);
-    /* box-shadow: 0 10px 20px rgba(255, 0, 128, 0.19), 0 6px 6px rgba(255, 0, 111, 0.23); */
-    box-shadow: 0 10px 20px rgba(255, 140, 0, 0.20), 0 6px 6px rgba(255, 123, 0, 0.25);
-    z-index: 1;
-    transform: scale(1.01) translateY(-10px);
-    opacity: 1;
-    transition: all .3s ease-in-out;
-    scale: 1.05;
-}
-
+/* Card Content Styles */
 .Abs-card-content,
 .chest-card-content,
 .leg-card-content,
@@ -86,7 +103,6 @@
 .arrow-button {
     position: relative;
     cursor: pointer;
-
 }
 
 .arrow-button button {
@@ -96,110 +112,19 @@
     cursor: pointer;
     background: none;
     border: none;
-
 }
 
 .arrow-button button:hover {
     transform: translateY(-5px);
     transition: 0.3s ease;
-
-}
-
-.chest-card {
-    /* height: 180px; */
-    opacity: 0.9;
-    /* background-color: #ff00aa; */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgb(0 0 0 / 37%);
-    overflow: hidden;
-    margin-left: 80px;
-    width: 280px;
-    /* background-image: url(chest.jpg); */
-    /* background-position: top; */
-    background-size: cover;
-    background-blend-mode: overlay;
-    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
-    /* background-image: linear-gradient(to right top, #000000, #25ff15, #777777, #7e7e7e, #ffffff); */
-    /* background-color: violet; */
-}
-
-.leg-card {
-    /* height: 180px; */
-    opacity: 0.9;
-    /* background-color: #c00a0a; */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgb(0 0 0 / 37%);
-    overflow: hidden;
-    margin-left: 80px;
-    width: 280px;
-    /* background-image: url(leg.jpg); */
-    background-size: cover;
-    background-blend-mode: overlay;
-    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
-    /* background-image: linear-gradient(to right top, #000000, #25ff15, #777777, #7e7e7e, #ffffff); */
-    /* background-color: #ff4b6a; */
-}
-
-.Shoulder-card {
-    /* height: 180px; */
-    opacity: 0.9;
-    /* background-color: #14db0d; */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgb(0 0 0 / 37%);
-    overflow: hidden;
-    margin-left: 80px;
-    width: 280px;
-    /* background-image: url(shoulder.jpg); */
-    background-size: cover;
-    background-blend-mode: overlay;
-    transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
-    /* background-image: linear-gradient(to right top, #000000, #25ff15, #777777, #7e7e7e, #ffffff); */
-    /* background-color: #00d5ff; */
-}
-
-.homePageBox {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2rem;
 }
 
 svg {
     padding-bottom: 5px;
 }
 
-.intro-card {
-    background: linear-gradient(to right,
-            rgba(255, 140, 0, 0.8) 0%,
-            rgba(255, 127, 127, 0.8) 100%), url('jonathan-borba-lrQPTQs7nQQ-unsplash.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-    width: 89%;
+/* Ensure flex items don't cause overflow issues */
+.flex-item {
+    flex: 1 1 auto;
+    min-width: 0;
 }
-
-
-
-.intro-card h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-.intro-card p {
-    font-size: 16px;
-    color: #ffffff;
-}
-
-.Home-page-container {
-    margin: 1.5rem;
-}
-
-
-/* //////////////// */
-
-
-
