@@ -96,7 +96,7 @@ function CalorieCalculator() {
     const calorieData = {
       foods: food,
       calories: totalCalories,
-      protein: totalProtein,
+      protein: totalProtein.toString(),
       date: todayDate,
       email: contextEmail.contextemail,
     };
