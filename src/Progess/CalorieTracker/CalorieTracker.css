@@ -4,9 +4,11 @@
     margin-top: 2.5rem;
     border-radius: 10px;
     overflow: hidden;
+    opacity: 0.7;
 }
 
 table {
+
     font-family: Arial, sans-serif;
     border-collapse: collapse;
     width: 100%;

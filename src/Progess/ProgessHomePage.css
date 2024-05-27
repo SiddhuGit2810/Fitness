@@ -15,24 +15,28 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: 20px;
-  max-width: 60%;
+  max-width: 30%;
   width: 100%;
   position: absolute;
   top: 12%;
+  opacity: 0.9;
   /* left: 0%; */
 }
 
 .content {
   height: 288px;
   width: 718px;
+
 }
 
 canvas {
   height: 15rem !important;
-  width: 35rem !important;
+  width: 17rem !important;
+ 
 }
 .TableData{
 
   padding-left: 2%;
   padding-right: 2%;
+  padding-bottom: 2%;
 }

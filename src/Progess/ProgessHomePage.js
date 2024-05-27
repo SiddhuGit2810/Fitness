@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import video from '../video/video.mp4';
 import '../Progess/ProgessHomePage.css';
-import { Bar } from 'react-chartjs-2';
+import { Bar,Doughnut } from 'react-chartjs-2';
 import axios from 'axios';
 import {
   Chart as ChartJS,
@@ -11,6 +11,8 @@ import {
   Title,
   Tooltip,
   Legend,
+  ArcElement
+ 
 } from 'chart.js';
 import CalorieTracker from './CalorieTracker/CalorieTracker';
 
@@ -18,6 +20,7 @@ ChartJS.register(
   CategoryScale,
   LinearScale,
   BarElement,
+  ArcElement,
   Title,
   Tooltip,
   Legend
@@ -53,7 +56,8 @@ function Test() {
             data: [todayCalorieValue, todayProteinValue],
             backgroundColor: ['rgba(153,102,255,0.6)', 'rgba(255,159,64,0.6)'],
             barThickness: 15,
-            borderRadius: { topLeft: 10, topRight: 10, bottomLeft: 10, bottomRight: 10 }
+            borderRadius: { topLeft: 10, topRight: 10, bottomLeft: 10, bottomRight: 10 },
+            hoverOffset: 4
           }]
         };
 
@@ -75,7 +79,7 @@ function Test() {
         <p>Protein Value: {proteinValue}</p> */}
         <div className="content">
           {chartData.labels ? (
-            <Bar
+            <Doughnut
               options={{
                 responsive: true,
                 scales: {
@@ -83,11 +87,11 @@ function Test() {
                     beginAtZero: true,
                     type: 'linear',
                     grid: {
-                      display: false, // Show horizontal grid lines
-                      borderDash: [1,1], // Customize grid line style
+                      display: false,
+                      borderDash: [1,1],
                     },
                     ticks: {
-                      display: true
+                      display: false
                     }
                   },
                   x: {
