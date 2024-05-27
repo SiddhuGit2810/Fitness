@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-import video from '../video/video.mp4'
-
-import '../Progess/ProgessHomePage.css'
-import CalorieTracker from './CalorieTracker/CalorieTracker'
-=======
 import React, { useEffect, useState } from 'react';
 import video from '../video/video.mp4';
 import '../Progess/ProgessHomePage.css';
@@ -20,7 +12,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
->>>>>>> refs/remotes/origin/main
+import CalorieTracker from './CalorieTracker/CalorieTracker';
 
 ChartJS.register(
   CategoryScale,
@@ -75,28 +67,6 @@ function Test() {
   }, []);
 
   return (
-<<<<<<< HEAD
-
-
-    <div>
-      
-     
-     
-      
-      
-      
-      <video src={video} width="800" height="400" autoPlay muted loop id='background-video' />
-
-
-<div className="CalrieTracker">
-
-<CalorieTracker/>
-
-</div>
-    
-      
-      
-=======
     <div className="container">
       <video src={video} autoPlay muted loop id='background-video' className="video-bg" />
       <div className="container1">
@@ -136,7 +106,12 @@ function Test() {
             <p>Loading chart...</p>
           )}
         </div>
->>>>>>> refs/remotes/origin/main
+      </div>
+
+
+      <div className="TableData">
+
+        <CalorieTracker/>
       </div>
     </div>
   );
