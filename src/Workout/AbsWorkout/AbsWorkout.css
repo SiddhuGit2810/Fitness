@@ -62,6 +62,10 @@
   color: orange;
 }
 
+.text-title.cx{
+  color: violet;
+}
+
 /*Hover*/
 .WorkoutTypeCard:hover {
   /* border-color: #6c00f8; */

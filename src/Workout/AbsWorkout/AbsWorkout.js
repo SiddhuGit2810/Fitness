@@ -9,10 +9,12 @@ function AbsWorkout() {
 
   const contextEmail = useContext(EmailContext) || {} // Consuming context correctly
 
-  
+  const [cxVariantName, setcxVariantName] = useState([])
 
   const [PresentWorkoutName, setPresentWorkoutName] = useState("")
   const [error, setError] = useState("")
+
+
 
   const [prevDate, setprevDate] = useState("")
 
@@ -155,6 +157,60 @@ console.log(VariantData)
 
 
 
+
+  //cx Varaint
+
+useEffect(() => {
+ 
+  async function  component () {
+    const url="https://fitness-60022916701.development.catalystserverless.in/server/CxVariants/getVariant"
+    
+    const body= {
+      "email":contextEmail.contextemail
+    }
+    
+    
+    const data= await axios.post(url,body)
+    
+    console.log("cx")
+    
+  
+    
+  const cxVariantName= data.data
+  
+  setcxVariantName(cxVariantName)
+  
+  console.log(cxVariantName)
+  }
+  
+    //
+  
+    component()
+ 
+}, [])
+
+  
+// to push cx varaint name with mail as an unique"
+
+async function pushCxVariant(){
+
+  const url="https://fitness-60022916701.development.catalystserverless.in/server/CxVariants/CxVariant"
+
+  const cxBody={
+    "variant_Name":"Body",
+    "email":contextEmail.contextemail
+  }
+
+  const cxResponse = await axios.post(url, cxBody);
+
+        console.log(cxResponse)
+
+}
+
+// to push cx varaint name with mail as an unique"
+
+
+
   async function pushData() {
 
 
@@ -251,6 +307,30 @@ console.log(VariantData)
             </div>
             <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Deadbug")} > More info  </button>
           </div>
+
+        </div>
+        
+        <div className="cx WorkoutTypeContainer">
+
+{
+ 
+  cxVariantName.map((e) => (<div class="WorkoutTypeCard ">
+  <div class="Wcard-details">
+    <p class="text-title cx">{ e.CxVariants.VariantName}</p>
+    <p class="text-body">Card Details</p>
+  </div>
+
+  <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Mountain_Climbers")} > More info  </button>
+
+</div>))
+
+  
+}
+
+        </div>
+
+        <div className="cx add">
+
 
         </div>
 
