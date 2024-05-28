@@ -3,11 +3,13 @@ import './AbsWorkout.css'
 import { useSpring, animated } from '@react-spring/web';
 import axios from "axios";
 import { EmailContext } from '../../Usecontext/UseContext';
-
+import Modal from "../Modal/Modal";
 
 function AbsWorkout() {
 
   const contextEmail = useContext(EmailContext) || {} // Consuming context correctly
+
+const [openModal, setopenModal] = useState(false)
 
   const [cxVariantName, setcxVariantName] = useState([])
 
@@ -192,20 +194,7 @@ useEffect(() => {
   
 // to push cx varaint name with mail as an unique"
 
-async function pushCxVariant(){
 
-  const url="https://fitness-60022916701.development.catalystserverless.in/server/CxVariants/CxVariant"
-
-  const cxBody={
-    "variant_Name":"Body",
-    "email":contextEmail.contextemail
-  }
-
-  const cxResponse = await axios.post(url, cxBody);
-
-        console.log(cxResponse)
-
-}
 
 // to push cx varaint name with mail as an unique"
 
@@ -320,7 +309,7 @@ async function pushCxVariant(){
     <p class="text-body">Card Details</p>
   </div>
 
-  <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Mountain_Climbers")} > More info  </button>
+  <button className="WorkoutTypeCard-button" onClick={() => ToggleClass(e.CxVariants.VariantName)} > More info  </button>
 
 </div>))
 
@@ -331,6 +320,16 @@ async function pushCxVariant(){
 
         <div className="cx add">
 
+
+        <div class="WorkoutTypeCard">
+            <div class="Wcard-details">
+              <p class="text-title">Add Variant</p>
+
+            </div>
+
+            <button className="WorkoutTypeCard-button" onClick={() => setopenModal(true)} > Add info  </button>
+<Modal open={openModal}  onClose={()=>setopenModal(false)} />
+          </div>
 
         </div>
 
@@ -465,6 +464,7 @@ async function pushCxVariant(){
         </div>
 
       </div>
+      
     </animated.div>
 
   )
