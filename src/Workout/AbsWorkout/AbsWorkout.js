@@ -297,31 +297,25 @@ useEffect(() => {
             <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Deadbug")} > More info  </button>
           </div>
 
-        </div>
-        
-        <div className="cx WorkoutTypeContainer">
-
-{
+          {
  
-  cxVariantName.map((e) => (<div class="WorkoutTypeCard ">
-  <div class="Wcard-details">
-    <p class="text-title cx">{ e.CxVariants.VariantName}</p>
-    <p class="text-body">Card Details</p>
-  </div>
+ cxVariantName.map((e) => (<div class="WorkoutTypeCard ">
+ <div class="Wcard-details">
+   <p class="text-title cx">{ e.CxVariants.VariantName}</p>
+   <p class="text-body">Card Details</p>
+ </div>
 
-  <button className="WorkoutTypeCard-button" onClick={() => ToggleClass(e.CxVariants.VariantName)} > More info  </button>
+ <button className="WorkoutTypeCard-button" onClick={() => ToggleClass(e.CxVariants.VariantName)} > More info  </button>
 
 </div>))
 
-  
+
+ 
 }
 
-        </div>
-
-        <div className="cx add">
 
 
-        <div class="WorkoutTypeCard">
+<div class="WorkoutTypeCard">
             <div class="Wcard-details">
               <p class="text-title">Add Variant</p>
 
@@ -331,7 +325,12 @@ useEffect(() => {
 <Modal open={openModal}  onClose={()=>setopenModal(false)} />
           </div>
 
+
+
         </div>
+        
+  
+
 
 
         <div className={isActive ? "WorkoutDataContainer Hide" : "WorkoutDataContainer"}>
