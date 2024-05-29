@@ -9,7 +9,7 @@ function AbsWorkout() {
 
   const contextEmail = useContext(EmailContext) || {} // Consuming context correctly
 
-const [openModal, setopenModal] = useState(false)
+  const [openModal, setopenModal] = useState(false)
 
   const [cxVariantName, setcxVariantName] = useState([])
 
@@ -57,7 +57,7 @@ const [openModal, setopenModal] = useState(false)
       "email": contextEmail.contextemail
     }
 
-console.log(VariantData)
+    console.log(VariantData)
 
 
     const FitnessDate = await axios.post(DateUrl, VariantData)
@@ -162,41 +162,41 @@ console.log(VariantData)
 
   //cx Varaint
 
-useEffect(() => {
- 
-  async function  component () {
-    const url="https://fitness-60022916701.development.catalystserverless.in/server/CxVariants/getVariant"
-    
-    const body= {
-      "email":contextEmail.contextemail
+  useEffect(() => {
+
+    async function component() {
+      const url = "https://fitness-60022916701.development.catalystserverless.in/server/CxVariants/getVariant"
+
+      const body = {
+        "email": contextEmail.contextemail
+      }
+
+
+      const data = await axios.post(url, body)
+
+      console.log("cx")
+
+
+
+      const cxVariantName = data.data
+
+      setcxVariantName(cxVariantName)
+
+      console.log(cxVariantName)
     }
-    
-    
-    const data= await axios.post(url,body)
-    
-    console.log("cx")
-    
-  
-    
-  const cxVariantName= data.data
-  
-  setcxVariantName(cxVariantName)
-  
-  console.log(cxVariantName)
-  }
-  
+
     //
-  
+
     component()
- 
-}, [])
 
-  
-// to push cx varaint name with mail as an unique"
+  }, [])
 
 
+  // to push cx varaint name with mail as an unique"
 
-// to push cx varaint name with mail as an unique"
+
+
+  // to push cx varaint name with mail as an unique"
 
 
 
@@ -298,38 +298,38 @@ useEffect(() => {
           </div>
 
           {
- 
- cxVariantName.map((e) => (<div class="WorkoutTypeCard ">
- <div class="Wcard-details">
-   <p class="text-title cx">{ e.CxVariants.VariantName}</p>
-   <p class="text-body">Card Details</p>
- </div>
 
- <button className="WorkoutTypeCard-button" onClick={() => ToggleClass(e.CxVariants.VariantName)} > More info  </button>
+            cxVariantName.map((e) => (<div class="WorkoutTypeCard ">
+              <div class="Wcard-details">
+                <p class="text-title cx">{e.CxVariants.VariantName}</p>
+                <p class="text-body">Card Details</p>
+              </div>
 
-</div>))
+              <button className="WorkoutTypeCard-button" onClick={() => ToggleClass(e.CxVariants.VariantName)} > More info  </button>
 
-
- 
-}
+            </div>))
 
 
 
-<div class="WorkoutTypeCard">
+          }
+
+
+
+          <div class="WorkoutTypeCard">
             <div class="Wcard-details">
               <p class="text-title">Add Variant</p>
 
             </div>
 
             <button className="WorkoutTypeCard-button" onClick={() => setopenModal(true)} > Add info  </button>
-<Modal open={openModal}  onClose={()=>setopenModal(false)} />
+            <Modal open={openModal} onClose={() => setopenModal(false)} />
           </div>
 
 
 
         </div>
-        
-  
+
+
 
 
 
@@ -463,7 +463,7 @@ useEffect(() => {
         </div>
 
       </div>
-      
+
     </animated.div>
 
   )

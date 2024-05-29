@@ -1,51 +1,85 @@
-
-.card {
-    background: white;
-    padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 50%;
-    text-align: center;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  label {
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    text-align: left;
-  }
-  
-  input {
-    width: 50%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 1rem;
-    outline: none;
-
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(180 180 180 / 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
-.animated-button {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    border: none;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border-radius: 10px;
-    cursor: pointer;
-    max-width: 20%;
-    transition: background 0.3s, transform 0.3s;
+
+.popup-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 35%;
+  text-align: center;
 }
-  
-  .animated-button:hover {
-    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-    transform: translateY(-2px);
-  }
-  
-  .animated-button:active {
-    transform: translateY(0);
-  }
+
+.popup-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup-close {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.popup-close button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.popup-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.popup-form label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  text-align: left;
+  width: 100%;
+}
+
+.popup-form input {
+  width: 70%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.popup-button {
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  background: orange;
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.popup-button:hover {
+  background: linear-gradient(135deg, #ff9a9a 0%, #ffb61a 100%);
+  transform: translateY(-2px);
+}
+
+.popup-button:active {
+  transform: translateY(0);
+}

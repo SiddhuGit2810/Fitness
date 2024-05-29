@@ -3,6 +3,7 @@ import { useSpring, animated } from '@react-spring/web';
 import "./ChestWorkout.css"
 import axios from "axios";
 import { EmailContext } from '../../Usecontext/UseContext';
+import Modal from "../Modal/Modal";
 
 
 function ChestWorkout() {
@@ -10,6 +11,10 @@ function ChestWorkout() {
   const contextEmail = useContext(EmailContext) || {} // Consuming context correctly
 
   console.log("Email from context:", contextEmail);
+
+  const [openModal, setopenModal] = useState(false)
+
+  const [cxVariantName, setcxVariantName] = useState([])
 
   const [PresentWorkoutName, setPresentWorkoutName] = useState("")
   const [error, setError] = useState("")
@@ -148,7 +153,34 @@ console.log(WorkOutData)
     });
   }, [PresentWorkoutName]);
 
+  useEffect(() => {
 
+    async function component() {
+      const url = "https://fitness-60022916701.development.catalystserverless.in/server/CxVariants/getVariant"
+
+      const body = {
+        "email": contextEmail.contextemail
+      }
+
+
+      const data = await axios.post(url, body)
+
+      console.log("cx")
+
+
+
+      const cxVariantName = data.data
+
+      setcxVariantName(cxVariantName)
+
+      console.log(cxVariantName)
+    }
+
+    //
+
+    component()
+
+  }, [])
 
 
   async function pushData() {
@@ -239,7 +271,7 @@ console.log(WorkOutData)
             <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Cable_Crossover")} > More info  </button>
           </div>
 
-
+         
 
 
           <div class="WorkoutTypeCard">
@@ -248,6 +280,33 @@ console.log(WorkOutData)
               <p class="text-body">Card Details</p>
             </div>
             <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Chest_Fly")} > More info  </button>
+          </div>
+
+
+          {
+
+            cxVariantName.map((e) => (<div class="WorkoutTypeCard ">
+              <div class="Wcard-details">
+                <p class="text-title cx">{e.CxVariants.VariantName}</p>
+                <p class="text-body">Card Details</p>
+              </div>
+
+              <button className="WorkoutTypeCard-button" onClick={() => ToggleClass(e.CxVariants.VariantName)} > More info  </button>
+
+            </div>))
+
+
+
+          }
+
+          <div class="WorkoutTypeCard">
+            <div class="Wcard-details">
+              <p class="text-title">Add Variant</p>
+
+            </div>
+
+            <button className="WorkoutTypeCard-button" onClick={() => setopenModal(true)} > Add info  </button>
+            <Modal open={openModal} onClose={() => setopenModal(false)} />
           </div>
 
         </div>

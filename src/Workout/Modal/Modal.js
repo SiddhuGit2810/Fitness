@@ -1,72 +1,53 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState } from 'react';
+import { EmailContext } from '../../Usecontext/UseContext';
+import './Modal.css';
+import axios from 'axios';
 
-import { EmailContext } from '../../Usecontext/UseContext'
+const Modal = ({ open, onClose }) => {
+  const [variantName, setVariantName] = useState('');
+  const contextEmail = useContext(EmailContext) || {};
 
-import './Modal.css'
-import axios from 'axios'
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // alert('variantName' + "  " + variantName);
+    setVariantName('');
+  };
 
-const Modal = ({open,onClose}) => {
-    const [variantName, setvariantName] = useState('')
+  async function pushCxVariant() {
+    const url = "https://fitness-60022916701.development.catalystserverless.in/server/CxVariants/CxVariant";
+    const cxBody = {
+      "variant_Name": variantName,
+      "email": contextEmail.contextemail
+    };
+    const cxResponse = await axios.post(url, cxBody);
+    console.log(cxResponse);
+  }
 
-
-
-    const handleSubmit = (e)=>{
-        e.preventDefault()
-        alert('variantName' + "  " + variantName)
-        setvariantName('')
-    }
-
-   
-
-    const contextEmail = useContext(EmailContext) || {}
-    async function pushCxVariant(){
-
-        const url="https://fitness-60022916701.development.catalystserverless.in/server/CxVariants/CxVariant"
-      
-        const cxBody={
-          "variant_Name":variantName,
-          "email":contextEmail.contextemail
-        }
-      
-        const cxResponse = await axios.post(url, cxBody);
-      
-              console.log(cxResponse)
-      
-      }
-if(!open) return null
+  if (!open) return null;
 
   return (
-   <div className="overlay">
-<div className="modalContainer">
-
-<div>
-            
-  <div className="card">
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="variantName">Variant Name</label>
-          <div className="close">
-    <button onClick={onClose}  >X</button>
-</div>
-          <input
-            type="text"
-            id="variantName"
-            value={variantName}
-            onChange={(e) => setvariantName(e.target.value)}
-          />
-          <button onClick={pushCxVariant} type="submit" className="animated-button">
-            Create
-          </button>
-        </form>
-      </div>
+    <div className="popup-overlay">
+      <div className="popup-container">
+        <div className="popup-card">
+          <div className="popup-close">
+            <button onClick={onClose}>X</button>
+          </div>
+          <form onSubmit={handleSubmit} className="popup-form">
+            <label htmlFor="variantName">Please enter the variant Name</label>
+            <input
+              type="text"
+              id="variantName"
+              value={variantName}
+              onChange={(e) => setVariantName(e.target.value)}
+            />
+            <button onClick={pushCxVariant} type="submit" className="popup-button">
+              Create
+            </button>
+          </form>
         </div>
-
-
-
-</div>
-
-
-   </div>
-  )
+      </div>
+    </div>
+  );
 }
 
-export default Modal
+export default Modal;
