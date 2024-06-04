@@ -12,6 +12,7 @@ function AbsWorkout() {
   const [openModal, setopenModal] = useState(false)
 
   const [cxVariantName, setcxVariantName] = useState([])
+  const [cxVarianttype, setcxVariantType] = useState([])
 
   const [PresentWorkoutName, setPresentWorkoutName] = useState("")
   const [error, setError] = useState("")
@@ -168,7 +169,8 @@ function AbsWorkout() {
       const url = "https://fitness-60022916701.development.catalystserverless.in/server/CxVariants/getVariant"
 
       const body = {
-        "email": contextEmail.contextemail
+        "email": contextEmail.contextemail,
+        "varianttype": cxVarianttype
       }
 
 
@@ -179,10 +181,13 @@ function AbsWorkout() {
 
 
       const cxVariantName = data.data
+      const cxVariantType = data.data
 
       setcxVariantName(cxVariantName)
+      setcxVariantType(cxVariantType)
 
       console.log(cxVariantName)
+      console.log(cxVariantType)
     }
 
     //

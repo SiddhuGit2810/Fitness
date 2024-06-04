@@ -15,6 +15,7 @@ function ChestWorkout() {
   const [openModal, setopenModal] = useState(false)
 
   const [cxVariantName, setcxVariantName] = useState([])
+  const [cxVarianttype, setcxVariantType] = useState([])
 
   const [PresentWorkoutName, setPresentWorkoutName] = useState("")
   const [error, setError] = useState("")
@@ -159,7 +160,8 @@ console.log(WorkOutData)
       const url = "https://fitness-60022916701.development.catalystserverless.in/server/CxVariants/getVariant"
 
       const body = {
-        "email": contextEmail.contextemail
+        "email": contextEmail.contextemail,
+        "varianttype": cxVarianttype
       }
 
 
@@ -172,8 +174,11 @@ console.log(WorkOutData)
       const cxVariantName = data.data
 
       setcxVariantName(cxVariantName)
+      setcxVariantType(cxVarianttype)
 
       console.log(cxVariantName)
+      console.log(cxVarianttype)
+
     }
 
     //
