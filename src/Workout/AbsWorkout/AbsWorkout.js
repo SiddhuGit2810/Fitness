@@ -41,7 +41,7 @@ function AbsWorkout() {
 
   console.log(formData)
   const [FitnessData, setFitnessData] = useState([])
-  const [isActive, setActive] = useState(true)
+  const [isActive, setActive] = useState("false")
 
   const ToggleClass = async (data) => {
     setActive(!isActive);

@@ -8,7 +8,7 @@ import Modal from "../Modal/Modal";
 
 function ChestWorkout() {
 
-  const contextEmail = useContext(EmailContext) || {} // Consuming context correctly
+  const contextEmail = useContext(EmailContext) || {}
 
   console.log("Email from context:", contextEmail);
 
