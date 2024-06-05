@@ -43,7 +43,7 @@ function ChestWorkout() {
 
   const [FitnessData, setFitnessData] = useState([])
 
-  const [isActive, setActive] = useState("false")
+  const [isActive, setActive] = useState(true)
 
 
   const ToggleClass = async (data) => {
@@ -56,7 +56,8 @@ function ChestWorkout() {
     var DataUrl = "https://fitness-60022916701.development.catalystserverless.in/server/ZCQL/getVaraiantData"
 
     var VariantData = {
-      "variantName": data
+      "variantName": data,
+      "email": contextEmail.contextemail
     }
 
     const FitnessDate = await axios.post(DateUrl, VariantData)
@@ -161,7 +162,7 @@ console.log(WorkOutData)
 
       const body = {
         "email": contextEmail.contextemail,
-        "varianttype": cxVarianttype
+        "varianttype": "chest"
       }
 
 

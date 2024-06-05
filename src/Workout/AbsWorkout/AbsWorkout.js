@@ -41,7 +41,7 @@ function AbsWorkout() {
 
   console.log(formData)
   const [FitnessData, setFitnessData] = useState([])
-  const [isActive, setActive] = useState("false")
+  const [isActive, setActive] = useState(true)
 
   const ToggleClass = async (data) => {
     setActive(!isActive);
@@ -170,7 +170,7 @@ function AbsWorkout() {
 
       const body = {
         "email": contextEmail.contextemail,
-        "varianttype": cxVarianttype
+        "varianttype": "Abs"
       }
 
 
