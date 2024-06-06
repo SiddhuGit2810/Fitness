@@ -44,7 +44,23 @@ function AbsWorkout() {
   const [isActive, setActive] = useState("false")
 
   const ToggleClass = async (data) => {
+
+
+///
+
+
+
+
+
+///
+
     setActive(!isActive);
+
+    var element = document.getElementById("flipcard");
+element.scrollIntoView();
+element.scrollIntoView(false);
+element.scrollIntoView({block: "end"});
+element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
 
 
     setPresentWorkoutName(data)
@@ -255,6 +271,16 @@ function AbsWorkout() {
   return (
 
     <animated.div style={slideAnimation}>
+
+
+
+
+
+
+
+
+
+
       <div className="MainContainer">
 
 
@@ -267,7 +293,7 @@ function AbsWorkout() {
               <p class="text-body">Card Details</p>
             </div>
 
-            <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Mountain_Climbers")} > More info  </button>
+            <a href="#popup2"  onClick={() => ToggleClass("Mountain_Climbers")} >More Info</a>
 
           </div>
 
@@ -277,7 +303,7 @@ function AbsWorkout() {
                 Plank</p>
               <p class="text-body">Card Details</p>
             </div>
-            <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Plank")} > More info  </button>
+            <a href="#popup2"  onClick={() => ToggleClass("Plank")} >More Info</a>
           </div>
 
 
@@ -288,7 +314,7 @@ function AbsWorkout() {
               <p class="text-title">Bicycle crunch</p>
               <p class="text-body">Card Details</p>
             </div>
-            <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Bicycle_Crunch")} > More info  </button>
+            <a href="#popup2"  onClick={() => ToggleClass("Bicycle_Crunch")} >More Info</a>
           </div>
 
 
@@ -299,7 +325,7 @@ function AbsWorkout() {
               <p class="text-title">Deadbug</p>
               <p class="text-body">Card Details</p>
             </div>
-            <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Deadbug")} > More info  </button>
+            <a href="#popup2"  onClick={() => ToggleClass("Deadbug")} >More Info</a>
           </div>
 
           {
@@ -310,7 +336,7 @@ function AbsWorkout() {
                 <p class="text-body">Card Details</p>
               </div>
 
-              <button className="WorkoutTypeCard-button" onClick={() => ToggleClass(e.CxVariants.VariantName)} > More info  </button>
+              <a href="#popup2"  onClick={() => ToggleClass(e.CxVariants.VariantName)} >More Info</a>
 
             </div>))
 
@@ -335,137 +361,144 @@ function AbsWorkout() {
         </div>
 
 
+        <div id="popup2" class="popup-container popup-style-2">
+  <div class="popup-content">
+    <a href="#" class="close">&times;</a>
+   
+    <div className={isActive ? "WorkoutDataContainer Hide" : "WorkoutDataContainer"}>
+
+
+<div className="flip-card-container" id="flipcard" >
+
+  <div className="flip-card">
+    <div className="flip-card-inner">
+      <div className="flip-card-front">
+
+        <p>Previous Workout   <br />  <h6>{prevDate} </h6></p>
+
+      </div>
+      <div className="flip-card-back">
+
+
+        {
+
+          FitnessData.map((item) => (
 
 
 
-        <div className={isActive ? "WorkoutDataContainer Hide" : "WorkoutDataContainer"}>
+            <>
 
 
-          <div className="flip-card-container">
-
-            <div className="flip-card">
-              <div className="flip-card-inner">
-                <div className="flip-card-front">
-
-                  <p>Previous Workout   <br />  <h6>{prevDate} </h6></p>
-
-                </div>
-                <div className="flip-card-back">
-
-
-                  {
-
-                    FitnessData.map((item) => (
+              <div className="input-set">
+                <input type="text" className="input-field" placeholder="Set" value={item.Previous.Set1} />
+                <input type="text" className="input-field" placeholder="Set" value={item.Previous.Set2} />
+                <input type="text" className="input-field" placeholder="Set" value={item.Previous.Set3} />
 
 
 
-                      <>
-
-
-                        <div className="input-set">
-                          <input type="text" className="input-field" placeholder="Set" value={item.Previous.Set1} />
-                          <input type="text" className="input-field" placeholder="Set" value={item.Previous.Set2} />
-                          <input type="text" className="input-field" placeholder="Set" value={item.Previous.Set3} />
-
-
-
-                        </div>
-                        <div className="input-set">
-                          <input type="text" className="input-field" placeholder="Count" value={item.Previous.Count1} />
-                          <input type="text" className="input-field" placeholder="Count" value={item.Previous.Count2} />
-                          <input type="text" className="input-field" placeholder="Count" value={item.Previous.Count3} />
-
-                        </div>
-                        <div className="input-set">
-
-                          <input type="text" className="input-field" placeholder="Weight" value={item.Previous.Weight1} />
-                          <input type="text" className="input-field" placeholder="Weight" value={item.Previous.Weight2} />
-                          <input type="text" className="input-field" placeholder="Weight" value={item.Previous.Weight3} />
-                        </div>
-
-
-                      </>
-                    ))
-
-                  }
-
-
-
-
-
-
-
-
-
-                </div>
               </div>
-            </div>
+              <div className="input-set">
+                <input type="text" className="input-field" placeholder="Count" value={item.Previous.Count1} />
+                <input type="text" className="input-field" placeholder="Count" value={item.Previous.Count2} />
+                <input type="text" className="input-field" placeholder="Count" value={item.Previous.Count3} />
 
-            <div className="flip-card">
-              <div className="flip-card-inner">
-                <div className="flip-card-front">
-                  <p>Present Workout
-
-                    <h6> {PresentWorkoutName} </h6>
-                    <h6>{error}</h6>
-                  </p>
-                </div>
-                <div className="flip-card-back">
-
-
-                  <div className="input-set">
-
-                    <input type="text" className="input-field" placeholder="Set" name="set1" value={formData.set1} onChange={handleChange} />
-                    <input type="text" className="input-field" placeholder="Set" name="set2" value={formData.set2} onChange={handleChange} />
-                    <input type="text" className="input-field" placeholder="Set" name="set3" value={formData.set3} onChange={handleChange} />
-
-                  </div>
-                  <div className="input-set">
-                    <input type="text" className="input-field" placeholder="Count" name="count1" value={formData.count1} onChange={handleChange} />
-                    <input type="text" className="input-field" placeholder="Count" name="count2" value={formData.count2} onChange={handleChange} />
-                    <input type="text" className="input-field" placeholder="Count" name="count3" value={formData.count3} onChange={handleChange} />
-                  </div>
-
-                  <div className="input-set">
-                    <input type="text" className="input-field" placeholder="Weight" name="weight1" value={formData.weight1} onChange={handleChange} />
-                    <input type="text" className="input-field" placeholder="Weight" name="weight2" value={formData.weight2} onChange={handleChange} />
-                    <input type="text" className="input-field" placeholder="Weight" name="weight3" value={formData.weight3} onChange={handleChange} />
-                  </div>
-                  <button className="register-btn" onClick={() => pushData()}  >Add set to workout</button>
-                </div>
               </div>
-            </div>
+              <div className="input-set">
 
-            <div className="flip-card">
-              <div className="flip-card-inner">
-                <div className="flip-card-front">
-                  <p>Future Workout</p>
-                </div>
-                <div className="flip-card-back">
-                  <div className="input-set">
-                    <input type="text" className="input-field" placeholder="Count" />
-                    <input type="text" className="input-field" placeholder="Set" />
-                    <input type="text" className="input-field" placeholder="Weight" />
-                  </div>
-                  <div className="input-set">
-                    <input type="text" className="input-field" placeholder="Count" />
-                    <input type="text" className="input-field" placeholder="Set" />
-                    <input type="text" className="input-field" placeholder="Weight" />
-                  </div>
-                  <div className="input-set">
-                    <input type="text" className="input-field" placeholder="Count" />
-                    <input type="text" className="input-field" placeholder="Set" />
-                    <input type="text" className="input-field" placeholder="Weight" />
-                  </div>
-                </div>
+                <input type="text" className="input-field" placeholder="Weight" value={item.Previous.Weight1} />
+                <input type="text" className="input-field" placeholder="Weight" value={item.Previous.Weight2} />
+                <input type="text" className="input-field" placeholder="Weight" value={item.Previous.Weight3} />
               </div>
-            </div>
-
-          </div>
 
 
+            </>
+          ))
+
+        }
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <div className="flip-card">
+    <div className="flip-card-inner">
+      <div className="flip-card-front">
+        <p>Present Workout
+
+          <h6> {PresentWorkoutName} </h6>
+          <h6>{error}</h6>
+        </p>
+      </div>
+      <div className="flip-card-back">
+
+
+        <div className="input-set">
+
+          <input type="text" className="input-field" placeholder="Set" name="set1" value={formData.set1} onChange={handleChange} />
+          <input type="text" className="input-field" placeholder="Set" name="set2" value={formData.set2} onChange={handleChange} />
+          <input type="text" className="input-field" placeholder="Set" name="set3" value={formData.set3} onChange={handleChange} />
 
         </div>
+        <div className="input-set">
+          <input type="text" className="input-field" placeholder="Count" name="count1" value={formData.count1} onChange={handleChange} />
+          <input type="text" className="input-field" placeholder="Count" name="count2" value={formData.count2} onChange={handleChange} />
+          <input type="text" className="input-field" placeholder="Count" name="count3" value={formData.count3} onChange={handleChange} />
+        </div>
+
+        <div className="input-set">
+          <input type="text" className="input-field" placeholder="Weight" name="weight1" value={formData.weight1} onChange={handleChange} />
+          <input type="text" className="input-field" placeholder="Weight" name="weight2" value={formData.weight2} onChange={handleChange} />
+          <input type="text" className="input-field" placeholder="Weight" name="weight3" value={formData.weight3} onChange={handleChange} />
+        </div>
+        <button className="register-btn" onClick={() => pushData()}  >Add set to workout</button>
+      </div>
+    </div>
+  </div>
+
+  <div className="flip-card">
+    <div className="flip-card-inner">
+      <div className="flip-card-front">
+        <p>Future Workout</p>
+      </div>
+      <div className="flip-card-back">
+        <div className="input-set">
+          <input type="text" className="input-field" placeholder="Count" />
+          <input type="text" className="input-field" placeholder="Set" />
+          <input type="text" className="input-field" placeholder="Weight" />
+        </div>
+        <div className="input-set">
+          <input type="text" className="input-field" placeholder="Count" />
+          <input type="text" className="input-field" placeholder="Set" />
+          <input type="text" className="input-field" placeholder="Weight" />
+        </div>
+        <div className="input-set">
+          <input type="text" className="input-field" placeholder="Count" />
+          <input type="text" className="input-field" placeholder="Set" />
+          <input type="text" className="input-field" placeholder="Weight" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+</div>
+
+  </div>
+</div>
+
+
+      
 
       </div>
 
