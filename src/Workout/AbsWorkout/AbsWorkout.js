@@ -34,8 +34,8 @@ function AbsWorkout() {
     count3: "",
     weight3: "",
     variant: "",
-    date: ""
-
+    date: "",
+email:contextEmail.contextemail
   })
 
 
