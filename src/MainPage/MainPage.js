@@ -11,7 +11,7 @@ import DietHomePage from '../Diet/DietHomePage/DietHomePage';
 import '../MainPage/MainPage.css';
 
 import { EmailContext } from '../Usecontext/UseContext';
-import Test from '../Progess/ProgessHomePage';
+import Game from '../Progess/ProgessHomePage';
 
 
 
@@ -53,11 +53,20 @@ function MainPage() {
 
 <div className="Progress">
 <Routes>
-            <Route path="/ProgessHomePage" element={user ? <Test/> : navigate("/login")} />
+            <Route path="/ProgessHomePage" element={user ? <Game/> : navigate("/login")} />
           </Routes>
 
 
 
+</div>
+
+<div className="MySchedule">
+
+
+  <Routes>
+
+    
+  </Routes>
 </div>
 
       </div>
