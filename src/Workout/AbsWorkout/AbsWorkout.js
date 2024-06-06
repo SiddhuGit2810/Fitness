@@ -365,7 +365,7 @@ element.scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
   <div class="popup-content">
     <a href="#" class="close">&times;</a>
    
-    <div className={isActive ? "WorkoutDataContainer Hide" : "WorkoutDataContainer"}>
+    <div className={ "WorkoutDataContainer"}>
 
 
 <div className="flip-card-container" id="flipcard" >
