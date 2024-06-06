@@ -5,8 +5,6 @@
   justify-content: space-evenly;
 }
 
-
-
 .WorkoutTypeCard {
   width: 140px;
   height: 104px;
@@ -21,7 +19,7 @@
 }
 
 .Wcard-details {
-  color: rgb(98 98 98);
+  color: rgb(98, 98, 98);
   height: 100%;
   gap: .5em;
   display: grid;
@@ -62,13 +60,12 @@
   color: orange;
 }
 
-.text-title.cx{
+.text-title.cx {
   color: violet;
 }
 
 /*Hover*/
 .WorkoutTypeCard:hover {
-  /* border-color: #6c00f8; */
   -webkit-box-shadow: 10px 5px 18px 0 rgba(255, 255, 255, 0.877);
   box-shadow: 10px 5px 18px 0 rgba(255, 255, 255, 0.877);
   transition: 1s ease-out;
@@ -85,12 +82,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: 6rem;
-
 }
 
 .Hide {
   display: none;
-
 }
 
 .MainContainer {
@@ -98,9 +93,7 @@
   flex-direction: column;
   gap: 2rem;
   padding-left: 2rem;
-
   padding-bottom: 20px;
-
 }
 
 .flip-card-container {
@@ -210,9 +203,7 @@
   cursor: pointer;
   font-size: 16px;
   transition: background-color 1.3s;
-  font-family: Courier New,
-    Courier,
-    monospace;
+  font-family: Courier New, Courier, monospace;
   font-weight: 600;
 }
 
@@ -222,29 +213,25 @@
   transition: 0.5s;
 }
 
-
-/* /////// */
-
-
+/* Popup styles */
 body {
   font-family: 'Saira Semi Condensed', sans-serif;
-  /* background: #ccc; */
-/* padding:30px; */
-}
-.popup-link{
-display:flex;
-flex-wrap:wrap;
 }
 
-.popup-link a{
+.popup-link {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.popup-link a {
   background: #333;
   color: #fff;
   padding: 10px 30px;
   border-radius: 5px;
-  font-size:17px;
-  cursor:pointer;
-  margin:20px;
-  text-decoration:none;
+  font-size: 17px;
+  cursor: pointer;
+  margin: 20px;
+  text-decoration: none;
 }
 
 .popup-container {
@@ -261,60 +248,49 @@ flex-wrap:wrap;
   background-color: rgba(21, 17, 17, 0.61);
   display: flex;
   align-items: center;
+  justify-content: center;
 }
+
+.popup-container:target {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+}
+
 .popup-content {
   background-color: #fefefe;
-  margin: auto;
   padding: 45px;
   border: 1px solid #888;
-  width: auto;
+  border-radius: 10px;
+  position: relative;
 }
-.popup-content p{
-  font-size: 17px;
-  padding: 10px;
-  line-height: 20px;
-}
-.popup-content a.close{
+
+.popup-content a.close {
   color: #aaaaaa;
-  float: right;
+  position: absolute;
+  right: 15px;
+  top: 15px;
   font-size: 28px;
   font-weight: bold;
   background: none;
   padding: 0;
   margin: 0;
-  text-decoration:none;
-}
-
-.popup-content a.close:hover{
-color:#333;
-}
-
-.popup-content span:hover,
-.popup-content span:focus {
-  color: #000;
   text-decoration: none;
   cursor: pointer;
 }
 
-.popup-container:target{
-visibility: visible;
-opacity: 1;
-transform: scale(1);
+.popup-content a.close:hover {
+  color: #333;
 }
 
-.popup-container h3{
-margin:10px;
-}
-/*End popup styles*/
-
-/* Additional styles */
-.popup-style-2{
-transform: scale(0.3);
-
+.popup-container h3 {
+  margin: 10px;
 }
 
-.popup-style-2:target{
-transform: scale(1);
+.popup-style-2 {
+  transform: scale(0.3);
 }
 
-
+.popup-style-2:target {
+  transform: scale(1);
+}
