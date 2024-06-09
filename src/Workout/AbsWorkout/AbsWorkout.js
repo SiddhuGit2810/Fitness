@@ -292,7 +292,7 @@ function AbsWorkout() {
               <p className="text-title">Mountain Climbers</p>
               <p className="text-body">Card Details</p>
             </div>
-            <a href="#popup2" onClick={() => ToggleClass("Mountain_Climbers")}>More Info</a>
+            <a className="WorkoutTypeCard-button" href="#popup2" onClick={() => ToggleClass("Mountain_Climbers")}>More Info</a>
           </div>
 
           <div class="WorkoutTypeCard">
@@ -301,7 +301,7 @@ function AbsWorkout() {
                 Plank</p>
               <p class="text-body">Card Details</p>
             </div>
-            <a href="#popup2" onClick={() => ToggleClass("Plank")} >More Info</a>
+            <a className="WorkoutTypeCard-button" href="#popup2" onClick={() => ToggleClass("Plank")} >More Info</a>
           </div>
 
 
@@ -312,7 +312,7 @@ function AbsWorkout() {
               <p class="text-title">Bicycle crunch</p>
               <p class="text-body">Card Details</p>
             </div>
-            <a href="#popup2" onClick={() => ToggleClass("Bicycle_Crunch")} >More Info</a>
+            <a className="WorkoutTypeCard-button" href="#popup2" onClick={() => ToggleClass("Bicycle_Crunch")} >More Info</a>
           </div>
 
 
@@ -323,7 +323,7 @@ function AbsWorkout() {
               <p class="text-title">Deadbug</p>
               <p class="text-body">Card Details</p>
             </div>
-            <a href="#popup2" onClick={() => ToggleClass("Deadbug")} >More Info</a>
+            <a className="WorkoutTypeCard-button" href="#popup2" onClick={() => ToggleClass("Deadbug")} >More Info</a>
           </div>
 
           {
@@ -334,7 +334,7 @@ function AbsWorkout() {
                 <p class="text-body">Card Details</p>
               </div>
 
-              <a href="#popup2" onClick={() => ToggleClass(e.CxVariants.VariantName)} >More Info</a>
+              <a className="WorkoutTypeCard-button" href="#popup2" onClick={() => ToggleClass(e.CxVariants.VariantName)} >More Info</a>
 
             </div>))
 

@@ -83,9 +83,10 @@ const { setcontextemail } = useContext(EmailContext)
 
             setPass('')
             setemail('')
-            setTimeout(() => {
-                navigate('/HomePage')
-            }, 1000)
+            navigate('/HomePage')
+            // setTimeout(() => {
+            //     navigate('/HomePage')
+            // }, 1000)
               
              setcontextUser(true)
          

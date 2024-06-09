@@ -10,7 +10,7 @@ function ChestWorkout() {
 
   const contextEmail = useContext(EmailContext) || {}
 
-  console.log("Email from context:", contextEmail);
+  // console.log("Email from context:", contextEmail);
 
   const [openModal, setopenModal] = useState(false)
 
@@ -48,6 +48,12 @@ function ChestWorkout() {
 
   const ToggleClass = async (data) => {
     setActive(!isActive);
+
+    var element = document.getElementById("flipcard");
+    element.scrollIntoView();
+    element.scrollIntoView(false);
+    element.scrollIntoView({ block: "end" });
+    element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 
     setPresentWorkoutName(data)
 
@@ -93,7 +99,7 @@ function ChestWorkout() {
 
     var PreviousDate = dates[index]
 
-    
+
     setprevDate(PreviousDate)
 
 
@@ -108,7 +114,7 @@ function ChestWorkout() {
 
     var WorkOutData = await axios.post(DataUrl, VariantWorkoutData)
 
-console.log(WorkOutData)
+    console.log(WorkOutData)
 
 
 
@@ -253,7 +259,9 @@ console.log(WorkOutData)
               <p class="text-body">Card Details</p>
             </div>
 
-            <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Incline_Pushups")}> More info  </button>
+            {/* <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Incline_Pushups")}> More info  </button> */}
+
+            <a className="WorkoutTypeCard-button" href="#popup2" onClick={() => ToggleClass("Incline_Pushups")}> More Info</a>
 
           </div>
 
@@ -263,7 +271,8 @@ console.log(WorkOutData)
                 Plank</p>
               <p class="text-body">Card Details</p>
             </div>
-            <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Plank")} > More info  </button>
+            {/* <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Plank")} > More info  </button> */}
+            <a className="WorkoutTypeCard-button" href="#popup2" onClick={() => ToggleClass("Plank")}> More Info</a>
           </div>
 
 
@@ -274,10 +283,11 @@ console.log(WorkOutData)
               <p class="text-title">Cable Crossover</p>
               <p class="text-body">Card Details</p>
             </div>
-            <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Cable_Crossover")} > More info  </button>
+            {/* <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Cable_Crossover")} > More info  </button> */}
+            <a className="WorkoutTypeCard-button" href="#popup2" onClick={() => ToggleClass("Cable_Crossover")}> More Info</a>
           </div>
 
-         
+
 
 
           <div class="WorkoutTypeCard">
@@ -285,7 +295,8 @@ console.log(WorkOutData)
               <p class="text-title">Chest Fly</p>
               <p class="text-body">Card Details</p>
             </div>
-            <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Chest_Fly")} > More info  </button>
+            {/* <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Chest_Fly")} > More info  </button> */}
+            <a className="WorkoutTypeCard-button" href="#popup2" onClick={() => ToggleClass("Chest_Fly")}> More Info</a>
           </div>
 
 
@@ -297,7 +308,8 @@ console.log(WorkOutData)
                 <p class="text-body">Card Details</p>
               </div>
 
-              <button className="WorkoutTypeCard-button" onClick={() => ToggleClass(e.CxVariants.VariantName)} > More info  </button>
+              {/* <button className="WorkoutTypeCard-button" onClick={() => ToggleClass(e.CxVariants.VariantName)} > More info  </button> */}
+              <a className="WorkoutTypeCard-button" href="#popup2" onClick={() => ToggleClass(e.CxVariants.VariantName)} >More Info</a>
 
             </div>))
 
@@ -317,11 +329,120 @@ console.log(WorkOutData)
 
         </div>
 
+        <div id='popup2' className='popup-container popup-style-2'>
+          <div className="popup-content">
+            <a href="#" className='close'>&times;</a>
+            <div className="WorkoutDataContainer">
+              <div className="flip-card-container" id='flipcard'>
 
-        <div className={isActive ? "WorkoutDataContainer Hide" : "WorkoutDataContainer"}>
+                <div className="flip-card">
+                  <div className="flip-card-inner">
+                    <div className="flip-card-front">
+                      <p>Previous Workout   <br />  <h6>{prevDate} </h6></p>
+                    </div>
+                    <div className="flip-card-back">
+
+                      {
+
+                        FitnessData.map((item) => (
 
 
-          <div className="flip-card-container">
+
+                          <>
+
+
+                            <div className="input-set">
+                              <input type="text" className="input-field" placeholder="Count" value={item.Previous.Set1} />
+                              <input type="text" className="input-field" placeholder="Set" value={item.Previous.Set2} />
+                              <input type="text" className="input-field" placeholder="Weight" value={item.Previous.Set3} />
+                            </div>
+                            <div className="input-set">
+                              <input type="text" className="input-field" placeholder="Count" value={item.Previous.Count1} />
+                              <input type="text" className="input-field" placeholder="Set" value={item.Previous.Count2} />
+                              <input type="text" className="input-field" placeholder="Weight" value={item.Previous.Count3} />
+                            </div>
+                            <div className="input-set">
+                              <input type="text" className="input-field" placeholder="Count" value={item.Previous.Weight1} />
+                              <input type="text" className="input-field" placeholder="Set" value={item.Previous.Weight2} />
+                              <input type="text" className="input-field" placeholder="Weight" value={item.Previous.Weight3} />
+                            </div>
+
+
+                          </>
+                        ))
+
+                      }
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flip-card">
+                  <div className="flip-card-inner">
+                    <div className="flip-card-front">
+                      <p>Present Workout
+
+                        <h6> {PresentWorkoutName} </h6>
+                        <h6>{error}</h6>
+                      </p>
+                    </div>
+                    <div className="flip-card-back">
+                      <div className="input-set">
+
+                        <input type="text" className="input-field" placeholder="Set" name="set1" value={formData.set1} onChange={handleChange} />
+                        <input type="text" className="input-field" placeholder="Set" name="set2" value={formData.set2} onChange={handleChange} />
+                        <input type="text" className="input-field" placeholder="Set" name="set3" value={formData.set3} onChange={handleChange} />
+
+                      </div>
+                      <div className="input-set">
+                        <input type="text" className="input-field" placeholder="Count" name="count1" value={formData.count1} onChange={handleChange} />
+                        <input type="text" className="input-field" placeholder="Count" name="count2" value={formData.count2} onChange={handleChange} />
+                        <input type="text" className="input-field" placeholder="Count" name="count3" value={formData.count3} onChange={handleChange} />
+                      </div>
+                      <div className="input-set">
+                        <input type="text" className="input-field" placeholder="Weight" name="weight1" value={formData.weight1} onChange={handleChange} />
+                        <input type="text" className="input-field" placeholder="Weight" name="weight2" value={formData.weight2} onChange={handleChange} />
+                        <input type="text" className="input-field" placeholder="Weight" name="weight3" value={formData.weight3} onChange={handleChange} />
+                      </div>
+                      <button className="register-btn" onClick={() => pushData()} >Add Set to Current Exercise</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flip-card">
+                  <div className="flip-card-inner">
+                    <div className="flip-card-front">
+                      <p>Future Workout</p>
+                    </div>
+                    <div className="flip-card-back">
+                      <div className="input-set">
+                        <input type="text" className="input-field" placeholder="Count" />
+                        <input type="text" className="input-field" placeholder="Set" />
+                        <input type="text" className="input-field" placeholder="Weight" />
+                      </div>
+                      <div className="input-set">
+                        <input type="text" className="input-field" placeholder="Count" />
+                        <input type="text" className="input-field" placeholder="Set" />
+                        <input type="text" className="input-field" placeholder="Weight" />
+                      </div>
+                      <div className="input-set">
+                        <input type="text" className="input-field" placeholder="Count" />
+                        <input type="text" className="input-field" placeholder="Set" />
+                        <input type="text" className="input-field" placeholder="Weight" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+        {/* <div className="flip-card-container">
 
             <div className="flip-card">
               <div className="flip-card-inner">
@@ -421,13 +542,12 @@ console.log(WorkOutData)
               </div>
             </div>
 
-          </div>
+          </div> */}
 
 
 
-        </div>
+      </div>
 
-      </div >
     </animated.div>
 
 

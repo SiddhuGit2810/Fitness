@@ -1,24 +1,19 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useSpring, animated } from '@react-spring/web';
-import './LegWorkout.css'
+import './LegWorkout.css';
 import axios from "axios";
 import { EmailContext } from '../../Usecontext/UseContext';
-
+import Modal from "../Modal/Modal";
 
 function LegWorkout() {
-
-    const contextEmail = useContext(EmailContext) || {} // Consuming context correctly
-
-    console.log("Email from context:", contextEmail);
-
-    const [PresentWorkoutName, setPresentWorkoutName] = useState("")
-    const [error, setError] = useState("")
-
-    const [prevDate, setprevDate] = useState("")
-
-    const [date, setDate] = useState("")
-    const [formData, setformData] = useState({
-
+    const { contextEmail } = useContext(EmailContext) || {};
+    const [openModal, setOpenModal] = useState(false);
+    const [cxVariantName, setCxVariantName] = useState([]);
+    const [presentWorkoutName, setPresentWorkoutName] = useState("");
+    const [error, setError] = useState("");
+    const [prevDate, setPrevDate] = useState("");
+    const [date, setDate] = useState("");
+    const [formData, setFormData] = useState({
         set1: "",
         count1: "",
         weight1: "",
@@ -30,84 +25,54 @@ function LegWorkout() {
         weight3: "",
         variant: "",
         date: ""
+    });
 
-    })
+    const [fitnessData, setFitnessData] = useState([]);
+    const [isActive, setIsActive] = useState(false);
 
-    console.log(formData)
+    const toggleClass = async (data) => {
+        setIsActive(!isActive);
 
-    const [FitnessData, setFitnessData] = useState([])
+        const element = document.getElementById("flipcard");
+        element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 
-    const [isActive, setActive] = useState("false")
+        setPresentWorkoutName(data);
 
-    const ToggleClass = async (data) => {
-        setActive(!isActive);
+        const DateUrl = "https://fitness-60022916701.development.catalystserverless.in/server/ZCQL/getVariantDate";
+        const DataUrl = "https://fitness-60022916701.development.catalystserverless.in/server/ZCQL/getVaraiantData";
 
-        setPresentWorkoutName(data)
+        const variantData = {
+            variantName: data,
+            email: contextEmail
+        };
 
-        var DateUrl = "https://fitness-60022916701.development.catalystserverless.in/server/ZCQL/getVariantDate"
+        const fitnessDate = await axios.post(DateUrl, variantData);
+        const dates = fitnessDate.data.map(element => element.Previous.DateDa);
+        console.log(dates);
 
-        var DataUrl = "https://fitness-60022916701.development.catalystserverless.in/server/ZCQL/getVaraiantData"
-
-        var VariantData = {
-            "variantName": data
-        }
-
-        const FitnessDate = await axios.post(DateUrl, VariantData)
-
-        const dates = FitnessDate.data.map(element => element.Previous.DateDa);
-        console.log(dates)
-
-        var todayDate = new Date().toISOString().slice(0, 10);
-
-        var array = []
-
-        dates.forEach(myFucntion)
-
-        function myFucntion(item, index) {
+        const todayDate = new Date().toISOString().slice(0, 10);
+        const array = dates.map(item => {
             const startDate = new Date(item);
             const endDate = new Date(todayDate);
-
             const differenceMs = endDate - startDate;
+            return Math.floor(differenceMs / (1000 * 60 * 60 * 24));
+        });
 
-            const daysDifference = Math.floor(differenceMs / (1000 * 60 * 60 * 24));
+        const positiveNumbers = array.filter(number => number >= 0);
+        const lowest = Math.min(...positiveNumbers);
+        const index = array.indexOf(lowest);
+        const previousDate = dates[index];
 
-            array.push(daysDifference)
+        setPrevDate(previousDate);
 
-        }
+        const variantWorkoutData = {
+            variantName: data,
+            dateTime: previousDate,
+            email: contextEmail
+        };
 
-
-
-        var PostiveNumber = array.filter(number => number >= 0)
-
-        var lowest = Math.min(...PostiveNumber)
-
-        var index = array.indexOf(lowest)
-
-        var PreviousDate = dates[index]
-
-        setprevDate(PreviousDate)
-
-        var VariantWorkoutData = {
-
-            "variantName": data,
-            "dateTime": PreviousDate,
-            "email": contextEmail.contextemail
-
-        }
-
-
-        var WorkOutData = await axios.post(DataUrl, VariantWorkoutData)
-
-
-
-
-
-        setFitnessData(WorkOutData.data)
-
-
-
-
-
+        const workoutData = await axios.post(DataUrl, variantWorkoutData);
+        setFitnessData(workoutData.data);
     };
 
     const slideAnimation = useSpring({
@@ -116,187 +81,175 @@ function LegWorkout() {
     });
 
     const handleChange = (e) => {
-
         const { name, value } = e.target;
-        setformData({
+        setFormData({
             ...formData,
-
             [name]: value,
-
-
-
         });
     };
 
+    useEffect(() => {
+        const todayDate = new Date().toISOString().slice(0, 10);
+        setDate(todayDate);
+        setFormData(prevState => ({
+            ...prevState,
+            variant: presentWorkoutName,
+            date: todayDate
+        }));
+    }, [presentWorkoutName]);
 
     useEffect(() => {
-        var todayDate = new Date().toISOString().slice(0, 10);
-        setDate(todayDate);
+        async function fetchData() {
+            const url = "https://fitness-60022916701.development.catalystserverless.in/server/CxVariants/getVariant";
+            const body = {
+                email: contextEmail,
+                varianttype: "Leg"
+            };
+            const data = await axios.post(url, body);
+            setCxVariantName(data.data);
+        }
+        fetchData();
+    }, [contextEmail]);
 
-        setformData({
-            ...formData,
-            variant: PresentWorkoutName,
-            date: todayDate
-        });
-    }, [PresentWorkoutName]);
-
-
-
-
-    async function pushData() {
-
-
-
-
+    const pushData = async () => {
         try {
-
-            console.log("inside try " + FitnessData[0].Previous.DateDa)
-
-            if (new Date(FitnessData[0].Previous.DateDa) < new Date(date)) {
-
-                console.log("in")
-
-                const url = "https://fitness-60022916701.development.catalystserverless.in/server/Data/past"
-
-
-                console.log(JSON.stringify(formData))
-
-
-
-
-
-
-                const response = await axios.post(url, formData);
-
-                console.log(response)
-
+            if (new Date(fitnessData[0]?.Previous?.DateDa) < new Date(date)) {
+                const url = "https://fitness-60022916701.development.catalystserverless.in/server/Data/past";
+                await axios.post(url, formData);
+            } else {
+                setError("Record already exists for this date");
             }
-            else {
-                setError("Record Already exist for date")
-
+        } catch (err) {
+            if (err.response?.data === "Request failed with status 409 and code : DUPLICATE_VALUE , message : Duplicate value for DateDa. Please give a different value") {
+                setError("Record already exists for this date");
             }
-
-
         }
-        catch (err) {
-
-            console.log(err)
-
-            if (err.response.data === "Request failed with status 409 and code : DUPLICATE_VALUE , message : Duplicate value for DateDa. Please give a different value") {
-                setError("Record Already exist for date")
-            }
-
-
-        }
-
-
-
-    }
-
-
+    };
 
     return (
         <animated.div style={slideAnimation}>
             <div className="leg-container">
-
                 <div className="WorkoutTypeContainer">
-
-
-                    <div class="WorkoutTypeCard">
-                        <div class="Wcard-details">
-                            <p class="text-title">Squats</p>
-                            <p class="text-body">Card Details</p>
+                    <div className="WorkoutTypeCard">
+                        <div className="Wcard-details">
+                            <p className="text-title">Squats</p>
+                            <p className="text-body">Card Details</p>
                         </div>
-
-                        <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Squats")}> More info  </button>
-
+                        <a className="WorkoutTypeCard-button" href="#popup2" onClick={() => toggleClass("Squats")}>More Info</a>
                     </div>
-
-                    <div class="WorkoutTypeCard">
-                        <div class="Wcard-details">
-                            <p class="text-title">
-                                Leg Press</p>
-                            <p class="text-body">Card Details</p>
+                    <div className="WorkoutTypeCard">
+                        <div className="Wcard-details">
+                            <p className="text-title">Leg Press</p>
+                            <p className="text-body">Card Details</p>
                         </div>
-                        <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Leg_Press")} > More info  </button>
+                        <a className="WorkoutTypeCard-button" href="#popup2" onClick={() => toggleClass("Leg_Press")}>More Info</a>
                     </div>
-
-
-
-
-                    <div class="WorkoutTypeCard">
-                        <div class="Wcard-details">
-                            <p class="text-title">Lunge</p>
-                            <p class="text-body">Card Details</p>
+                    <div className="WorkoutTypeCard">
+                        <div className="Wcard-details">
+                            <p className="text-title">Lunge</p>
+                            <p className="text-body">Card Details</p>
                         </div>
-                        <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Lunge")} > More info  </button>
+                        <a className="WorkoutTypeCard-button" href="#popup2" onClick={() => toggleClass("Lunge")}>More Info</a>
                     </div>
-
-
-                    <div class="WorkoutTypeCard">
-                        <div class="Wcard-details">
-                            <p class="text-title">Dead Lift</p>
-                            <p class="text-body">Card Details</p>
+                    <div className="WorkoutTypeCard">
+                        <div className="Wcard-details">
+                            <p className="text-title">Dead Lift</p>
+                            <p className="text-body">Card Details</p>
                         </div>
-                        <button className="WorkoutTypeCard-button" onClick={() => ToggleClass("Dead_Lift")} > More info  </button>
+                        <a className="WorkoutTypeCard-button" href="#popup2" onClick={() => toggleClass("Dead_Lift")}>More Info</a>
                     </div>
-
+                    {cxVariantName.map((e) => (
+                        <div className="WorkoutTypeCard" key={e.CxVariants.VariantName}>
+                            <div className="Wcard-details">
+                                <p className="text-title cx">{e.CxVariants.VariantName}</p>
+                                <p className="text-body">Card Details</p>
+                            </div>
+                            <a className="WorkoutTypeCard-button" href="#popup2" onClick={() => toggleClass(e.CxVariants.VariantName)}>More Info</a>
+                        </div>
+                    ))}
+                    <div className="WorkoutTypeCard">
+                        <div className="Wcard-details">
+                            <p className="text-title">Add Variant</p>
+                        </div>
+                        <button className="WorkoutTypeCard-button" onClick={() => setOpenModal(true)}>Add Info</button>
+                        <Modal open={openModal} onClose={() => setOpenModal(false)} />
+                    </div>
                 </div>
-
-
-                <div className={isActive ? "WorkoutDataContainer Hide" : "WorkoutDataContainer"}>
-
-
-                    <div className="flip-card-container">
-
-                        <div className="flip-card">
-                            <div className="flip-card-inner">
-                                <div className="flip-card-front">
-                                    <p>Previous Workout   <br />  <h6>{prevDate} </h6></p>
-                                </div>
-                                <div className="flip-card-back">
-
-                                    {
-
-                                        FitnessData.map((item) => (
-
-
-
-                                            <>
-
+                <div id="popup2" className="popup-container popup-style-2">
+                    <div className="popup-content">
+                        <a href="#" className="close">&times;</a>
+                    </div>
+                    <div className="WorkoutDataContainer">
+                        <div className="flip-card-container" id="flipcard">
+                            <div className="flip-card">
+                                <div className="flip-card-inner">
+                                    <div className="flip-card-front">
+                                        <p>Previous Workout<br /><h6>{prevDate}</h6></p>
+                                    </div>
+                                    <div className="flip-card-back">
+                                        {fitnessData.map((item, index) => (
+                                            <div key={index}>
                                                 <div className="input-set">
-                                                    <input type="text" className="input-field" placeholder="Count" value={item.Previous.Set1} />
-                                                    <input type="text" className="input-field" placeholder="Set" value={item.Previous.Set2} />
-                                                    <input type="text" className="input-field" placeholder="Weight" value={item.Previous.Set2} />
+                                                    <input type="text" className="input-field" placeholder="Count" value={item.Previous.Set1} readOnly />
+                                                    <input type="text" className="input-field" placeholder="Set" value={item.Previous.Set2} readOnly />
+                                                    <input type="text" className="input-field" placeholder="Weight" value={item.Previous.Set3} readOnly />
                                                 </div>
                                                 <div className="input-set">
-                                                    <input type="text" className="input-field" placeholder="Count" value={item.Previous.Count1} />
-                                                    <input type="text" className="input-field" placeholder="Set" value={item.Previous.Count2} />
-                                                    <input type="text" className="input-field" placeholder="Weight" value={item.Previous.Count3} />
+                                                    <input type="text" className="input-field" placeholder="Count" value={item.Previous.Count1} readOnly />
+                                                    <input type="text" className="input-field" placeholder="Set" value={item.Previous.Count2} readOnly />
+                                                    <input type="text" className="input-field" placeholder="Weight" value={item.Previous.Count3} readOnly />
                                                 </div>
                                                 <div className="input-set">
-                                                    <input type="text" className="input-field" placeholder="Count" value={item.Previous.Weight1} />
-                                                    <input type="text" className="input-field" placeholder="Set" value={item.Previous.Weight2} />
-                                                    <input type="text" className="input-field" placeholder="Weight" value={item.Previous.Weight2} />
+                                                    <input type="text" className="input-field" placeholder="Count" value={item.Previous.Weight1} readOnly />
+                                                    <input type="text" className="input-field" placeholder="Set" value={item.Previous.Weight2} readOnly />
+                                                    <input type="text" className="input-field" placeholder="Weight" value={item.Previous.Weight3} readOnly />
                                                 </div>
-
-                                            </>
-                                        ))
-                                    }
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        {/* <div className="flip-card">
+                            <div className="card-details">
+                                <p className="text-title">{presentWorkoutName}</p>
+                            </div>
+                            <form className="input-container" onSubmit={pushData}>
+                                <div className="input-set">
+                                    <input type="number" className="input-field" placeholder="Set 1" name="set1" value={formData.set1} onChange={handleChange} required />
+                                    <input type="number" className="input-field" placeholder="Count 1" name="count1" value={formData.count1} onChange={handleChange} required />
+                                    <input type="number" className="input-field" placeholder="Weight 1" name="weight1" value={formData.weight1} onChange={handleChange} required />
+                                </div>
+                                <div className="input-set">
+                                    <input type="number" className="input-field" placeholder="Set 2" name="set2" value={formData.set2} onChange={handleChange} required />
+                                    <input type="number" className="input-field" placeholder="Count 2" name="count2" value={formData.count2} onChange={handleChange} required />
+                                    <input type="number" className="input-field" placeholder="Weight 2" name="weight2" value={formData.weight2} onChange={handleChange} required />
+                                </div>
+                                <div className="input-set">
+                                    <input type="number" className="input-field" placeholder="Set 3" name="set3" value={formData.set3} onChange={handleChange} required />
+                                    <input type="number" className="input-field" placeholder="Count 3" name="count3" value={formData.count3} onChange={handleChange} required />
+                                    <input type="number" className="input-field" placeholder="Weight 3" name="weight3" value={formData.weight3} onChange={handleChange} required />
+                                </div>
+                                <div className="input-set">
+                                    <input type="text" className="input-field" placeholder="Date" value={date} readOnly />
+                                </div>
+                                {error && <div className="error">{error}</div>}
+                                <button type="submit" className="submit-button">Submit</button>
+                            </form>
+                        </div> */}
 
                         <div className="flip-card">
                             <div className="flip-card-inner">
                                 <div className="flip-card-front">
                                     <p>Present Workout
 
-                                        <h6> {PresentWorkoutName} </h6>
+                                        <h6> {presentWorkoutName} </h6>
                                         <h6>{error}</h6>
                                     </p>
                                 </div>
                                 <div className="flip-card-back">
+
+
                                     <div className="input-set">
 
                                         <input type="text" className="input-field" placeholder="Set" name="set1" value={formData.set1} onChange={handleChange} />
@@ -309,12 +262,13 @@ function LegWorkout() {
                                         <input type="text" className="input-field" placeholder="Count" name="count2" value={formData.count2} onChange={handleChange} />
                                         <input type="text" className="input-field" placeholder="Count" name="count3" value={formData.count3} onChange={handleChange} />
                                     </div>
+
                                     <div className="input-set">
                                         <input type="text" className="input-field" placeholder="Weight" name="weight1" value={formData.weight1} onChange={handleChange} />
                                         <input type="text" className="input-field" placeholder="Weight" name="weight2" value={formData.weight2} onChange={handleChange} />
                                         <input type="text" className="input-field" placeholder="Weight" name="weight3" value={formData.weight3} onChange={handleChange} />
                                     </div>
-                                    <button className="register-btn" onClick={() => pushData()} >Add Set to Current Exercise</button>
+                                    <button className="register-btn" onClick={() => pushData()}  >Add set to workout</button>
                                 </div>
                             </div>
                         </div>
@@ -343,16 +297,11 @@ function LegWorkout() {
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
-
-
                 </div>
-
             </div>
         </animated.div>
-    )
+    );
 }
 
-export default LegWorkout
+export default LegWorkout;

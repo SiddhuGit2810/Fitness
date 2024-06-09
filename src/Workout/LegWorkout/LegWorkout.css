@@ -1,11 +1,37 @@
-/* .container1,
-.container2 {
+/* 
+.text-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: orange;
+}
+
+.text-title.cx {
+    color: violet;
+}
+
+
+.WorkoutTypeCard:hover {
+    -webkit-box-shadow: 10px 5px 18px 0 rgba(255, 255, 255, 0.877);
+    box-shadow: 10px 5px 18px 0 rgba(255, 255, 255, 0.877);
+    transition: 1s ease-out;
+}
+
+.WorkoutTypeCard:hover .WorkoutTypeCard-button {
+    -webkit-transform: translate(-50%, 50%);
+    -ms-transform: translate(-50%, 50%);
+    transform: translate(-50%, 50%);
+    opacity: 1;
+}
+
+.WorkoutTypeContainer {
     display: flex;
-    justify-content: space-evenly;
-    width: 900px;
-    margin: 50px auto;
-    position: relative;
-} */
+    flex-wrap: wrap;
+    gap: 6rem;
+}
+
+.Hide {
+    display: none;
+}
 
 .card {
     width: 200px;
@@ -135,13 +161,13 @@
 .card:hover {
     transform: scale(1.1);
 
-}
+} */
 
 
 .leg-container {
-
     display: flex;
     flex-direction: column;
-    gap: 7rem;
+    gap: 2rem;
     padding-left: 2rem;
+    padding-bottom: 20px;
 }
