@@ -33,8 +33,8 @@ function LegWorkout() {
     const toggleClass = async (data) => {
         setIsActive(!isActive);
 
-        const element = document.getElementById("flipcard");
-        element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+        // const element = document.getElementById("flipcard");
+        // element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 
         setPresentWorkoutName(data);
 

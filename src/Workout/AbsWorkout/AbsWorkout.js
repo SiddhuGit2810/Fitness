@@ -56,11 +56,11 @@ function AbsWorkout() {
 
     setActive(!isActive);
 
-    var element = document.getElementById("flipcard");
-    element.scrollIntoView();
-    element.scrollIntoView(false);
-    element.scrollIntoView({ block: "end" });
-    element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+    // var element = document.getElementById("flipcard");
+    // element.scrollIntoView();
+    // element.scrollIntoView(false);
+    // element.scrollIntoView({ block: "end" });
+    // element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 
 
     setPresentWorkoutName(data)
