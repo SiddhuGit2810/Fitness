@@ -12,6 +12,7 @@ import '../MainPage/MainPage.css';
 
 import { EmailContext } from '../Usecontext/UseContext';
 import Game from '../Progess/ProgessHomePage';
+import MySchedule from '../MySchedule/MyScheduleHomePage/MySchedule';
 
 
 
@@ -64,8 +65,9 @@ function MainPage() {
 
 
   <Routes>
-
-    
+ 
+ <Route path='/ScheduleHomePage' element= { user ? <MySchedule/>:navigate("/login")} />
+      
   </Routes>
 </div>
 
