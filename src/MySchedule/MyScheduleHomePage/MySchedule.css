@@ -1,0 +1,82 @@
+.workout-timer-container {
+    position: fixed;
+    top: 18%;
+    /* left: -1px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.workout-timer {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.timer-display {
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.timer-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-input {
+    padding: 8px;
+    font-size: 1em;
+    border: 2px solid #f2711c;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 100px;
+    text-align: center;
+}
+
+.timer-button {
+    font-size: 1em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.timer-button.start {
+    background-color: #f2711c;
+    color: white;
+}
+
+.timer-button.stop {
+    background-color: #db2828;
+    color: white;
+    margin-left: 5px;
+}
+
+.timer-button.reset {
+    background-color: #2185d0;
+    color: white;
+    margin-left: 5px;
+}
+
+.progress-bar {
+    margin-top: 20px;
+    text-align: center;
+}
