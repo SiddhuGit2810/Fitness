@@ -8,23 +8,27 @@ const Modal = ({ open, onClose }) => {
   const [variantType, setVariantType] = useState('');
   const contextEmail = useContext(EmailContext) || {};
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // alert('variantName' + "  " + variantName);
+    await pushCxVariant();
     setVariantName('');
-    setVariantType('')
+    setVariantType('');
+    onClose();
   };
 
   async function pushCxVariant() {
-    const url = "https://fitness-60022916701.development.catalystserverless.in/server/CxVariants/CxVariant";
-    const cxBody = {
-      "variant_Name": variantName,
-      "email": contextEmail.contextemail,
-      "varianttype": variantType
-    };
-    const cxResponse = await axios.post(url, cxBody);
-    console.log(cxResponse);
-
+    try {
+      const url = "https://fitness-60022916701.development.catalystserverless.in/server/CxVariants/CxVariant";
+      const cxBody = {
+        "variant_Name": variantName,
+        "email": contextEmail.contextemail,
+        "varianttype": variantType
+      };
+      const cxResponse = await axios.post(url, cxBody);
+      console.log(cxResponse);
+    } catch (error) {
+      console.error("Error creating variant", error);
+    }
   }
 
   if (!open) return null;
@@ -43,14 +47,17 @@ const Modal = ({ open, onClose }) => {
               id="variantName"
               value={variantName}
               onChange={(e) => setVariantName(e.target.value)}
-            /><label htmlFor="variantName">Enter the variant type</label>
+              required
+            />
+            <label htmlFor="variantType">Enter the variant type</label>
             <input
               type="text"
               id="variantType"
               value={variantType}
               onChange={(e) => setVariantType(e.target.value)}
+              required
             />
-            <button onClick={pushCxVariant} type="submit" className="popup-button">
+            <button type="submit" className="popup-button">
               Create
             </button>
           </form>

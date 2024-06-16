@@ -10,10 +10,11 @@ import HomePage from '../HomePage/HomePage';
 import DietHomePage from '../Diet/DietHomePage/DietHomePage';
 import '../MainPage/MainPage.css';
 
+
 import { EmailContext } from '../Usecontext/UseContext';
 import Game from '../Progess/ProgessHomePage';
 import MySchedule from '../MySchedule/MyScheduleHomePage/MySchedule';
-
+import Modal from '../Workout/Modal/Modal';
 
 
 
@@ -42,6 +43,7 @@ function MainPage() {
             <Route path="/ShoulderWorkout" element={<Shoulder />} />
             <Route path="/AbsWorkout" element={<AbsWorkout />} />
             <Route path="/LegWorkout" element={<LegWorkout />} />
+            <Route path="/Modal" element={<Modal/>} />
             <Route path="/HomePage" element={user ? <HomePage /> : navigate("/login")} />
           </Routes>
         </div>
