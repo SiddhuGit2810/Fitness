@@ -53,14 +53,6 @@ function MySchedule() {
   };
 
   return (
-<<<<<<< HEAD
-    <div>MySchedule
-
-
-      
-    </div>
-  )
-=======
     <div className="workout-timer-container">
       <div className="workout-timer">
         <h1>Workout Timer</h1>
@@ -103,7 +95,6 @@ function MySchedule() {
       </div>
     </div>
   );
->>>>>>> refs/remotes/origin/main
 }
 
 export default MySchedule;
