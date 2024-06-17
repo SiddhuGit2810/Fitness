@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import './AbsWorkout.css'
+import { useNavigate } from 'react-router-dom';
 import { useSpring, animated } from '@react-spring/web';
 import axios from "axios";
 import { EmailContext } from '../../Usecontext/UseContext';
@@ -9,10 +10,16 @@ function AbsWorkout() {
 
   const contextEmail = useContext(EmailContext) || {} // Consuming context correctly
 
-  const [openModal, setopenModal] = useState(false)
+  // const [openModal, setopenModal] = useState(false)
+
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleOpenModal = () => setModalOpen(true);
+  const handleCloseModal = () => setModalOpen(false);
 
   const [cxVariantName, setcxVariantName] = useState([])
   const [cxVarianttype, setcxVariantType] = useState([])
+  const navigate = useNavigate();
 
   const [PresentWorkoutName, setPresentWorkoutName] = useState("")
   const [error, setError] = useState("")
@@ -56,11 +63,11 @@ function AbsWorkout() {
 
     setActive(!isActive);
 
-    var element = document.getElementById("flipcard");
-    element.scrollIntoView();
-    element.scrollIntoView(false);
-    element.scrollIntoView({ block: "end" });
-    element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+    // var element = document.getElementById("flipcard");
+    // element.scrollIntoView();
+    // element.scrollIntoView(false);
+    // element.scrollIntoView({ block: "end" });
+    // element.scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
 
 
     setPresentWorkoutName(data)
@@ -349,11 +356,15 @@ function AbsWorkout() {
               <p class="text-title">Add Variant</p>
 
             </div>
-
-            <button className="WorkoutTypeCard-button" onClick={() => setopenModal(true)} > Add info  </button>
-            <Modal open={openModal} onClose={() => setopenModal(false)} />
+            <button className="WorkoutTypeCard-button"  onClick={handleOpenModal} > Add info  </button>
+           <Modal open={isModalOpen} onClose={handleCloseModal} />
           </div>
 
+            {/* </div>
+<Modal></Modal>
+            <button className="WorkoutTypeCard-button" onClick={() => setopenModal(true)} > Add info  </button>
+            <Modal open={openModal} onClose={() => setopenModal(false)} />
+          </div> */}
 
 
         </div>
