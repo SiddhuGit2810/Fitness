@@ -16,7 +16,7 @@ function AbsWorkout() {
 
 
 
-  ///add variant popup
+  ///add variant popup start
 
 
   const [variantName, setVariantName] = useState('');
@@ -49,7 +49,7 @@ function AbsWorkout() {
     }
   }
 
-  /// add variant popup
+  /// add variant popup end
   const [isModalOpen, setModalOpen] = useState(false);
 
   const handleOpenModal = () => setModalOpen(true);
@@ -574,6 +574,7 @@ function AbsWorkout() {
 
 
 </div>
+
 
 
 
