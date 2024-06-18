@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import video from '../video/video.mp4';
 import '../Progess/ProgessHomePage.css';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import { Bar,Doughnut } from 'react-chartjs-2';
 import axios from 'axios';
 import {
@@ -27,13 +31,21 @@ ChartJS.register(
 );
 
 function Test() {
+
+ 
+
+
   const [chartData, setChartData] = useState({});
   const [calorieValue, setCalorieValue] = useState(0);
   const [proteinValue, setProteinValue] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
+
+
       try {
+
+  
         const currentDate = "2024-05-20";
         const body = {
           "currentDate": currentDate
@@ -62,12 +74,14 @@ function Test() {
         };
 
         setChartData(formattedData);
+      
       } catch (error) {
         console.error("Error fetching data: ", error);
       }
     };
-
+ 
     fetchData();
+   
   }, []);
 
   return (
@@ -113,7 +127,7 @@ function Test() {
       </div>
 
 
-      <div className="TableData">
+      <div className="TableData"   >
 
         <CalorieTracker/>
       </div>
