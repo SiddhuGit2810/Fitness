@@ -1,0 +1,13 @@
+.schedule-homepage {
+    display: flex;
+    padding: 20px;
+}
+
+
+.side-by-side {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 80px;
+}
