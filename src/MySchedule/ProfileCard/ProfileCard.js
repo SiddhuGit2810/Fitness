@@ -1,8 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './ProfileCard.css'
+import axios from 'axios';
 
 function ProfileCard() {
+
+
+ 
+
+   
+   async function img() {
+    const image=  await axios.get("https://fitness-60022916701.development.catalystserverless.in/server/ProfileImage/getDetails")
+
+    
+
+    const imgfile=image.data.file_details[0].file_name
+
+    console.log(imgfile)
+
+   }
+   
+
+   useEffect(() => {
+     
+   img()
+  
+
+   }, [])
+   
+//    res.data.file_details[0].file_name
+
+
+
+
+
   return (
     <div className="ProfileCard">
 
@@ -11,7 +42,7 @@ function ProfileCard() {
                 <div className="col-md-offset-4 col-md-4">
                     <div className="email-signature">
                         <div className="signature-icon">
-                            <i className="user-icon">👤</i>
+                           <img src="imgfile" alt="" />
                         </div>
                         <div className="signature-details">
                             <h2 className="title">Roshan</h2>
