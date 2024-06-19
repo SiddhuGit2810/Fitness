@@ -6,7 +6,45 @@ import { EmailContext } from '../../Usecontext/UseContext';
 import Modal from "../Modal/Modal";
 
 function LegWorkout() {
+
+
     const { contextEmail } = useContext(EmailContext) || {};
+
+    ///add variant popup start
+
+
+    const [variantName, setVariantName] = useState('');
+    const [variantType, setVariantType] = useState('');
+
+
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        await pushCxVariant();
+        setVariantName('');
+        setVariantType('');
+
+    };
+
+
+    async function pushCxVariant() {
+        try {
+            const url = "https://fitness-60022916701.development.catalystserverless.in/server/CxVariants/CxVariant";
+            const cxBody = {
+                "variant_Name": variantName,
+                "email": contextEmail.contextemail,
+                "varianttype": variantType
+            };
+            const cxResponse = await axios.post(url, cxBody);
+            console.log(cxResponse);
+        } catch (error) {
+            console.error("Error creating variant", error);
+        }
+    }
+
+    /// add variant popup end
+
     const [openModal, setOpenModal] = useState(false);
     const [cxVariantName, setCxVariantName] = useState([]);
     const [presentWorkoutName, setPresentWorkoutName] = useState("");
@@ -171,8 +209,9 @@ function LegWorkout() {
                         <div className="Wcard-details">
                             <p className="text-title">Add Variant</p>
                         </div>
-                        <button className="WorkoutTypeCard-button" onClick={() => setOpenModal(true)}>Add Info</button>
-                        <Modal open={openModal} onClose={() => setOpenModal(false)} />
+                        {/* <button className="WorkoutTypeCard-button" onClick={() => setOpenModal(true)}>Add Info</button>
+                        <Modal open={openModal} onClose={() => setOpenModal(false)} /> */}
+                        <a className="WorkoutTypeCard-button" href="#popup3"  >Add variant</a>
                     </div>
                 </div>
                 <div id="popup2" className="popup-container popup-style-2">
@@ -299,6 +338,46 @@ function LegWorkout() {
                         </div>
                     </div>
                 </div>
+
+                <div id="popup3" className="popup-container popup-style-2">
+
+
+
+                    <div className="popup-card">
+                        <div className="popup-close">
+
+                            <a href="#" className="close">&times;</a>
+
+
+                        </div>
+                        <form onSubmit={handleSubmit} className="popup-form">
+                            <label htmlFor="variantName">Please enter the variant Name</label>
+                            <input
+                                type="text"
+                                id="variantName"
+                                value={variantName}
+                                onChange={(e) => setVariantName(e.target.value)}
+                                required
+                            />
+                            <label htmlFor="variantType">Enter the variant type</label>
+                            <input
+                                type="text"
+                                id="variantType"
+                                value={variantType}
+                                onChange={(e) => setVariantType(e.target.value)}
+                                required
+                            />
+                            <button type="submit" className="popup-button">
+                                Create
+                            </button>
+                        </form>
+                    </div>
+
+
+
+
+                </div>
+
             </div>
         </animated.div>
     );

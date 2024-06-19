@@ -12,6 +12,41 @@ function ChestWorkout() {
 
   // console.log("Email from context:", contextEmail);
 
+  ///add variant popup start
+
+
+  const [variantName, setVariantName] = useState('');
+  const [variantType, setVariantType] = useState('');
+
+
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await pushCxVariant();
+    setVariantName('');
+    setVariantType('');
+
+  };
+
+
+  async function pushCxVariant() {
+    try {
+      const url = "https://fitness-60022916701.development.catalystserverless.in/server/CxVariants/CxVariant";
+      const cxBody = {
+        "variant_Name": variantName,
+        "email": contextEmail.contextemail,
+        "varianttype": variantType
+      };
+      const cxResponse = await axios.post(url, cxBody);
+      console.log(cxResponse);
+    } catch (error) {
+      console.error("Error creating variant", error);
+    }
+  }
+
+  /// add variant popup end
+
   const [openModal, setopenModal] = useState(false)
 
   const [cxVariantName, setcxVariantName] = useState([])
@@ -323,8 +358,9 @@ function ChestWorkout() {
 
             </div>
 
-            <button className="WorkoutTypeCard-button" onClick={() => setopenModal(true)} > Add info  </button>
-            <Modal open={openModal} onClose={() => setopenModal(false)} />
+            {/* <button className="WorkoutTypeCard-button" onClick={() => setopenModal(true)} > Add info  </button>
+            <Modal open={openModal} onClose={() => setopenModal(false)} /> */}
+            <a className="WorkoutTypeCard-button" href="#popup3"  >Add variant</a>
           </div>
 
         </div>
@@ -544,7 +580,44 @@ function ChestWorkout() {
 
           </div> */}
 
+        <div id="popup3" className="popup-container popup-style-2">
 
+
+
+          <div className="popup-card">
+            <div className="popup-close">
+
+              <a href="#" className="close">&times;</a>
+
+
+            </div>
+            <form onSubmit={handleSubmit} className="popup-form">
+              <label htmlFor="variantName">Please enter the variant Name</label>
+              <input
+                type="text"
+                id="variantName"
+                value={variantName}
+                onChange={(e) => setVariantName(e.target.value)}
+                required
+              />
+              <label htmlFor="variantType">Enter the variant type</label>
+              <input
+                type="text"
+                id="variantType"
+                value={variantType}
+                onChange={(e) => setVariantType(e.target.value)}
+                required
+              />
+              <button type="submit" className="popup-button">
+                Create
+              </button>
+            </form>
+          </div>
+
+
+
+
+        </div>
 
       </div>
 

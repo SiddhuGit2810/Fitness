@@ -1,22 +1,16 @@
-import React, { useState, useRef } from 'react';
-
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
+import React from 'react';
 import Timer from '../Timer/Timer';
 import ProfileCard from '../ProfileCard/ProfileCard';
+import './MySchedule.css';
 
 function MySchedule() {
- 
-
   return (
-   <div className="">
-    HomePAge
-
-
-    <Timer/>
-
-    <ProfileCard/>
-   </div>
+    <div className="schedule-homepage">
+      <div className="side-by-side">
+        <Timer />
+        <ProfileCard />
+      </div>
+    </div>
   );
 }
 
