@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSpring, animated } from '@react-spring/web';
 import axios from "axios";
 import { EmailContext } from '../../Usecontext/UseContext';
-import Modal from "../Modal/Modal";
+
 
 function AbsWorkout() {
 
