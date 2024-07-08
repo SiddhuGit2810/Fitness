@@ -22,7 +22,6 @@ function DietHomePage() {
 
     <>
       <div >
-        <div>DietHomePage</div>
 
         <div className="DietContainer">
 
