@@ -1,18 +1,42 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './ProfileCard.css';
 import userImage from './images.jpeg';
+import axios from 'axios';
+import { EmailContext } from '../../Usecontext/UseContext';
 
 function ProfileCard() {
+
+    const [imageid, setimageid] = useState('')
+    const [username, setusername] = useState('')
+    const contextEmail = useContext(EmailContext) || {}
+    
+    useEffect(() => {
+        const body = {email: contextEmail.contextemail}
+        axios.post("https://fitness-60022916701.development.catalystserverless.in/server/GetImageID/getImageId", body).then((e)=>{
+            console.log(e)
+            var imageid = e.data[0].Users.PictureID
+            var username = e.data[0].Users.UserName
+            console.log(username)
+            setimageid(imageid)
+            setusername(username)
+
+            })
+    
+    }, [])
+    
+    // var Images = fetch(`https://fitness-60022916701.development.catalystserverless.in/server/ProfileImage/downloadFile/`)
+   
+
     return (
         <div className="profile-card-container">
             <div className="left-section">
                 <div className="logo">
-                    <img src={userImage} alt="user" className="profile-image" />
+                    <img src={`https://fitness-60022916701.development.catalystserverless.in/server/ProfileImage/downloadFile/${imageid}`}   className="profile-image" />
                 </div>
             </div>
             <div className="right-section">
-                <h1 className="profile-title">Roshan</h1>
-                <h3 className="profile-email">roshan@gmail.com</h3>
+                <h1 className="profile-title">{username}</h1>
+                <h3 className="profile-email">{contextEmail.contextemail}</h3>
                 <div className="bio">
                     <div className="profile-item">
                         <span className="profile-label">Age:</span>
